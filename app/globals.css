@@ -11,17 +11,97 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-start-rgb: 38, 38, 38;
+    --background-end-rgb: 38, 38, 38;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-size: 16px;
+}
+
+.color-change {
+	-webkit-animation: color-change 10s linear infinite alternate both;
+	        animation: color-change 10s linear infinite alternate both;
+}
+
+ @-webkit-keyframes color-change {
+  0% {
+    background: #19dcea;
+  }
+  25% {
+    background: pink;
+  }
+  50% {
+    background: magenta
+  }
+  75% {
+    background: blue
+  }
+  100% {
+    background: #b22cff;
+  }
+}
+@keyframes color-change {
+  0% {
+    background: #19dcea;
+    border-radius: 90px;
+  }
+  25% {
+    background: pink;
+    border-radius: 112px;
+  }
+  50% {
+    background: magenta;
+    border-radius: 45px;
+  }
+  75% {
+    background: blue;
+    border-radius: 85px;
+  }
+  100% {
+    background: #b22cff;
+  }
+}
+
+
+.color-change-5x {
+	-webkit-animation: color-change-5x 8s linear infinite alternate both;
+	        animation: color-change-5x 8s linear infinite alternate both;
+}
+
+
+ @-webkit-keyframes color-change-5x {
+  0% {
+    background: #19dcea;
+  }
+  25% {
+    background: #b22cff;
+  }
+  50% {
+    background: #ea2222;
+  }
+  75% {
+    background: #f5be10;
+  }
+  100% {
+    background: #3bd80d;
+  }
+}
+@keyframes color-change-5x {
+  0% {
+    background: #19dcea;
+  }
+  25% {
+    background: #b22cff;
+  }
+  50% {
+    background: #ea2222;
+  }
+  75% {
+    background: #f5be10;
+  }
+  100% {
+    background: #3bd80d;
+  }
 }
