@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import observer from '@/intersectionObserver';
 import { hiddenElements } from '@/intersectionObserver';
 
@@ -7,17 +7,34 @@ import { hiddenElements } from '@/intersectionObserver';
 type Props = {}
 
 const OptimizationFirst = (props: Props) => {
+    const hiddenElementsRef = useRef<NodeListOf<HTMLElement> | null>(null);
+    const observerRef = useRef<IntersectionObserver | null>(null);
+
     useEffect(() => {
-        if (hiddenElements && observer) {
-            hiddenElements.forEach((e) => observer.observe(e));
-        };
+        observerRef.current = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                } else {
+                    entry.target.classList.remove('show');
+                }
+            });
+        });
+
+        hiddenElementsRef.current = document.querySelectorAll('.hiddenElement');
+
+        if (hiddenElementsRef.current && observerRef.current) {
+            hiddenElementsRef.current.forEach((e) => observerRef.current!.observe(e));
+        }
+
         // Clean-up function
         return () => {
-            if (hiddenElements && observer) {
-                hiddenElements.forEach((e) => observer.unobserve(e));
+            if (hiddenElementsRef.current && observerRef.current) {
+                hiddenElementsRef.current.forEach((e) => observerRef.current!.unobserve(e));
             }
         };
     }, []);
+
 
     return (
         <div>
