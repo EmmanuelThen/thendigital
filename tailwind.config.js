@@ -1,5 +1,5 @@
 const plugin = require('tailwindcss/plugin');
-const { blackA, mauve, violet, indigo, purple, red, slate } = require('@radix-ui/colors');
+const { blackA, mauve, indigo, purple, red, slate } = require('@radix-ui/colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -51,6 +51,10 @@ module.exports = {
           from: { opacity: 1 },
           to: { opacity: 0 },
         },
+        backgroundShine: {
+          from: { backgroundPosition: '0 0'},
+          to: { backgroundPosition: '-200% 0'}
+        },
       },
     },
     animation: {
@@ -62,6 +66,7 @@ module.exports = {
       enterFromRight: 'enterFromRight 250ms ease',
       exitToLeft: 'exitToLeft 250ms ease',
       exitToRight: 'exitToRight 250ms ease',
+      backgroundShine: 'backgroundShine 2.5s linear infinite'
     },
   },
   plugins: [
