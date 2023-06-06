@@ -11,13 +11,13 @@ type Props = {
 
 const LandingPageSection = ({ children, topTitle, shinyText, side, bgColor }: Props) => {
   return (
-    <article className={`p-5 ${bgColor} md:flex`}>
+    <article className={`md:flex md:justify-center md:items-center p-5 md:p-20 ${bgColor} md:flex`}>
       <div className='md:w-[75%]'>
         <h3 className=' font-semibold text-lg text-red9'>{topTitle}</h3>
         <ShinyText text={shinyText} />
-        <p className='mt-10 font-medium'>
+        <div className='mt-10 md:leading-relaxed'>
           {children}
-        </p>
+        </div>
       </div>
       {side}
     </article>

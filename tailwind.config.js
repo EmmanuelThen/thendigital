@@ -66,7 +66,7 @@ module.exports = {
       enterFromRight: 'enterFromRight 250ms ease',
       exitToLeft: 'exitToLeft 250ms ease',
       exitToRight: 'exitToRight 250ms ease',
-      backgroundShine: 'backgroundShine 2.5s linear infinite'
+      backgroundShine: 'backgroundShine 2.5s linear infinite',
     },
   },
   plugins: [
