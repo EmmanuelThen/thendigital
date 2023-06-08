@@ -9,6 +9,7 @@ import ResponsiveAnimation from './components/ResponsiveAnimation';
 import OptimizationSection from './components/OptimizationSection'
 import PathAnimation from './components/PathAnimation'
 import OptimizationAnimation from './components/OptimizationAnimation'
+import GridAnimation from './components/GridAnimation'
 
 export default function Home() {
   return (
@@ -48,7 +49,7 @@ export default function Home() {
               </span>
             </Link>
           </LandingPageSection>
-          <LandingPageSection topTitle='Maintenance' shinyText='Keep your website running smoothly with {digitalCare}*, our reliable maintenance services.' side={<WebDevCards />} bgColor='bg-slate11'>
+          <LandingPageSection topTitle='Maintenance' shinyText='Keep your website running smoothly with {digitalCare}*, our reliable maintenance service.' side={<WebDevCards />} bgColor='bg-slate11'>
             <p>
               In todays fast-paced digital landscape, its crucial to have a website that consistently performs at its best. With our comprehensive website maintenance services,
               we take the hassle out of managing and optimizing your online presence, allowing you to focus on what matters most—your business.
@@ -63,6 +64,7 @@ export default function Home() {
         </section>
         <section className='mt-[390px] lg:mt-[530px]'>
           <OptimizationSection />
+          <GridAnimation />
         </section>
       </main>
     </>
