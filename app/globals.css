@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --gradient-line: linear-gradient(to right, red, blue);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,41 +24,50 @@ body {
 
 
 .color-change-5x {
-	-webkit-animation: color-change-5x 8s linear infinite alternate both;
-	        animation: color-change-5x 8s linear infinite alternate both;
+  -webkit-animation: color-change-5x 8s linear infinite alternate both;
+  animation: color-change-5x 8s linear infinite alternate both;
 }
 
 
- @-webkit-keyframes color-change-5x {
+@-webkit-keyframes color-change-5x {
   0% {
     background: #E53D00;
   }
+
   25% {
     background: #FFE900;
   }
+
   50% {
     background: #21A0A0;
   }
+
   75% {
     background: #A03E99;
   }
+
   100% {
     background: #9CFFFA;
   }
 }
+
 @keyframes color-change-5x {
   0% {
     background: #E53D00;
   }
+
   25% {
     background: #FFE900;
   }
+
   50% {
     background: #21A0A0;
   }
+
   75% {
     background: #A03E99;
   }
+
   100% {
     background: #9CFFFA;
   }
@@ -71,138 +81,153 @@ body {
 
   0%,
   100% {
-      border: none;
-      border-radius: 20% 60% 70% 90% / 40% 40% 60% 50%;
-      box-shadow: rgba(0, 0, 0, 0.75) 0 8px 15px;
-      background: radial-gradient(#E53D00, #FFE900, #21A0A0, #A03E99, #9CFFFA);
-      transform: translate(-20%, -60%) ;
+    border: none;
+    border-radius: 20% 60% 70% 90% / 40% 40% 60% 50%;
+    box-shadow: rgba(0, 0, 0, 0.75) 0 8px 15px;
+    background: radial-gradient(#E53D00, #FFE900, #21A0A0, #A03E99, #9CFFFA);
+    transform: translate(-20%, -60%);
   }
 
   34% {
-      border: none;
-      border-radius: 20% 30% 50% 50% / 80% 30% 10% 40%;
-      box-shadow: rgba(0, 0, 0, 0.75) 0 8px 15px;
-      background: radial-gradient(#E53D00, #FFE900, #21A0A0, #A03E99, #9CFFFA);
-      transform: translate(-30%, -10%) ;
+    border: none;
+    border-radius: 20% 30% 50% 50% / 80% 30% 10% 40%;
+    box-shadow: rgba(0, 0, 0, 0.75) 0 8px 15px;
+    background: radial-gradient(#E53D00, #FFE900, #21A0A0, #A03E99, #9CFFFA);
+    transform: translate(-30%, -10%);
   }
 
   67% {
-      border: none;
-      border-radius: 100% 60% 60% 100% / 60% 30% 20% 60%;
-      box-shadow: rgba(0, 0, 0, 0.75) 0 8px 15px;
-      background: radial-gradient(#E53D00, #FFE900, #21A0A0, #A03E99, #9CFFFA);
-      transform: translate(-15%, 35%) 
+    border: none;
+    border-radius: 100% 60% 60% 100% / 60% 30% 20% 60%;
+    box-shadow: rgba(0, 0, 0, 0.75) 0 8px 15px;
+    background: radial-gradient(#E53D00, #FFE900, #21A0A0, #A03E99, #9CFFFA);
+    transform: translate(-15%, 35%)
   }
 }
 
 
 .bounce-in-right {
-	-webkit-animation: bounce-in-right 0.8s both;
-	        animation: bounce-in-right 0.8s both;
+  -webkit-animation: bounce-in-right 0.8s both;
+  animation: bounce-in-right 0.8s both;
 }
 
- @-webkit-keyframes bounce-in-right {
+@-webkit-keyframes bounce-in-right {
   0% {
     -webkit-transform: translateX(600px);
-            transform: translateX(600px);
+    transform: translateX(600px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
     opacity: 0;
   }
+
   38% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
     opacity: 1;
   }
+
   55% {
     -webkit-transform: translateX(68px);
-            transform: translateX(68px);
+    transform: translateX(68px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
+
   72% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
+
   81% {
     -webkit-transform: translateX(32px);
-            transform: translateX(32px);
+    transform: translateX(32px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
+
   90% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
+
   95% {
     -webkit-transform: translateX(8px);
-            transform: translateX(8px);
+    transform: translateX(8px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
+
   100% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
 }
+
 @keyframes bounce-in-right {
   0% {
     -webkit-transform: translateX(600px);
-            transform: translateX(600px);
+    transform: translateX(600px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
     opacity: 0;
   }
+
   38% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
     opacity: 1;
   }
+
   55% {
     -webkit-transform: translateX(68px);
-            transform: translateX(68px);
+    transform: translateX(68px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
+
   72% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
+
   81% {
     -webkit-transform: translateX(32px);
-            transform: translateX(32px);
+    transform: translateX(32px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
+
   90% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
+
   95% {
     -webkit-transform: translateX(8px);
-            transform: translateX(8px);
+    transform: translateX(8px);
     -webkit-animation-timing-function: ease-in;
-            animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
   }
+
   100% {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     -webkit-animation-timing-function: ease-out;
-            animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
   }
 }
 
@@ -215,7 +240,8 @@ body {
 }
 
 .content-section {
-  margin-top: 400px; /* Adjust this value to create the desired spacing between the menu and content */
+  margin-top: 400px;
+  /* Adjust this value to create the desired spacing between the menu and content */
 }
 
 
@@ -225,7 +251,7 @@ body {
   flex-direction: column;
   gap: 15px;
   width: fit-content;
-  
+
 }
 
 .card {
@@ -255,7 +281,7 @@ body {
   transform: scale(1.1, 1.1);
 }
 
-.cards:hover > .card:not(:hover) {
+.cards:hover>.card:not(:hover) {
   filter: blur(10px);
   transform: scale(0.9, 0.9);
 }
@@ -274,7 +300,7 @@ body {
   margin-top: -50px;
   border-radius: 5px;
   background: #1e3f57;
-  animation: dot1_ 3s cubic-bezier(0.55,0.3,0.24,0.99) infinite;
+  animation: dot1_ 3s cubic-bezier(0.55, 0.3, 0.24, 0.99) infinite;
 }
 
 .loader:nth-child(2) {
@@ -300,21 +326,25 @@ body {
 }
 
 @keyframes dot1_ {
-  3%,97% {
+
+  3%,
+  97% {
     width: 160px;
     height: 100px;
     margin-top: -50px;
     margin-left: -80px;
   }
 
-  30%,36% {
+  30%,
+  36% {
     width: 80px;
     height: 120px;
     margin-top: -60px;
     margin-left: -40px;
   }
 
-  63%,69% {
+  63%,
+  69% {
     width: 40px;
     height: 80px;
     margin-top: -40px;
@@ -323,21 +353,25 @@ body {
 }
 
 @keyframes dot2_ {
-  3%,97% {
+
+  3%,
+  97% {
     height: 90px;
     width: 150px;
     margin-left: -75px;
     margin-top: -45px;
   }
 
-  30%,36% {
+  30%,
+  36% {
     width: 70px;
     height: 96px;
     margin-left: -35px;
     margin-top: -48px;
   }
 
-  63%,69% {
+  63%,
+  69% {
     width: 32px;
     height: 60px;
     margin-left: -16px;
@@ -346,14 +380,17 @@ body {
 }
 
 @keyframes dot3_ {
-  3%,97% {
+
+  3%,
+  97% {
     height: 20px;
     width: 40px;
     margin-left: -20px;
     margin-top: 50px;
   }
 
-  30%,36% {
+  30%,
+  36% {
     width: 8px;
     height: 8px;
     margin-left: -5px;
@@ -361,7 +398,8 @@ body {
     border-radius: 8px;
   }
 
-  63%,69% {
+  63%,
+  69% {
     width: 16px;
     height: 4px;
     margin-left: -8px;
@@ -373,25 +411,26 @@ body {
 /* Arrow animation */
 .arrow span {
   transition: transform 0.25s;
+  -webkit-transition: transform 0.25s;
 }
 
 .arrow:hover span {
   transform: translateX(0.35rem);
+  -webkit-transform: translateX(0.35rem);
 }
 
 /* Intersection observer */
 .hiddenElement {
   opacity: 0;
   filter: blur(5px);
-  transform: translateX(-100%);
+  transform: translateY(0);
   transition: all 1s;
 }
 
 .show {
   opacity: 1;
   filter: blur(0);
-  transform: translateX(0);
-  color: red;
+  transform: translateY(-25%);
 }
 
 .logo:nth-child(2) {
@@ -400,4 +439,65 @@ body {
 
 .logo:nth-child(3) {
   transition-delay: 400ms;
+}
+
+/* Grid animations */
+.loaderz {
+  width: 12em;
+  height: 12em;
+}
+
+.loaderz path {
+  stroke: hsl(358 75% 59%);
+  stroke-width: 0.2px;
+  animation: dashArray 8s ease-in-out infinite,
+    dashOffset 8s linear infinite;
+}
+
+@keyframes dashArray {
+  0% {
+    stroke-dasharray: 0 1 359 0;
+  }
+
+  50% {
+    stroke-dasharray: 0 359 1 0;
+  }
+
+  100% {
+    stroke-dasharray: 359 1 0 0;
+  }
+}
+
+@keyframes dashOffset {
+  0% {
+    stroke-dashoffset: 365;
+  }
+
+  100% {
+    stroke-dashoffset: 5;
+  }
+}
+
+
+
+.circle  {
+  animation: moveCircles 2s linear infinite;
+}
+
+@keyframes moveCircles {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(100px, 100px);
+  }
+  50% {
+    transform: translate(200px, 0);
+  }
+  75% {
+    transform: translate(100px, -100px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
