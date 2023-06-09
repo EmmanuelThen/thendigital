@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { CaretDownIcon } from '@radix-ui/react-icons';
+import { CaretDownIcon, Cross1Icon, HamburgerMenuIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 
 type Props = {
@@ -42,16 +42,12 @@ const Navbar = () => {
                         <span className='text-slate11'>Digital</span>
                     </div>
                     <div className='cursor-pointer z-[1]' onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-                        <button type='button'>
-                            {isMobileMenuOpen ?
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" className="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                                :
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" className="w-6 h-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-                                </svg>
-                            }
+                        <button
+                            className="rounded-full w-[35px] h-[35px] inline-flex items-center justify-center bg-white shadow-[0_2px_10px] shadow-blackA7 outline-none hover:bg-slate2"
+                            aria-label="Customise options"
+                            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        >
+                            {isMobileMenuOpen ? <Cross1Icon /> : <HamburgerMenuIcon />}
                         </button>
                     </div>
                 </div>

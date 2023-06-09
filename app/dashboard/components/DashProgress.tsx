@@ -12,7 +12,7 @@ const DashProgress = () => {
 
     return (
         <Progress.Root
-            className="relative overflow-hidden bg-slate6 rounded-full w-[300px] h-[15px]"
+            className="relative overflow-hidden bg-slate6 rounded-full w-full h-[15px]"
             style={{
                 // Fix overflow clipping in Safari
                 // https://gist.github.com/domske/b66047671c780a238b51c51ffde8d3a0

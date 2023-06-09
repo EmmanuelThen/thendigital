@@ -9,7 +9,7 @@ const Toggle = () => (
                 Light/Dark
             </label>
             <Switch.Root
-                className="w-[42px] h-[25px] bg-blackA9 rounded-full relative shadow-[0_2px_10px] shadow-blackA7 focus:shadow-[0_0_0_2px] focus:shadow-black data-[state=checked]:bg-black outline-none cursor-default"
+                className="w-[42px] h-[25px] bg-blackA9 rounded-full relative shadow-[0_2px_10px] shadow-blackA7 data-[state=checked]:bg-black outline-none cursor-default"
                 id="airplane-mode"
                 style={{ '-webkit-tap-highlight-color': 'rgba(0, 0, 0, 0)' }}
             >
