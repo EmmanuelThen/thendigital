@@ -42,7 +42,7 @@ const LoginSignup = () => (
         >
             
             <div>
-                <DashAvatar />
+                <DashAvatar iconHeight='h-[65px]' iconWidth='w-[65px]' />
             </div>
             {/*<div>
                 <DashFileUpload />

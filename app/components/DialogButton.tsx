@@ -7,7 +7,7 @@ import LoginSignup from './LoginSignup';
 const DialogButton = () => (
     <Dialog.Root>
         <Dialog.Trigger asChild>
-            <button className="text-violet11 shadow-blackA7 hover:bg-mauve3 inline-flex  items-center justify-center rounded-md bg-slate6 py-2 px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:outline-none">
+            <button className="text-red9 shadow-blackA7 hover:bg-slate2 inline-flex  items-center justify-center rounded-md bg-white py-2 px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:outline-none">
                 Edit
             </button>
         </Dialog.Trigger>

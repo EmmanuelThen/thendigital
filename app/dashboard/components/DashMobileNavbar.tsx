@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react';
-import { HamburgerMenuIcon, Cross1Icon, ChevronRightIcon } from '@radix-ui/react-icons';
+import { HamburgerMenuIcon, Cross1Icon, ChevronRightIcon, EnterIcon } from '@radix-ui/react-icons';
 import DashAvatar from './DashAvatar';
 import Link from 'next/link';
 
@@ -34,26 +34,38 @@ const DashMobileNavbar = (props: Props) => {
                                     <span className='font-semibold text-red9'>Then</span>
                                     <span className='text-slate11'>Pixel</span>
                                 </div>
-                                <Link className='flex justify-between items-center text-slate10 hover:bg-slate2 font-light border-dashed border-b-[1px] p-3' href='/'>
-                                    Home
-                                    <ChevronRightIcon />
-                                </Link>
-                                <Link className='flex justify-between items-center text-slate10 hover:bg-slate2 font-light border-dashed border-b-[1px] p-3' href='/about'>
-                                    Dashboard
-                                    <ChevronRightIcon />
-                                </Link>
-                                <Link className='flex justify-between items-center text-slate10 hover:bg-slate2 font-light border-dashed border-b-[1px] p-3' href='/showcase'>
-                                    Activity
-                                    <ChevronRightIcon />
-                                </Link>
-                                <Link className='flex justify-between items-center text-slate10 hover:bg-slate2 font-light border-dashed border-b-[1px] p-3' href='/contact'>
-                                    Settings
-                                    <ChevronRightIcon />
-                                </Link>
-                                <Link className='flex justify-between items-center text-slate10 hover:bg-slate2 font-light border-dashed border-b-[1px] p-3' href='/contact'>
-                                    Contract & Docs
-                                    <ChevronRightIcon />
-                                </Link>
+                                <div className='flex flex-col justify-between h-full'>
+                                    <div>
+                                        <Link className='flex justify-between items-center hover:bg-slate2 font-light border-dashed border-b-[1px] p-3 my-8 ' href='/'>
+                                            <div className='text-slate10'>Home</div>
+                                            <ChevronRightIcon />
+                                        </Link>
+                                        <Link className='flex justify-between items-center hover:bg-slate2 font-light border-dashed border-b-[1px] p-3 my-8 ' href='/dashboard'>
+                                            <div className='text-slate10'>Dashboard</div>
+                                            <ChevronRightIcon />
+                                        </Link>
+                                        <Link className='flex justify-between items-center hover:bg-slate2 font-light border-dashed border-b-[1px] p-3 my-8 ' href='/showcase'>
+                                            <div className='text-slate10'>Activity</div>
+                                            <ChevronRightIcon />
+                                        </Link>
+                                        <Link className='flex justify-between items-center hover:bg-slate2 font-light border-dashed border-b-[1px] p-3 my-8 ' href='/contact'>
+                                            <div className='text-slate10'>Settings</div>
+                                            <ChevronRightIcon />
+                                        </Link>
+                                        <Link className='flex justify-between items-center hover:bg-slate2 font-light border-dashed border-b-[1px] p-3 my-8' href='/contact'>
+                                            <div className='text-slate10'>Contract & Docs</div>
+                                            <ChevronRightIcon />
+                                        </Link>
+                                        <Link className='flex justify-between items-center hover:bg-slate2 font-light border-dashed border-b-[1px] p-3 my-8 ' href='/contact'>
+                                            <div className='text-slate10'>Membership</div>
+                                            <ChevronRightIcon />
+                                        </Link>
+                                        <Link className='flex justify-between items-center hover:bg-slate2 font-light border-dashed border-b-[1px] p-3  my-8' href='/contact'>
+                                            <div className='text-slate10'>Logout</div>
+                                            <EnterIcon />
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </>

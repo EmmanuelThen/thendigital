@@ -1,8 +1,9 @@
 'use client'
 import React, { useState } from 'react';
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import { CaretDownIcon, Cross1Icon, HamburgerMenuIcon } from '@radix-ui/react-icons';
+import { CaretDownIcon, Cross1Icon, HamburgerMenuIcon, ChevronRightIcon, EnterIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
+import MobileNav from './MobileNav';
 
 type Props = {
     description: string,
@@ -41,7 +42,7 @@ const Navbar = () => {
                         <span className='font-semibold text-red9'>Then</span>
                         <span className='text-slate11'>Digital</span>
                     </div>
-                    <div className='cursor-pointer z-[1]' onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                    <div className='cursor-pointer z-[100]' onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                         <button
                             className="rounded-full w-[35px] h-[35px] inline-flex items-center justify-center bg-white shadow-[0_2px_10px] shadow-blackA7 outline-none hover:bg-slate2"
                             aria-label="Customise options"
@@ -53,22 +54,15 @@ const Navbar = () => {
                 </div>
                 {isMobileMenuOpen && (
                     <>
-                        <div className='relative flex justify-center top-0 right-0 transition-all duration-75 ease-in-out backdrop-blur-lg w-screen z-[3]'>
-                            <div className='absolute flex flex-col items-center justify-around w-[95%] h-screen  bg-slate11 rounded-md z-[4] bounce-in-right'>
-                                <Link className='text-red9 text-xl font-medium' href='/'>
-                                    Home
-                                </Link>
-                                <Link className='text-red9 text-xl font-medium' href='/about'>
-                                    What we do
-                                </Link>
-                                <Link className='text-red9 text-xl font-medium' href='/showcase'>
-                                    Showcase
-                                </Link>
-                                <Link className='text-red9 text-xl font-medium' href='/contact'>
-                                    Contact
-                                </Link>
-                            </div>
-                        </div>
+                        <MobileNav
+                            nav1='Home'
+                            nav2='Dashboard'
+                            nav3='What we do'
+                            nav4='Showcase'
+                            nav5='Membership'
+                            nav6='Account'
+                            nav7='Contact'
+                        />
                     </>
                 )}
             </div>
