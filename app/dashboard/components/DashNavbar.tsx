@@ -15,14 +15,11 @@ import DashFileUpload from './DashFileUpload'
 import DashMobileNavbar from './DashMobileNavbar'
 import PopoverButton from '@/app/components/PopoverButton'
 import DashPixelCare from './DashPixelCare'
+import EditTabs from '@/app/components/EditTabs'
 
 
-type Props = {}
-
-const DashNavbar = (props: Props) => {
+const DashNavbar = () => {
     const [hasNewMessage, setHasNewMessage] = useState(false);
-
-
 
     return (
         <>
@@ -36,10 +33,17 @@ const DashNavbar = (props: Props) => {
                         <div id='loginAvatar' className='mb-5'>
                             <DashAvatar iconHeight='h-[65px]' iconWidth='w-[65px]' />
                         </div>
-                        <p className='hidden md:block'>Client Name</p>
+                        <p className='hidden md:block'>client.name</p>
                         <div className='hidden md:flex justify-center mt-3'>
                             <p className='px-1 rounded-md w-fit text-[9px]'>
-                                <DialogButton />
+                                <DialogButton
+                                    buttonText='Edit'
+                                    dialogTitle='Edit Profile'
+                                    dialogDesc='Make changes to your profile here. Click save when youre done.'
+                                    content={<EditTabs />}
+                                    saveButton='Save changes'
+
+                                />
                             </p>
                         </div>
                     </div>
@@ -73,79 +77,6 @@ const DashNavbar = (props: Props) => {
                     </div>
                     <div className='hidden md:block'>
                         <Toggle />
-                    </div>
-                </div>
-
-
-                <div id='dashCards' className='flex flex-col p-10 w-full'>
-                    <div id='topBar-dashCards' className='flex justify-between items-center w-full'>
-                        <h1>
-                            <ShinyText text='Welcome Client Name' />
-                        </h1>
-                        <div className='flex items-center gap-5'>
-                            <button type='button'>
-                                Membership
-                            </button>
-                            <div className='notificationBell relative'>
-                                <div id='notificationDot' className='absolute h-[12px] w-[12px] bg-red9 rounded-full right-0 top-0' />
-                                <PopoverButton icon={
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" className="w-5 h-5">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                                    </svg>
-                                }
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div id='cardGrid' className='grid grid-cols-3 gap-5 w-full h-full py-10'>
-                        <div>
-                            <DashCards
-                                cardTitle='production tracker'
-                                mainSection={<DashProgress />}
-                                bottomSection={<DashProgressBottom />}
-                                bgColor=''
-                            />
-                        </div>
-                        <div>
-                            <DashCards
-                                cardTitle='{ pixelcare }'
-                                mainSection={<DashPixelCare />}
-                                bottomSection={<DashProgressBottom />}
-                                bgColor=''
-                            />
-                        </div>
-                        <div>
-                            <DashCards
-                                cardTitle='production tracker'
-                                mainSection={<DashProgress />}
-                                bottomSection={<DashProgressBottom />}
-                                bgColor=''
-                            />
-                        </div>
-                        <div>
-                            <DashCards
-                                cardTitle='production tracker'
-                                mainSection={<DashProgress />}
-                                bottomSection={<DashProgressBottom />}
-                                bgColor=''
-                            />
-                        </div>
-                        <div>
-                            <DashCards
-                                cardTitle='production tracker'
-                                mainSection={<DashProgress />}
-                                bottomSection={<DashProgressBottom />}
-                                bgColor=''
-                            />
-                        </div>
-                        <div>
-                            <DashCards
-                                cardTitle='website performance'
-                                mainSection={<DashSpeedTest />}
-                                bottomSection={<DashSpeedTestBottom />}
-                                bgColor=''
-                            />
-                        </div>
                     </div>
                 </div>
             </div>

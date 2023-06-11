@@ -1,17 +1,12 @@
 import React from 'react'
-import DashNavbar from './components/DashNavbar'
+import Dashboard from './components/Dashboard'
 
 type Props = {}
 
 const page = (props: Props) => {
   return (
-    <main>
-        <nav>
-            <DashNavbar />
-        </nav>
-        <section id='topContent'>
-            
-        </section>
+    <main className='flex'>
+        <Dashboard />
     </main>
   )
 }

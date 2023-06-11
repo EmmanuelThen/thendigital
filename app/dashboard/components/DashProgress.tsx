@@ -11,20 +11,38 @@ const DashProgress = () => {
     }, []);
 
     return (
-        <Progress.Root
-            className="relative overflow-hidden bg-slate6 rounded-full w-full h-[15px]"
-            style={{
-                // Fix overflow clipping in Safari
-                // https://gist.github.com/domske/b66047671c780a238b51c51ffde8d3a0
-                transform: 'translateZ(0)',
-            }}
-            value={progress}
-        >
-            <Progress.Indicator
-                className="bg-red9 w-full h-full transition-transform duration-[660ms] ease-[cubic-bezier(0.65, 0, 0.35, 1)]"
-                style={{ transform: `translateX(-${100 - progress}%)` }}
-            />
-        </Progress.Root>
+        <div className='flex flex-col gap-10 w-full'>
+
+            <Progress.Root
+                className="relative overflow-hidden bg-slate6 rounded-full w-full h-[15px]"
+                style={{
+                    // Fix overflow clipping in Safari
+                    // https://gist.github.com/domske/b66047671c780a238b51c51ffde8d3a0
+                    transform: 'translateZ(0)',
+                }}
+                value={progress}
+            >
+                <Progress.Indicator
+                    className="bg-red9 w-full h-full transition-transform duration-[660ms] ease-[cubic-bezier(0.65, 0, 0.35, 1)]"
+                    style={{ transform: `translateX(-${100 - progress}%)` }}
+                />
+            </Progress.Root>
+
+            <div className=''>
+                <div className='flex justify-between text-left'>
+                    <p className='text-xs font-medium'>Date started:</p>
+                    <p className='text-xs'>currentStep</p>
+                </div>
+                <div className='flex justify-between text-left'>
+                    <p className='text-xs font-medium'>Projected finish:</p>
+                    <p className='text-xs'>estimatedDate</p>
+                </div>
+                <div className='flex justify-between text-left'>
+                    <p className='text-xs font-medium'>Current stage:</p>
+                    <p className='text-xs'>currentStep</p>
+                </div>
+            </div>
+        </div>
     );
 };
 

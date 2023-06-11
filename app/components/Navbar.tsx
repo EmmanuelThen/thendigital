@@ -4,6 +4,7 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { CaretDownIcon, Cross1Icon, HamburgerMenuIcon, ChevronRightIcon, EnterIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import MobileNav from './MobileNav';
+import ArrowButton from './ArrowButton';
 
 type Props = {
     description: string,
@@ -84,7 +85,7 @@ const Navbar = () => {
                         <NavigationMenu.Trigger className="text-red9 hover:bg-red3 focus:shadow-violet7 group flex select-none items-center justify-between gap-[2px] rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]">
                             What we offer{' '}
                             <CaretDownIcon
-                                className="text-violet10 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
+                                className="text-red9 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
                                 aria-hidden
                             />
                         </NavigationMenu.Trigger>
@@ -129,7 +130,7 @@ const Navbar = () => {
                         <NavigationMenu.Trigger className="text-red9 hover:bg-red3 focus:shadow-violet7 group flex select-none items-center justify-between gap-[2px] rounded-[4px] px-3 py-2 text-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]">
                             Showcase{' '}
                             <CaretDownIcon
-                                className="text-violet10 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
+                                className="text-red9 relative top-[1px] transition-transform duration-[250] ease-in group-data-[state=open]:-rotate-180"
                                 aria-hidden
                             />
                         </NavigationMenu.Trigger>
@@ -176,9 +177,7 @@ const Navbar = () => {
                                     </div>
                                 </ListItem>
                                 <ListItem description='' href='/showcase'>
-                                    <button type='button' className='bg-red9 outline outline-red9 rounded-md p-2 text-slate2'>
-                                        Full showcase
-                                    </button>
+                                    <ArrowButton buttonText='Full showcase' href='/showcase' />
                                 </ListItem>
                             </ul>
                         </NavigationMenu.Content>
@@ -201,22 +200,8 @@ const Navbar = () => {
                 </div>
 
                 <div className='flex justify-between gap-3'>
-                    <button>
-                        <Link className='arrow text-slate11 px-2 py-1 flex items-center' href='/login'>
-                            Log in
-                            <span>
-                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path></svg>
-                            </span>
-                        </Link>
-                    </button>
-                    <button>
-                        <Link className='arrow text-red9 p-1 hover:opacity-60 flex items-center' href='/dashboard'>
-                            Dashboard
-                            <span>
-                                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.1584 3.13508C6.35985 2.94621 6.67627 2.95642 6.86514 3.15788L10.6151 7.15788C10.7954 7.3502 10.7954 7.64949 10.6151 7.84182L6.86514 11.8418C6.67627 12.0433 6.35985 12.0535 6.1584 11.8646C5.95694 11.6757 5.94673 11.3593 6.1356 11.1579L9.565 7.49985L6.1356 3.84182C5.94673 3.64036 5.95694 3.32394 6.1584 3.13508Z" fill="currentColor" fillRule="evenodd" clipRule="evenodd"></path></svg>
-                            </span>
-                        </Link>
-                    </button>
+                    <ArrowButton buttonText='Login' href='/login' />
+                    <ArrowButton buttonText='Sign up' href='/dashboard' />
                 </div>
             </NavigationMenu.Root>
         </>

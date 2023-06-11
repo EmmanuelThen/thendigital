@@ -1,12 +1,12 @@
 import React from 'react';
-import LoginSignup from '../components/LoginSignup';
+import EditTabs from '../components/EditTabs';
 
 type Props = {}
 
 const page = (props: Props) => {
   return (
     <main>
-        <LoginSignup />
+        <EditTabs />
     </main>
   )
 }
