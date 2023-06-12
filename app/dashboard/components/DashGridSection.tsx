@@ -7,6 +7,8 @@ import DashProgress from './DashProgress';
 import DashProgressBottom from './DashProgressBottom';
 import DashSpeedTest from './DashSpeedTest';
 import DashSpeedTestBottom from './DashSpeedTestBottom';
+import DashHoverButton from './DropDownMenuButton';
+import DropDownMenuButton from './DropDownMenuButton';
 
 
 type Props = {}
@@ -19,9 +21,6 @@ const DashGridSection = (props: Props) => {
                     <ShinyText text='Welcome Client Name' />
                 </h1>
                 <div className='flex items-center gap-5 mr-2'>
-                    <button type='button'>
-                        Membership
-                    </button>
                     <div className='notificationBell relative'>
                         <div id='notificationDot' className='absolute h-[12px] w-[12px] bg-red9 rounded-full right-0 top-0' />
                         <PopoverButton icon={
@@ -30,6 +29,9 @@ const DashGridSection = (props: Props) => {
                             </svg>
                         }
                         />
+                    </div>
+                    <div className='flex justify-center items-center'>
+                        <DropDownMenuButton />
                     </div>
                 </div>
             </div>
@@ -47,7 +49,7 @@ const DashGridSection = (props: Props) => {
                         cardTitle='{ pixelcare }'
                         mainSection={<DashPixelCare />}
                         
-                        bgColor='animate-backgroundShine bg-[linear-gradient(45deg,#ffffff,45%,#e6e6e6,55%,#ffffff)] bg-[length:250%_100%] bg-transparent'
+                        bgColor='animate-backgroundShine bg-[linear-gradient(115deg,#ffffff,45%,#e6e6e6,55%,#ffffff)] bg-[length:250%_100%] bg-transparent'
                     />
                 </div>
                 <div>

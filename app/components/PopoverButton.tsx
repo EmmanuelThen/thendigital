@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import * as Popover from '@radix-ui/react-popover';
 import { MixerHorizontalIcon, Cross2Icon, TrashIcon } from '@radix-ui/react-icons';
+import * as HoverCard from '@radix-ui/react-hover-card'
 
 type Props = {
     icon: any;

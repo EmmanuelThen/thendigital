@@ -30,14 +30,14 @@ export default function Home() {
         </section>
         <section>
           <LandingPageSection topTitle='Website Development' shinyText='Every business needs an online presence, make it count.' side={<WebDevCards />} bgColor='bg-slate2'>
-            <p>
+            <p className='mb-10'>
               In the ever-evolving world of web development, different types of websites cater to varying objectives. At ThenDigital, we specialize in crafting exceptional <span className='text-red9'>static</span> websites,
               <span className='text-red9'> single-page web applications</span> (SPAs), and <span className='text-red9'>e-commerce</span> websites. Our commitment to creating bespoke solutions ensures that your website aligns perfectly with your unique requirements.
             </p>
             <ArrowButton buttonText='Learn more' href='/webdevelopment' />
           </LandingPageSection>
           <LandingPageSection topTitle='Software Development' shinyText='Streamline your tasks with innovative software solutions.' side={<WebDevCards />} bgColor='bg-slate8'>
-            <p>
+            <p className='mb-10'>
               Unleash your productivity and efficiency with a suite of powerful and user-friendly software solutions designed to simplify your tasks.
               Our cutting-edge tools are meticulously crafted to cater to your specific needs, offering intuitive interfaces and robust functionalities.
               From automating repetitive processes to organizing complex workflows, our software empowers you to accomplish more in less time.
@@ -46,8 +46,8 @@ export default function Home() {
             </p>
             <ArrowButton buttonText='Learn more' href='/softwaredevelopment' />
           </LandingPageSection>
-          <LandingPageSection topTitle='Maintenance' shinyText='Keep your website running smoothly with {digitalCare}*, our reliable maintenance service.' side={<WebDevCards />} bgColor='bg-slate11'>
-            <p>
+          <LandingPageSection topTitle='Maintenance' shinyText='Keep your website running smoothly with PixelCare*, our reliable maintenance service.' side={<WebDevCards />} bgColor='bg-slate11'>
+            <p className='mb-10'>
               In todays fast-paced digital landscape, its crucial to have a website that consistently performs at its best. With our comprehensive website maintenance services,
               we take the hassle out of managing and optimizing your online presence, allowing you to focus on what matters most—your business.
             </p>

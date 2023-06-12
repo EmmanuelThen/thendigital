@@ -1,6 +1,8 @@
 'use client'
 import React from 'react';
 import * as Progress from '@radix-ui/react-progress';
+import LabelDemo from '@/app/components/Label';
+import ToastButton from './ToastButton';
 
 const DashProgress = () => {
     const [progress, setProgress] = React.useState(13);
@@ -12,7 +14,10 @@ const DashProgress = () => {
 
     return (
         <div className='flex flex-col gap-10 w-full'>
-
+            <div className='flex items-center justify-center'>
+                <LabelDemo label='ORDER-ID' defaultValue='#123ABC123ABC' />
+                {/*<ToastButton />*/}
+            </div>
             <Progress.Root
                 className="relative overflow-hidden bg-slate6 rounded-full w-full h-[15px]"
                 style={{
