@@ -33,7 +33,7 @@ const ToastButton = () => {
                 onOpenChange={setOpen}
             >
                 <Toast.Title className="[grid-area:_title] mb-[5px] font-medium text-slate12 text-[15px]">
-                    Scheduled: Catch up
+                    Production as of:
                 </Toast.Title>
                 <Toast.Description asChild>
                     <time

@@ -28,7 +28,7 @@ const DialogButton = ({ buttonText, dialogTitle, dialogDesc, content, saveButton
                     <Dialog.Title className="text-mauve12 m-0 text-[17px] font-medium">
                         {dialogTitle}
                     </Dialog.Title>
-                    <Dialog.Description className="text-mauve11 mt-[10px] mb-5 text-[15px] leading-normal">
+                    <Dialog.Description className="text-mauve11 mt-[10px] mb-5 text-2xl font-semibold leading-normal">
                         {dialogDesc}
                     </Dialog.Description>
                     <div className='flex justify-center'>

@@ -1,14 +1,17 @@
+'use client'
 import { CheckIcon } from '@radix-ui/react-icons'
-import React from 'react'
+import React , { useState } from 'react'
 import ArrowButton from './ArrowButton'
 
 type Props = {}
 
 const SubTiers = (props: Props) => {
+    
+
     return (
         <div className='flex justify-between gap-5'>
             {/** Card1 */}
-            <div className='p-5 rounded-lg bg-white shadow-lg w-full border border-1 border-red9'>
+            <div className='p-5 rounded-lg bg-white shadow-lg w-full border border-1 hover:border-red9 transform transition-transform hover:scale-110 cursor-pointer'>
                 <div id='TOP-HALF'>
                     <h2 className='text-red9 font-medium text-sm'>PixelCare</h2>
                     <div className='flex items-center justify-between'>
@@ -63,7 +66,7 @@ const SubTiers = (props: Props) => {
             </div>
 
             {/** Card2 */}
-            <div className='p-5 rounded-lg bg-white shadow-lg w-full border border-1 border-red9'>
+            <div className='p-5 rounded-lg bg-white shadow-lg w-full border border-1 hover:border-red9 transform transition-transform hover:scale-110 cursor-pointer'>
                 <div id='TOP-HALF'>
                     <h2 className='text-red9 font-medium text-sm'>PixelCare +</h2>
                     <div className='flex items-center justify-between'>

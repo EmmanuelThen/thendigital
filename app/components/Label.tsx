@@ -19,7 +19,7 @@ const LabelDemo = ({ label, defaultValue }: Props) => (
         id="firstName"
         placeholder={defaultValue}
       />
-      <div className='ml-3'>
+      <div className='ml-3 border border-1 border-red9 rounded-md'>
         <ToastButton />
       </div>
     </div>
