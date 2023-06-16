@@ -9,6 +9,7 @@ import DashSpeedTest from './DashSpeedTest';
 import DashSpeedTestBottom from './DashSpeedTestBottom';
 import DashHoverButton from './DropDownMenuButton';
 import DropDownMenuButton from './DropDownMenuButton';
+import DashOrderHistory from './DashOrderHistory';
 
 
 type Props = {}
@@ -55,7 +56,7 @@ const DashGridSection = (props: Props) => {
                 <div>
                     <DashCards
                         cardTitle='Order History'
-                        mainSection={<DashProgress />}
+                        mainSection={<DashOrderHistory />}
                         
                         bgColor=''
                     />
@@ -63,7 +64,7 @@ const DashGridSection = (props: Props) => {
                 <div>
                     <DashCards
                         cardTitle='production tracker'
-                        mainSection={<DashProgress />}
+                        mainSection={<DashSpeedTest />}
                         
                         bgColor=''
                     />
@@ -71,7 +72,7 @@ const DashGridSection = (props: Props) => {
                 <div>
                     <DashCards
                         cardTitle='production tracker'
-                        mainSection={<DashProgress />}
+                        mainSection={<DashSpeedTest />}
                         
                         bgColor=''
                     />

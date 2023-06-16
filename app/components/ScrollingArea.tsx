@@ -1,13 +1,14 @@
+'use client'
 import React from 'react';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
 
-const TAGS = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);
+const TAGS = Array.from({ length: 10 }).map((_, i, a) => `Order.${a.length - i}`);
 
-const ScrollAreaDemo = () => (
-    <ScrollArea.Root className="w-[200px] h-[225px] rounded overflow-hidden shadow-[0_2px_10px] shadow-blackA7 bg-white">
+const ScrollingArea = () => (
+    <ScrollArea.Root className="w-full h-[225px] rounded overflow-hidden shadow-[0_2px_10px] shadow-blackA7 bg-white">
         <ScrollArea.Viewport className="w-full h-full rounded">
-            <div className="py-[15px] px-5">
-                <div className="text-violet11 text-[15px] leading-[18px] font-medium">Tags</div>
+            <div className="py-[15px] px-5 flex justify-center items-center flex-col">
+                <div className="text-violet11 text-[15px] leading-[18px] font-medium">Recent Orders</div>
                 {TAGS.map((tag) => (
                     <div
                         className="text-mauve12 text-[13px] leading-[18px] mt-2.5 pt-2.5 border-t border-t-mauve6"
@@ -34,4 +35,4 @@ const ScrollAreaDemo = () => (
     </ScrollArea.Root>
 );
 
-export default ScrollAreaDemo;
+export default ScrollingArea;
