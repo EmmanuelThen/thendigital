@@ -26,7 +26,7 @@ const page = (props: Props) => {
                 </div>
             </div>
 
-            <div className='  pb-[1.5em] leading-[50px] text-[30px] z-[10] '>
+            <div className='  pb-[1.5em] leading-[50px] md:leading-[80px] text-[30px] md:text-[55px] z-[10] '>
                 <div className=' flex flex-col items-center justify-center font-light '>
                     <h1>Secure your investment</h1>
                     <h1>the correct way</h1>
@@ -34,36 +34,92 @@ const page = (props: Props) => {
                 </div>
             </div>
 
-            <div className='flex justify-center p-6'>
-                <PixelCareCard
-                    tier='PixelCare'
-                    price='199'
-                    frequency='month'
-                    ft1='Hosting features'
-                    ft2='1 feature update'
-                    ft3='feature'
-                    ft4='feature'
-                    buttonText='Purchase'
-                />
-            </div>
-
-            <div className=' flex flex-col gap-20 p-6'>
-                <TierFeatures
-                    icon={<GlobeIcon />}
-                    heading='Hosting Maintenance & Optimization'
-                />
-                <TierFeatures
-                    icon={<GlobeIcon />}
-                    heading='Feature Enhancements & Updates'
-                />
-                <TierFeatures
-                    icon={<GlobeIcon />}
-                    heading='Featurefeaturefeaturefeaturefeat'
-                />
-                <TierFeatures
-                    icon={<GlobeIcon />}
-                    heading='Featurefeaturefeaturefeaturefeat'
-                />
+            <div className='flex flex-col gap-20'>
+                <div>
+                    <div className='flex justify-center p-6'>
+                        <PixelCareCard
+                            tier='PixelCare'
+                            price='199'
+                            frequency='month'
+                            buttonText='Purchase'
+                        />
+                    </div>
+                    <div className=' flex flex-col md:items-center md:grid grid-cols-2 md:place-items-center gap-20 md:gap-10 p-6'>
+                        <TierFeatures
+                            icon={<GlobeIcon />}
+                            heading='Hosting Maintenance & Optimization'
+                        />
+                        <TierFeatures
+                            icon={<GlobeIcon />}
+                            heading='Feature Enhancements & Updates'
+                        />
+                        <TierFeatures
+                            icon={<GlobeIcon />}
+                            heading='Featurefeaturefeaturefeaturefeat'
+                        />
+                        <TierFeatures
+                            icon={<GlobeIcon />}
+                            heading='Featurefeaturefeaturefeaturefeat'
+                        />
+                    </div>
+                </div>
+                <div>
+                    <div className='flex justify-center p-6'>
+                        <PixelCareCard
+                            tier='PixelCare +'
+                            price='299'
+                            frequency='month'
+                            buttonText='Purchase'
+                        />
+                    </div>
+                    <div className=' flex flex-col md:items-center md:grid grid-cols-2 md:place-items-center gap-20 md:gap-10 p-6'>
+                        <TierFeatures
+                            icon={<GlobeIcon />}
+                            heading='Hosting Maintenance & Optimization'
+                        />
+                        <TierFeatures
+                            icon={<GlobeIcon />}
+                            heading='Feature Enhancements & Updates'
+                        />
+                        <TierFeatures
+                            icon={<GlobeIcon />}
+                            heading='Featurefeaturefeaturefeaturefeat'
+                        />
+                        <TierFeatures
+                            icon={<GlobeIcon />}
+                            heading='Featurefeaturefeaturefeaturefeat'
+                        />
+                    </div>
+                </div>
+                <div>
+                    <div className='flex justify-center p-6'>
+                        <PixelCareCard
+                            tier='PixelCare Elite'
+                            price='499'
+                            frequency='month'
+                            buttonText='Purchase'
+                            bgColor='animate-backgroundShine bg-[linear-gradient(115deg,#ffffff,45%,#e6e6e6,55%,#ffffff)] bg-[length:250%_100%] bg-transparent'
+                        />
+                    </div>
+                    <div className=' flex flex-col md:items-center md:grid grid-cols-2 md:place-items-center gap-20 md:gap-10 p-6'>
+                        <TierFeatures
+                            icon={<GlobeIcon />}
+                            heading='Hosting Maintenance & Optimization'
+                        />
+                        <TierFeatures
+                            icon={<GlobeIcon />}
+                            heading='Feature Enhancements & Updates'
+                        />
+                        <TierFeatures
+                            icon={<GlobeIcon />}
+                            heading='Featurefeaturefeaturefeaturefeat'
+                        />
+                        <TierFeatures
+                            icon={<GlobeIcon />}
+                            heading='Featurefeaturefeaturefeaturefeat'
+                        />
+                    </div>
+                </div>
             </div>
         </div>
     )

@@ -513,10 +513,7 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-#PixelCareCard {
-  border: 1px solid transparent;
-  border-radius: 8px;
-}
+
 
 #PixelCareCard:hover {
   border-image: linear-gradient(to right, hsl(358, 75%, 59%), blue) 1;

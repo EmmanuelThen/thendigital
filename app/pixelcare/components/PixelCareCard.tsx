@@ -3,20 +3,17 @@ import { CheckIcon } from '@radix-ui/react-icons';
 import ArrowButton from '@/app/components/ArrowButton';
 
 type Props = {
-    tier: string,
+    tier: any,
     price: string,
     frequency: string,
-    ft1: string,
-    ft2: string,
-    ft3: string,
-    ft4: string,
-    buttonText: any
+    buttonText: any,
+    bgColor: any
 
 }
 
-const PixelCareCard = ({tier, price, frequency, ft1, ft2, ft3, ft4, buttonText }: Props) => {
+const PixelCareCard = ({tier, price, frequency, buttonText, bgColor }: Props) => {
     return (
-        <div className='p-10  bg-white shadow-lg w-[75%] transform transition-transform hover:scale-110 cursor-pointer' id='PixelCareCard'>
+        <div className={`md:flex p-10 ${bgColor} shadow-lg w-[75%] md:w-[50%] border border-1 rounded-lg transform transition-transform hover:scale-110 cursor-pointer`} id='PixelCareCard'>
             <div id='TOP-HALF'>
                 <h2 className='font-medium text-sm' id='text_gradient'>{tier}</h2>
                 <div className='flex items-center justify-between'>
