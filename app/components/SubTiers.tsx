@@ -43,8 +43,8 @@ const SubTiers = (props: Props) => {
                         <div className='flex gap-2 items-center'>
                             <div className='text-red9'><CheckIcon /></div>
                             <p className='text-[10px] text-slate10'>1 feature update
-                                <sub className='text-red9 w-fit text-[6px] font-light tracking-tighter'>
-                                    /mo
+                                <sub className='text-red9 w-fit text-[6px] font-light'>
+                                    /mo.
                                 </sub>
                             </p>
                         </div>
@@ -97,9 +97,9 @@ const SubTiers = (props: Props) => {
                         </div>
                         <div className='flex gap-2 items-center'>
                             <div className='text-red9'><CheckIcon /></div>
-                            <p className='text-[10px] text-slate10'>Unlimited feature update
-                                <sub className='text-red9 w-fit text-[6px] font-light tracking-tighter'>
-                                    /mo
+                            <p className='text-[10px] text-slate10'>5 feature enhancements
+                                <sub className='text-red9 w-fit text-[6px] font-light'>
+                                    /mo.
                                 </sub>
                             </p>
                         </div>
@@ -151,9 +151,9 @@ const SubTiers = (props: Props) => {
                         </div>
                         <div className='flex gap-2 items-center'>
                             <div className='text-red9'><CheckIcon /></div>
-                            <p className='text-[10px] text-slate10'>Unlimited feature update
-                                <sub className='text-red9 w-fit text-[6px] font-light tracking-tighter'>
-                                    /mo
+                            <p className='text-[10px] text-slate10'>10 feature enhancements
+                                <sub className='text-red9 w-fit text-[6px] font-light'>
+                                    /yr.
                                 </sub>
                             </p>
                         </div>

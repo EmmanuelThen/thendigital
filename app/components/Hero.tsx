@@ -18,7 +18,7 @@ const Hero = (props: Props) => {
                         <button type='button' className='bg-red9 outline outline-red9 rounded-md p-2 text-slate2 shadow-[#262626]/40 shadow-[0px_8px_15px]'>
                             Get started
                         </button>
-                        <button type='button' className='outline outline-red9 rounded-md p-2 shadow-[#262626]/40 shadow-[0px_8px_15px]'>
+                        <button type='button' className='outline outline-1 outline-red9 rounded-md p-2 shadow-[#262626]/40 shadow-[0px_8px_15px]'>
                             Contact
                         </button>
                     </div>
