@@ -4,10 +4,11 @@ import FeatureBulletPoint from './FeatureBulletPoint';
 type Props = {
     icon: any,
     heading: string,
+    desc: any
 }
 
 
-const TierFeatures = ({ icon, heading }: Props) => {
+const TierFeatures = ({ icon, heading, desc }: Props) => {
     return (
         <div>
             <div className='mb-3'>
@@ -18,22 +19,8 @@ const TierFeatures = ({ icon, heading }: Props) => {
                 {heading}
             </div>
 
-            <div className=''>
-                <FeatureBulletPoint
-                    points='Fast reliable hosting'
-                />
-                <FeatureBulletPoint
-                    points='Fast reliable hosting'
-                />
-                <FeatureBulletPoint
-                    points='Fast reliable hosting'
-                />
-                <FeatureBulletPoint
-                    points='Fast reliable hosting'
-                />
-                <FeatureBulletPoint
-                    points='Fast reliable hosting'
-                />
+            <div className='text-slate10 leading-relaxed text-sm'>
+                {desc}
             </div>
 
 

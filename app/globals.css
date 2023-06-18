@@ -17,6 +17,7 @@
   }
 }
 
+
 body {
   font-size: 16px;
   overflow-x: hidden;
@@ -519,3 +520,4 @@ body {
   border-image: linear-gradient(to right, hsl(358, 75%, 59%), blue) 1;
   border-radius: 8px; 
 }
+
