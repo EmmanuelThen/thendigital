@@ -75,7 +75,7 @@ body {
 }
 
 .morph {
-  animation: morph 5s linear infinite;
+  animation: morph 10s linear infinite;
 }
 
 @keyframes morph {
@@ -85,7 +85,7 @@ body {
     border: none;
     border-radius: 20% 60% 70% 90% / 40% 40% 60% 50%;
     box-shadow: rgba(0, 0, 0, 0.75) 0 8px 15px;
-    background: radial-gradient(#E53D00, #FFE900, #21A0A0, #A03E99, #9CFFFA);
+    background: radial-gradient(hsl(358 75% 59%), pink, purple, rgb(64, 64, 234), #3b82f6);
     transform: translate(-20%, -60%);
   }
 
@@ -93,7 +93,7 @@ body {
     border: none;
     border-radius: 20% 30% 50% 50% / 80% 30% 10% 40%;
     box-shadow: rgba(0, 0, 0, 0.75) 0 8px 15px;
-    background: radial-gradient(#E53D00, #FFE900, #21A0A0, #A03E99, #9CFFFA);
+    background: radial-gradient(hsl(358 75% 59%), pink, purple, rgb(64, 64, 234), #3b82f6);
     transform: translate(-30%, -10%);
   }
 
@@ -101,9 +101,10 @@ body {
     border: none;
     border-radius: 100% 60% 60% 100% / 60% 30% 20% 60%;
     box-shadow: rgba(0, 0, 0, 0.75) 0 8px 15px;
-    background: radial-gradient(#E53D00, #FFE900, #21A0A0, #A03E99, #9CFFFA);
+    background: radial-gradient(hsl(358 75% 59%), pink, purple, rgb(64, 64, 234), #3b82f6);
     transform: translate(-15%, 35%)
   }
+  
 }
 
 
@@ -508,7 +509,7 @@ body {
 }
 
 #text_gradient {
-  background: linear-gradient(to right, hsl(358 75% 59%), blue, #3b82f6);
+  background: linear-gradient(to right, hsl(358 75% 59%), pink, purple, rgb(64, 64, 234), #3b82f6);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -516,8 +517,6 @@ body {
 
 
 
-#PixelCareCard:hover {
-  border-image: linear-gradient(to right, hsl(358, 75%, 59%), blue) 1;
-  border-radius: 8px; 
+#PixelCareCard {
+  border-image: linear-gradient(to right, hsl(358 75% 59%), pink, purple, rgb(64, 64, 234), #3b82f6) 1;
 }
-

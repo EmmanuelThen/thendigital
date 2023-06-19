@@ -11,23 +11,26 @@ type Props = {
 
 }
 
-const PixelCareCard = ({tier, price, frequency, buttonText, bgColor }: Props) => {
+const PixelCareCard = ({ tier, price, frequency, buttonText, bgColor }: Props) => {
     return (
-        <div className={`md:flex p-10 ${bgColor} shadow-lg w-[75%] md:w-[50%] border border-1 rounded-lg transform transition-transform hover:scale-110 cursor-pointer`} id='PixelCareCard'>
-            <div id='TOP-HALF'>
+        <div className={`md:flex md:justify-center p-10 ${bgColor} shadow-lg w-[85%] md:w-[50%] lg:max-w-[600px] border border-1 rounded-lg transform transition-transform hover:scale-110 cursor-pointer`} id='PixelCareCard'>
+            <div className='flex flex-col items-center' id='TOP-HALF'>
                 <h2 className='font-medium text-sm' id='text_gradient'>{tier}</h2>
                 <div className='flex items-center justify-between'>
-                    <p className='relative text-[32px]'>
+                    <h1 className='relative text-[32px]'>
                         <sup className='font-extrabold'>
                             $
                         </sup>
                         <span className='text-[45px] font-extrabold'>
                             {price}
                         </span>
+                        <sup className='font-extrabold'>
+                            .99
+                        </sup>
                         <sub className='text-slate10 w-fit text-sm font-light tracking-tighter'>
                             /{frequency}
                         </sub>
-                    </p>
+                    </h1>
                 </div>
                 <div className='DESC'>
                     <p className='leading-tight text-xs font-light'>
