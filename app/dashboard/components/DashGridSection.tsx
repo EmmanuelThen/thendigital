@@ -31,9 +31,9 @@ const DashGridSection = (props: Props) => {
                         }
                         />
                     </div>
-                    <div className='flex justify-center items-center'>
+                    {/*<div className='flex justify-center items-center'>
                         <DropDownMenuButton />
-                    </div>
+                    </div>*/}
                 </div>
             </div>
             <div id='cardGrid' className='grid grid-cols-3 gap-5 w-full h-full'>
@@ -41,15 +41,19 @@ const DashGridSection = (props: Props) => {
                     <DashCards
                         cardTitle='production tracker'
                         mainSection={<DashProgress />}
-                        
+
                         bgColor=''
                     />
                 </div>
                 <div>
                     <DashCards
-                        cardTitle='{ pixelcare }'
+                        cardTitle={
+                            <>
+                                <div id='text_gradient'>PixelCare</div>
+                            </>
+                        }
                         mainSection={<DashPixelCare />}
-                        
+
                         bgColor='animate-backgroundShine bg-[linear-gradient(115deg,#ffffff,45%,#e6e6e6,55%,#ffffff)] bg-[length:250%_100%] bg-transparent'
                     />
                 </div>
@@ -57,7 +61,7 @@ const DashGridSection = (props: Props) => {
                     <DashCards
                         cardTitle='Order History'
                         mainSection={<DashOrderHistory />}
-                        
+
                         bgColor=''
                     />
                 </div>
@@ -65,7 +69,7 @@ const DashGridSection = (props: Props) => {
                     <DashCards
                         cardTitle='production tracker'
                         mainSection={<DashSpeedTest />}
-                        
+
                         bgColor=''
                     />
                 </div>
@@ -73,7 +77,7 @@ const DashGridSection = (props: Props) => {
                     <DashCards
                         cardTitle='production tracker'
                         mainSection={<DashSpeedTest />}
-                        
+
                         bgColor=''
                     />
                 </div>

@@ -509,7 +509,7 @@ body {
 }
 
 #text_gradient {
-  background: linear-gradient(to right, hsl(358 75% 59%), pink, purple, rgb(64, 64, 234), #3b82f6);
+  background: linear-gradient(to right, hsl(358 75% 59%), purple, blue, rgb(64, 64, 234), #3b82f6);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

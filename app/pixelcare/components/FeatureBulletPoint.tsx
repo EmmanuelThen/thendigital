@@ -4,18 +4,22 @@ type Props = {
     points: any
 }
 
-const FeatureBulletPoint = ({ points}: Props) => {
+const FeatureBulletPoint = ({ points }: Props) => {
     return (
-        <div className='flex items-center'>
-            <svg className='mr-2' width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.14645 11.1464C1.95118 11.3417 1.95118 11.6583 2.14645 11.8536C2.34171 12.0488 2.65829 12.0488 2.85355 11.8536L6.85355 7.85355C7.04882 7.65829 7.04882 7.34171 6.85355 7.14645L2.85355 3.14645C2.65829 2.95118 2.34171 2.95118 2.14645 3.14645C1.95118 3.34171 1.95118 3.65829 2.14645 3.85355L5.79289 7.5L2.14645 11.1464ZM8.14645 11.1464C7.95118 11.3417 7.95118 11.6583 8.14645 11.8536C8.34171 12.0488 8.65829 12.0488 8.85355 11.8536L12.8536 7.85355C13.0488 7.65829 13.0488 7.34171 12.8536 7.14645L8.85355 3.14645C8.65829 2.95118 8.34171 2.95118 8.14645 3.14645C7.95118 3.34171 7.95118 3.65829 8.14645 3.85355L11.7929 7.5L8.14645 11.1464Z"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                >
-                </path>
+        <div className='flex gap-2 items-center'>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" className="w-[15px] h-[15]">
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="hsl(358, 75%, 59%)" />
+                        <stop offset="25%" stopColor="purple" />
+                        <stop offset="50%" stopColor="pink" />
+                        <stop offset="75%" stopColor="rgb(64, 64, 234)" />
+                        <stop offset="100%" stopColor="#3b82f6" />
+                    </linearGradient>
+                </defs>
+                <path strokeLinecap="round" strokeLinejoin="round" stroke="url(#gradient)" strokeWidth="1.2" fill-rule="evenodd" d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z" clip-rule="evenodd" />
             </svg>
-            <div className='text-slate10 font-light'>{points}</div>
+            <div className='text-slate10 font-light text-[12px]'>{points}</div>
         </div>
     )
 }

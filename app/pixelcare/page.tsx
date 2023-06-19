@@ -43,6 +43,12 @@ const page = (props: Props) => {
                             frequency='month'
                             buttonText='Purchase'
                             bgColor=''
+                            point='Core software updates'
+                            point1='Theme/Template updates'
+                            point2='Content updates & enhancements'
+                            point3='Technical support'
+                            point4=''
+                            point5=''
                         />
                     </div>
                     <div className=' flex flex-col md:grid grid-cols-2 md:place-items-center gap-20 md:gap-10 p-6 bg-slate2'>
@@ -98,7 +104,7 @@ const page = (props: Props) => {
                                 </svg>
                             }
                             heading='Content Updates & Enhancements'
-                            desc='Assist with basic content updates, such as text changes or image replacements, as requested by the client.'
+                            desc='One basic content update per month, such as text changes or image replacements, as requested by the client.'
                         />
                         <TierFeatures
                             icon={
@@ -130,6 +136,12 @@ const page = (props: Props) => {
                             frequency='month'
                             buttonText='Purchase'
                             bgColor=''
+                            point='Hosting maintenance & optimization'
+                            point1='SEO Audits'
+                            point2='Monthly reporting'
+                            point3='Extended technical support'
+                            point4=''
+                            point5=''
                         />
                     </div>
                     <div className='font-medium text-3xl p-6'>
@@ -155,8 +167,7 @@ const page = (props: Props) => {
                             }
                             heading='Hosting Maintenance & Optimization'
                             desc='Ensures your website is hosted on a reliable and high-performance server while optimizing its speed, 
-                            security, and overall performance. This combines the benefits of professional web hosting with ongoing optimization techniques to deliver an exceptional user experience and 
-                            maximize your online presence.'
+                            security, and overall performance. Combining the benefits of professional web hosting with ongoing optimization techniques to deliver an exceptional user experience.'
 
                         />
                         <TierFeatures
@@ -223,6 +234,12 @@ const page = (props: Props) => {
                             price='1,999'
                             frequency='month'
                             buttonText='Purchase'
+                            point='E-commerce optimization'
+                            point1='Website audits & recommendations'
+                            point2='Advanced content updates & enhancements'
+                            point3='Performance optimization monitoring'
+                            point4='Custom Reporting and Insights'
+                            point5='Priority support & dedicated account manager'
                             bgColor='animate-backgroundShine bg-[linear-gradient(115deg,#ffffff,45%,#e6e6e6,55%,#ffffff)] bg-[length:250%_100%] bg-transparent'
                         />
                     </div>
@@ -286,7 +303,7 @@ const page = (props: Props) => {
                                 </svg>
                             }
                             heading='Advanced Content Updates & Enhancements'
-                            desc='Assist with more complex content updates, including the creation of new pages, implementation of custom functionality, or integration with third-party systems.'
+                            desc='Up to 5 more complex content updates, including the creation of new pages, implementation of custom functionality, or integration with third-party systems.'
                         />
 
                         <TierFeatures
@@ -301,11 +318,12 @@ const page = (props: Props) => {
                                             <stop offset="100%" stopColor="#3b82f6" />
                                         </linearGradient>
                                     </defs>
-                                    <path strokeLinecap="round" strokeLinejoin="round" stroke="url(#gradient)" strokeWidth="1.2" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" stroke="url(#gradient)" strokeWidth="1.2" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
                                 </svg>
+
                             }
-                            heading='Performance Optimization Monitoring'
-                            desc='Optimize website speed to its fullest potential, utilizing advanced caching techniques, CDN integration, image optimization, and code-level optimizations.'
+                            heading='Custom Reporting and Insights'
+                            desc='Deliver customized reports with in-depth analysis of website performance, SEO rankings, user behavior, and conversion metrics, along with actionable insights and recommendations.'
                         />
                         <TierFeatures
                             icon={
@@ -345,7 +363,6 @@ const page = (props: Props) => {
                         />
                     </div>
                 </div>
-
             </div>
         </div>
     )

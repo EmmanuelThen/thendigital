@@ -34,8 +34,8 @@ const DashPixelCare = (props: Props) => {
               <p className='text-xs'>estimatedDate</p>
             </div>
             <div className='flex justify-between text-left'>
-              <p className='text-xs font-medium'>Price:</p>
-              <p className='text-xs'>currentPrice</p>
+              <p className='text-xs font-medium'>Card on file:</p>
+              <p className='text-xs'>currentCard</p>
             </div>
           </div>
         </div>
@@ -48,14 +48,18 @@ const DashPixelCare = (props: Props) => {
                 Maintain and secure your investment the correct way!
               </p>
               <ArrowButton buttonText='Learn more' href='/pixelcare' />
-              <button onClick={handleNonMember}>click for nonMember</button>
+              <button onClick={handleNonMember}>click for Member</button>
             </div>
 
             <div className='flex justify-center'>
-              <button className='' type='button'>
+              <button type='button'>
                 <DialogButton
                   buttonText='Purchase'
-                  dialogTitle='{ PixelCare }'
+                  dialogTitle={
+                    <>
+                      <div id='text_gradient'>PixelCare</div>
+                    </>
+                  }
                   dialogDesc='Choose your tier'
                   content={<SubTiers />}
                   saveButton='Purchase'
