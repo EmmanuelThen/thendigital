@@ -12,11 +12,6 @@ type Props = {
 const DashAvatar = ({ iconHeight, iconWidth }: Props) => {
     const { avatar, changeAvatar } = useAvatar();
 
-    const handleAvatarChange = (e: any) => {
-        const file = e.target.files[0];
-        changeAvatar(URL.createObjectURL(file))
-    }
-
     return (
         <div className="flex gap-5">
             <Avatar.Root className={`bg-blackA3 inline-flex ${iconHeight} ${iconWidth} select-none items-center justify-center overflow-hidden rounded-full align-middle`}>

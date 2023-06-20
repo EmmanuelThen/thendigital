@@ -3,11 +3,13 @@ import React, { useState } from 'react';
 import { HamburgerMenuIcon, Cross1Icon, ChevronRightIcon, EnterIcon } from '@radix-ui/react-icons';
 import DashAvatar from './DashAvatar';
 import Link from 'next/link';
+import { useAvatar } from '@/context/AvatarContext';
 
 type Props = {}
 
 const DashMobileNavbar = (props: Props) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { avatar, changeAvatar } = useAvatar();
     return (
         <>
             {/** Mobile screen dash-nav */}
