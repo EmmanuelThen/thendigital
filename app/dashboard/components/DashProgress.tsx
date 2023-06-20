@@ -32,18 +32,17 @@ const DashProgress = () => {
                     style={{ transform: `translateX(-${100 - progress}%)` }}
                 />
             </Progress.Root>
-
-            <div className=''>
+            <div className='hidden md:flex flex-col gap-2'>
                 <div className='flex justify-between text-left'>
                     <p className='text-xs font-medium'>Date started:</p>
-                    <p className='text-xs'>currentStep</p>
+                    <p className='text-xs'>currentDate</p>
                 </div>
                 <div className='flex justify-between text-left'>
                     <p className='text-xs font-medium'>Projected finish:</p>
-                    <p className='text-xs'>estimatedDate</p>
+                    <p className='text-xs'>finishDate</p>
                 </div>
                 <div className='flex justify-between text-left'>
-                    <p className='text-xs font-medium'>Current stage:</p>
+                    <p className='text-xs font-medium'>Date started:</p>
                     <p className='text-xs'>currentStep</p>
                 </div>
             </div>

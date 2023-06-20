@@ -4,6 +4,8 @@ import classNames from 'classnames';
 import * as Accordion from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 import DashProgress from './DashProgress';
+import DashPixelCare from './DashPixelCare';
+import DashOrderHistory from './DashOrderHistory';
 
 type Props = {
     title1: string,
@@ -54,14 +56,14 @@ const AccordionDemo = ({ title1, title2, title3, title4, title5, title6 }: Props
         <AccordionItem value="item-2">
             <AccordionTrigger>{title2}</AccordionTrigger>
             <AccordionContent>
-                Yes. It's unstyled by default, giving you freedom over the look and feel.
+                <DashPixelCare />
             </AccordionContent>
         </AccordionItem>
 
         <AccordionItem value="item-3">
             <AccordionTrigger>{title3}</AccordionTrigger>
             <AccordionContent>
-                Yes! You can animate the Accordion with CSS or JavaScript.
+                <DashOrderHistory />
             </AccordionContent>
         </AccordionItem>
 

@@ -4,9 +4,17 @@ import * as Tabs from '@radix-ui/react-tabs';
 import * as Label from '@radix-ui/react-label';
 import DashAvatar from '../dashboard/components/DashAvatar';
 import DashFileUpload from '../dashboard/components/DashFileUpload';
+import { useAvatar } from '@/context/AvatarContext';
 
 
 const EditTabs = () => {
+    const { avatar, changeAvatar } = useAvatar();
+
+    const handleAvatarChange = (e: any) => {
+        const file = e.target.files[0];
+        changeAvatar(URL.createObjectURL(file))
+    }
+
     return (
         <Tabs.Root
             className="flex flex-col w-[600px]"
@@ -27,7 +35,7 @@ const EditTabs = () => {
                 </Tabs.Trigger>
             </Tabs.List>
             <Tabs.Content
-                className="grow p-5 bg-slate6 rounded-b-md outline-none"
+                className="grow p-5 rounded-b-md outline-none flex"
                 value="tab1"
             >
 
@@ -42,7 +50,7 @@ const EditTabs = () => {
                             type="text"
                             id="firstName"
                             placeholder='Enter first name'
-                            
+
                         />
                     </div>
 
@@ -58,19 +66,22 @@ const EditTabs = () => {
                             type="text"
                             id="firstName"
                             placeholder='Enter last name'
-                            
+
                         />
                     </div>
 
                 </div>
             </Tabs.Content>
             <Tabs.Content
-                className="flex flex-col items-center grow p-5 bg-slate6 rounded-b-md outline-none"
+                className="flex flex-col items-center grow p-5 rounded-b-md outline-none"
                 value="tab2"
             >
 
                 <div>
                     <DashAvatar iconHeight='h-[65px]' iconWidth='w-[65px]' />
+                </div>
+                <div className='flex justify-centermt-5'>
+                    <input type="file" onChange={handleAvatarChange} />
                 </div>
                 {/*<div>
                 <DashFileUpload />

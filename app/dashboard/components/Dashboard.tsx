@@ -7,10 +7,10 @@ type Props = {}
 const Dashboard = (props: Props) => {
     return (
         <div className='flex'>
-            <div>
+            <div className='fixed h-screen overflow-hidden'>
                 <DashNavbar />
             </div>
-            <section className='hidden md:block'>
+            <section className='ml-[210px] hidden md:block w-full overflow-y-scroll'>
                 <DashGridSection />
             </section>
         </div>

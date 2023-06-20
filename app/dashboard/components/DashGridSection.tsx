@@ -10,14 +10,15 @@ import DashSpeedTestBottom from './DashSpeedTestBottom';
 import DashHoverButton from './DropDownMenuButton';
 import DropDownMenuButton from './DropDownMenuButton';
 import DashOrderHistory from './DashOrderHistory';
+import DashFileUpload from './DashFileUpload';
 
 
 type Props = {}
 
 const DashGridSection = (props: Props) => {
     return (
-        <div id='dashCards' className='flex flex-col p-5 w-full overflow-y-hidden'>
-            <div id='topBar-dashCards' className='flex justify-between items-center w-full mb-2'>
+        <div id='dashCards' className='p-5 w-full overflow-y-hidden'>
+            <div id='topBar-dashCards' className=' flex justify-between items-center w-full mb-2'>
                 <h1>
                     <ShinyText text='Welcome Client Name' />
                 </h1>
@@ -25,8 +26,8 @@ const DashGridSection = (props: Props) => {
                     <div className='notificationBell relative'>
                         <div id='notificationDot' className='absolute h-[12px] w-[12px] bg-red9 rounded-full right-0 top-0' />
                         <PopoverButton icon={
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" className="w-5 h-5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" className="w-5 h-5">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
                             </svg>
                         }
                         />
@@ -36,12 +37,12 @@ const DashGridSection = (props: Props) => {
                     </div>*/}
                 </div>
             </div>
-            <div id='cardGrid' className='grid grid-cols-3 gap-5 w-full h-full'>
+
+            <div id='cardGrid' className='flex flex-wrap justify-center gap-5 p-5'>
                 <div>
                     <DashCards
                         cardTitle='production tracker'
                         mainSection={<DashProgress />}
-
                         bgColor=''
                     />
                 </div>
@@ -53,7 +54,6 @@ const DashGridSection = (props: Props) => {
                             </>
                         }
                         mainSection={<DashPixelCare />}
-
                         bgColor='animate-backgroundShine bg-[linear-gradient(115deg,#ffffff,45%,#e6e6e6,55%,#ffffff)] bg-[length:250%_100%] bg-transparent'
                     />
                 </div>
@@ -61,7 +61,13 @@ const DashGridSection = (props: Props) => {
                     <DashCards
                         cardTitle='Order History'
                         mainSection={<DashOrderHistory />}
-
+                        bgColor=''
+                    />
+                </div>
+                <div>
+                    <DashCards
+                        cardTitle='Contracts & Docs'
+                        mainSection={<DashSpeedTest />}
                         bgColor=''
                     />
                 </div>
@@ -69,27 +75,18 @@ const DashGridSection = (props: Props) => {
                     <DashCards
                         cardTitle='production tracker'
                         mainSection={<DashSpeedTest />}
-
                         bgColor=''
                     />
                 </div>
                 <div>
                     <DashCards
-                        cardTitle='production tracker'
-                        mainSection={<DashSpeedTest />}
-
-                        bgColor=''
-                    />
-                </div>
-                <div>
-                    <DashCards
-                        cardTitle='website performance'
-                        mainSection={<DashSpeedTest />}
-
+                        cardTitle='Contact'
+                        mainSection={<DashFileUpload />}
                         bgColor=''
                     />
                 </div>
             </div>
+
         </div>
     )
 }

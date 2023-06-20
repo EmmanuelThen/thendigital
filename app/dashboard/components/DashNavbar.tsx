@@ -20,6 +20,7 @@ import EditTabs from '@/app/components/EditTabs'
 
 const DashNavbar = () => {
     const [hasNewMessage, setHasNewMessage] = useState(false);
+    
 
     return (
         <>
@@ -81,7 +82,7 @@ const DashNavbar = () => {
                 </div>
             </div>
 
-            <div className='md:hidden'>
+            <div className='md:hidden w-[100vw]'>
                 {/** Mobile screen nav */}
                 <div>
                     <DashMobileNavbar />
@@ -94,10 +95,10 @@ const DashNavbar = () => {
                 <div className='flex flex-col justify-between gap-10 p-2'>
                     <DashAccordion
                         title1='production tracker'
-                        title2='contracts & docs'
-                        title3='card title'
-                        title4='card title'
-                        title5='{ pixelcare }'
+                        title2='PixelCare'
+                        title3='order history'
+                        title4='contracts & docs'
+                        title5='PixelCare'
                         title6='performance'
                     />
                     <div>
