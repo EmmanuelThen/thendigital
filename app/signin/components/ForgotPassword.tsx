@@ -11,15 +11,15 @@ const ForgotPassword = (props: Props) => {
     return (
         <div>
             <DialogButton
-                buttonText='Forgot Password?'
-                dialogTitle='Forgot Password'
-                dialogDesc='Please reset your password below'
+                buttonText='Forgot password?'
+                dialogTitle=''
+                dialogDesc=''
                 content={
-                    <ForgotPasswordModal />
+                    <ForgotPasswordModal modalContentDisplay='' confirmationDisplay=''/>
                 }
                 saveButton=''
                 buttonDisplay='hidden'
-                myOwnButtonDisplay='block'
+                myOwnButtonDisplay='hidden'
                 myOwnButton={<ConfirmationButton buttonText='Continue' toastTitle='Email sent to:' toastContent='session.user.email'/>}
 
             />

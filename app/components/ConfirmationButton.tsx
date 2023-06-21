@@ -10,6 +10,12 @@ interface ToastButtonInterface {
 
 const ConfirmationButton = ({ toastTitle, buttonText, toastContent, }: ToastButtonInterface) => {
     const [open, setOpen] = React.useState(false);
+    const eventDateRef = React.useRef(new Date());
+    const timerRef = React.useRef(0);
+
+    React.useEffect(() => {
+        return () => clearTimeout(timerRef.current);
+    }, []);
 
 
     return (
@@ -18,6 +24,11 @@ const ConfirmationButton = ({ toastTitle, buttonText, toastContent, }: ToastButt
                 className="inline-flex items-center justify-center rounded font-medium text-xs px-[15px] leading-[35px] h-full bg-white text-red9 shadow-[0_2px_10px] shadow-blackA7 outline-none hover:bg-mauve3 focus:shadow-[0_0_0_2px] focus:shadow-black"
                 onClick={() => {
                     setOpen(false);
+                    window.clearTimeout(timerRef.current);
+                    timerRef.current = window.setTimeout(() => {
+                        eventDateRef.current = oneWeekAway();
+                        setOpen(true);
+                    }, 100);
                 }}
             >
                 {buttonText}
@@ -43,5 +54,15 @@ const ConfirmationButton = ({ toastTitle, buttonText, toastContent, }: ToastButt
         </Toast.Provider>
     );
 };
+
+function oneWeekAway() {
+    const now = new Date();
+    const inOneWeek = now.setDate(now.getDate() + 7);
+    return new Date(inOneWeek);
+}
+
+function prettyDate(date) {
+    return new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'short' }).format(date);
+}
 
 export default ConfirmationButton;
