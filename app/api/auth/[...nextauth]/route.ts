@@ -2,6 +2,7 @@ import NextAuth, { NextAuthOptions } from "next-auth"
 import GoogleProvider from 'next-auth/providers/google'
 import DiscordProvider from 'next-auth/providers/discord'
 import CredentialsProvider from "next-auth/providers/credentials"
+import TwitterProvider from 'next-auth/providers/twitter';
 
 export const authOptions: NextAuthOptions = {
     // Configure one or more authentication providers
@@ -14,6 +15,10 @@ export const authOptions: NextAuthOptions = {
         DiscordProvider({
             clientId: process.env.DISCORD_CLIENT_ID,
             clientSecret: process.env.DISCORD_CLIENT_SECRET
+        }),
+        TwitterProvider({
+            clientId: process.env.TWITTER_CLIENT_ID,
+            clientSecret: process.env.TWITTER_CLIENT_SECRET
         }),
         CredentialsProvider({
             // The name to display on the sign in form (e.g. "Sign in with...")
@@ -38,7 +43,7 @@ export const authOptions: NextAuthOptions = {
                 });
 
                 const user = await response.json();
-                
+
                 if (response.ok && user) {
                     return user;
                 } else {

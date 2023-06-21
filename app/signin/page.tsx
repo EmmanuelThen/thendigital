@@ -4,6 +4,9 @@ import GoogleButton from '../components/GoogleButton'
 import SignInForm from '../components/SignInForm'
 import SignUpForm from '../components/SignUpForm'
 import AccountTabs from '../components/AccountTabs'
+import DiscordButton from '../components/DiscordButton'
+import TwitterButton from '../components/TwitterButton'
+import ConfirmationButton from '../components/ConfirmationButton'
 
 type Props = {}
 
@@ -18,6 +21,8 @@ const page = (props: Props) => {
                         <div className='flex flex-col items-center gap-3 '>
                             <SignInForm />
                             <GoogleButton />
+                            <DiscordButton />
+                            <TwitterButton />
                         </div>
                     </>
                 }
@@ -26,6 +31,8 @@ const page = (props: Props) => {
                         <div className='flex flex-col items-center gap-3 '>
                             <SignUpForm />
                             <GoogleButton />
+                            <DiscordButton />
+                            <TwitterButton />
                         </div>
                     </>
                 }

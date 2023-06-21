@@ -2,6 +2,7 @@
 import React from 'react';
 import * as Form from '@radix-ui/react-form';
 import Link from 'next/link';
+import ForgotPassword from '../signin/components/ForgotPassword';
 
 type Props = {}
 
@@ -50,7 +51,7 @@ const SignInForm = (props: Props) => {
                 </Form.Submit>
                 <div id='signup-terms' className='w-[300px] flex justify-center mt-2'>
                     <div className='text-[10px] text-slate10  text-center'>
-                        <Link href='forgotpassword' className='hover:underline hover:text-red9/80'>Forgot password?</Link>
+                        <ForgotPassword />
                     </div>
                 </div>
                 <div className='flex justify-center w-[300px] mt-10'>

@@ -10,10 +10,13 @@ type Props = {
     dialogTitle: any,
     dialogDesc: string,
     content: any,
-    saveButton: string,
+    saveButton: any,
+    buttonDisplay: string,
+    myOwnButtonDisplay: string,
+    myOwnButton: any
 }
 
-const DialogButton = ({ buttonText, dialogTitle, dialogDesc, content, saveButton  }: Props) => {
+const DialogButton = ({ buttonText, dialogTitle, dialogDesc, content, saveButton, buttonDisplay, myOwnButton, myOwnButtonDisplay }: Props) => {
 
     return (
         <Dialog.Root>
@@ -36,8 +39,13 @@ const DialogButton = ({ buttonText, dialogTitle, dialogDesc, content, saveButton
                     </div>
                     <div className="mt-[35px] flex justify-end">
                         <Dialog.Close asChild>
-                            <button className="bg-[#22c55e] text-white hover:bg-[#22c55e]/80 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:outline-none">
+                            <button className={`${buttonDisplay} bg-red9 text-white hover:bg-red9/80 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:outline-none`}>
                                 {saveButton}
+                            </button>
+                        </Dialog.Close>
+                        <Dialog.Close asChild>
+                            <button className={`${myOwnButtonDisplay}`}>
+                                {myOwnButton}
                             </button>
                         </Dialog.Close>
                     </div>
