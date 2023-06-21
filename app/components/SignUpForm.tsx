@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 type Props = {}
 
-const SignInForm = (props: Props) => {
+const SignUpForm = (props: Props) => {
     return (
         <div>
             <Form.Root className="w-[75%] p-2">
@@ -38,19 +38,45 @@ const SignInForm = (props: Props) => {
                     </div>
                     <Form.Control asChild>
                         <input
+                            type='password'
+                            pattern='/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=]).{8,}$/'
+                            className="box-border w-full bg-blackA5 shadow-blackA9 inline-flex appearance-none items-center justify-center rounded-[4px] p-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA9 resize-none"
+                            required
+                        />
+                    </Form.Control>
+                    <div id='password-requirements' className='text-[10px] text-slate8 ml-2 mt-1'>
+                        <p>At least 8 characters</p>
+                        <p>Mix of letters and numbers</p>
+                        <p>At least 1 special character</p>
+                        <p>At 1 lowercase letter and 1 uppercase letter</p>
+                    </div>
+                </Form.Field>
+                <Form.Field className="grid mb-[10px]" name="question">
+                    <div className="flex items-baseline justify-between w-[300px]">
+                        <Form.Label className="text-[15px] font-medium leading-[35px] text-slate10">
+                            Re-enter Password
+                        </Form.Label>
+                        <Form.Message className="text-[13px] text-red9" match="valueMissing">
+                            Passwords do not match
+                        </Form.Message>
+                    </div>
+                    <Form.Control asChild>
+                        <input
+                            type='password'
+                            pattern='/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=]).{8,}$/'
                             className="box-border w-full bg-blackA5 shadow-blackA9 inline-flex appearance-none items-center justify-center rounded-[4px] p-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA9 resize-none"
                             required
                         />
                     </Form.Control>
                 </Form.Field>
                 <Form.Submit asChild>
-                    <button className="w-[300px] box-border bg-red9 text-white hover:bg-red9/80 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none mt-[10px]">
-                        Sign in
+                    <button className="w-[300px]  box-border bg-red9 text-white hover:bg-red9/80 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none mt-5">
+                        Sign up
                     </button>
                 </Form.Submit>
                 <div id='signup-terms' className='w-[300px] flex justify-center mt-2'>
-                    <div className='text-[10px] text-slate10  text-center'>
-                        <Link href='forgotpassword' className='hover:underline hover:text-red9/80'>Forgot password?</Link>
+                    <div className='text-[10px] text-slate8 text-center'>
+                        By signing up, I accept ThenPixel's <Link href='termsofuse' className=' underline hover:text-red9/80'>terms of use.</Link>
                     </div>
                 </div>
                 <div className='flex justify-center w-[300px] mt-10'>
@@ -65,4 +91,4 @@ const SignInForm = (props: Props) => {
     )
 }
 
-export default SignInForm
+export default SignUpForm
