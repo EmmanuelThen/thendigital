@@ -36,7 +36,7 @@ const DashNavbar = () => {
                         </div>
                         <p className='hidden md:block'>client.name</p>
                         <div className='hidden md:flex justify-center mt-3'>
-                            <p className='px-1 rounded-md w-fit text-[9px]'>
+                            <div className='px-1 rounded-md w-fit text-[9px]'>
                                 <DialogButton
                                     buttonText='Edit'
                                     dialogTitle='Edit Profile'
@@ -45,7 +45,7 @@ const DashNavbar = () => {
                                     saveButton='Save changes'
 
                                 />
-                            </p>
+                            </div>
                         </div>
                     </div>
                     <div id='loginTabs' className='hidden md:flex flex-col gap-8 '>

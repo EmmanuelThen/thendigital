@@ -13,7 +13,7 @@ const AccountTabs = ({ firstTab, secondTab, firstTabContent, secondTabContent }:
 
     return (
         <Tabs.Root
-            className="rounded-lg border border-1 flex flex-col md:w-[500px] md:h-[700px] shadow-lg"
+            className="rounded-lg border border-1 flex flex-col md:w-[500px] shadow-lg"
             defaultValue="tab1"
         >
             <Tabs.List className="shrink-0 flex border-b border-mauve6" aria-label="Manage your account">
@@ -34,7 +34,7 @@ const AccountTabs = ({ firstTab, secondTab, firstTabContent, secondTabContent }:
                 className="flex flex-col items-center justify-center  grow p-5 bg-white rounded-b-md outline-none "
                 value="tab1"
             >
-                <div className='mb-[150px]'>logo</div>
+                
                 {firstTabContent}
             </Tabs.Content>
             <Tabs.Content

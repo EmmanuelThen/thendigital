@@ -15,6 +15,9 @@ import ArrowButton from './components/ArrowButton'
 export default function Home() {
   return (
     <>
+      <nav>
+        <Navbar />
+      </nav>
       <div className='color-div-container'>
         <ColorDiv />
       </div>

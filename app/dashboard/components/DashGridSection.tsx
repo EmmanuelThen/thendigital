@@ -38,7 +38,7 @@ const DashGridSection = (props: Props) => {
                 </div>
             </div>
 
-            <div id='cardGrid' className='flex flex-wrap justify-center gap-5 p-5'>
+            <div id='cardGrid' className='flex flex-wrap justify-center gap-5 p-5 '>
                 <div>
                     <DashCards
                         cardTitle='production tracker'

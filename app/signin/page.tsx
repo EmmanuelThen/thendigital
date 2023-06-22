@@ -8,6 +8,7 @@ import DiscordButton from '../components/DiscordButton'
 import TwitterButton from '../components/TwitterButton'
 import ConfirmationButton from '../components/ConfirmationButton'
 import ToastButton from '../dashboard/components/ToastButton'
+import Navbar from '../components/Navbar'
 
 export const metadata = {
     title: 'ThenSignin',
@@ -17,34 +18,43 @@ type Props = {}
 
 const page = (props: Props) => {
     return (
-        <div className='flex justify-center items-center h-[100vh] w-full' id='signinPage'>
-            <AccountTabs
-                firstTab='Sign In'
-                secondTab='Create Account'
-                firstTabContent={
-                    <>
-                        <div className='flex flex-col items-center gap-3 '>
-                            <SignInForm />
-                            <GoogleButton />
-                            <DiscordButton />
-                            <TwitterButton />
-                            
-                        </div>
-                    </>
-                }
-                secondTabContent={
-                    <>
-                        <div className='flex flex-col items-center gap-3 '>
-                            <SignUpForm />
-                            <GoogleButton />
-                            <DiscordButton />
-                            <TwitterButton />
-                        </div>
-                    </>
-                }
-            />
-        </div>
+        <>
+            <nav>
+                <Navbar />
+            </nav>
+            <div className='flex justify-center items-center h-[100vh] w-full text-xs md:text-base' id='signinPage'>
+
+                <AccountTabs
+                    firstTab='Sign In'
+                    secondTab='Create Account'
+                    firstTabContent={
+                        <>
+                            <div className='flex flex-col items-center gap-3 '>
+                                <SignInForm />
+                                <GoogleButton />
+                                <DiscordButton />
+                                <TwitterButton />
+
+                            </div>
+                        </>
+                    }
+                    secondTabContent={
+                        <>
+                            <div className='flex flex-col items-center gap-3 '>
+                                <SignUpForm />
+                                <GoogleButton />
+                                <DiscordButton />
+                                <TwitterButton />
+                            </div>
+                        </>
+                    }
+                />
+
+            </div>
+        </>
+
     )
 }
+
 
 export default page

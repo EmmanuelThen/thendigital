@@ -14,7 +14,9 @@ type Props = {}
 const page = (props: Props) => {
     return (
         <div className='w-full mx-[auto]'>
-            
+            <nav>
+              <Navbar />
+            </nav>
 
             <div className="relative isolate px-6 pt-10 lg:px-8">
                 <div

@@ -24,9 +24,7 @@ export default function RootLayout({
       <body>
         <NextAuthProvider>
           <AvatarProvider>
-            <nav>
-              <Navbar />
-            </nav>
+            
             <main className='grow'>
               {children}
             </main>
