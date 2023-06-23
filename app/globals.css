@@ -592,4 +592,26 @@ body {
     opacity: 1;
   }
 }
+/* In order to make a border radius with color gradient, that can be animated if necessary */
+#PCcard {
+  position: relative;
+  border-radius: 8px;
+}
 
+#PCcard::before, #PCcard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+#PCcard::after {
+  background-color: white ;
+  border-radius: 8px;
+}
+
+#PCcard::before {
+  background-image: linear-gradient(216deg, rgb(180, 39, 180), rgb(239, 26, 26),  hsl(358 75% 59%), rgb(20, 66, 235), rgb(64, 64, 234), #3b82f6);
+  margin: -0.05rem; /* works like border width now */
+  border-radius: 8px;
+}

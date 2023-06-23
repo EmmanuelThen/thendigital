@@ -80,7 +80,7 @@ const DashGridSection = (props: Props) => {
                 </div>
                 <div>
                     <DashCards
-                        cardTitle='Contact'
+                        cardTitle='Technical Support'
                         mainSection={<DashFileUpload />}
                         bgColor=''
                     />

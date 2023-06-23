@@ -5,9 +5,9 @@ type Props = {}
 
 const page = (props: Props) => {
   return (
-    <main className='flex'>
+    <div className='flex'>
         <Dashboard />
-    </main>
+    </div>
   )
 }
 

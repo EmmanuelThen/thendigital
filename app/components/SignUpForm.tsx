@@ -12,17 +12,17 @@ const SignUpForm = (props: Props) => {
                 <Form.Field className="grid mb-[10px]" name="email">
                     <div className="flex items-baseline justify-between w-[300px]">
                         
-                        <Form.Label className="text-[15px] font-medium leading-[35px] text-slate10">Email</Form.Label>
-                        <Form.Message className="text-[13px] text-red9" match="valueMissing">
+                        <Form.Label className="text-xs md:text-[15px] font-medium leading-[35px] text-slate10">Email</Form.Label>
+                        <Form.Message className="text-[10px] md:text-[13px] text-red9" match="valueMissing">
                             Please enter your email
                         </Form.Message>
-                        <Form.Message className="text-[13px] text-red9" match="typeMismatch">
+                        <Form.Message className="text-[10px] md:text-[13px] text-red9" match="typeMismatch">
                             Please provide a valid email
                         </Form.Message>
                     </div>
                     <Form.Control asChild>
                         <input
-                            className="box-border w-full bg-blackA5 shadow-blackA9 inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA9"
+                            className="box-border w-full bg-blackA5 shadow-blackA9 inline-flex h-[35px] appearance-none items-center justify-center rounded-[4px] px-[10px] text-xs md:text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA9"
                             type="email"
                             required
                         />
@@ -30,10 +30,10 @@ const SignUpForm = (props: Props) => {
                 </Form.Field>
                 <Form.Field className="grid mb-[10px]" name="question">
                     <div className="flex items-baseline justify-between w-[300px]">
-                        <Form.Label className="text-[15px] font-medium leading-[35px] text-slate10">
+                        <Form.Label className="text-xs md:text-[15px] font-medium leading-[35px] text-slate10">
                             Password
                         </Form.Label>
-                        <Form.Message className="text-[13px] text-red9" match="valueMissing">
+                        <Form.Message className="text-[10px] md:text-[13px] text-red9" match="valueMissing">
                             Please enter a valid password
                         </Form.Message>
                     </div>
@@ -41,11 +41,11 @@ const SignUpForm = (props: Props) => {
                         <input
                             type='password'
                             pattern='/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=]).{8,}$/'
-                            className="box-border w-full bg-blackA5 shadow-blackA9 inline-flex appearance-none items-center justify-center rounded-[4px] h-[35px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA9 resize-none"
+                            className="box-border w-full bg-blackA5 shadow-blackA9 inline-flex appearance-none items-center justify-center rounded-[4px] h-[35px] px-[10px] text-xs md:text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA9 resize-none"
                             required
                         />
                     </Form.Control>
-                    <div id='password-requirements' className='leading-snug text-[10px] text-slate8 ml-2 mt-1'>
+                    <div id='password-requirements' className='leading-snug text-[8px] md:text-[10px] text-slate8 ml-2 mt-1'>
                         <p>At least 8 characters</p>
                         <p>Mix of letters and numbers</p>
                         <p>At least 1 special character</p>
@@ -54,10 +54,10 @@ const SignUpForm = (props: Props) => {
                 </Form.Field>
                 <Form.Field className="grid mb-[10px]" name="question">
                     <div className="flex items-baseline justify-between w-[300px]">
-                        <Form.Label className="text-[15px] font-medium leading-[35px] text-slate10">
+                        <Form.Label className="text-xs md:text-[15px] font-medium leading-[35px] text-slate10">
                             Re-enter Password
                         </Form.Label>
-                        <Form.Message className="text-[13px] text-red9" match="valueMissing">
+                        <Form.Message className="text-[10px] md:text-[13px] text-red9" match="valueMissing">
                             Passwords do not match
                         </Form.Message>
                     </div>
@@ -65,7 +65,7 @@ const SignUpForm = (props: Props) => {
                         <input
                             type='password'
                             pattern='/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=]).{8,}$/'
-                            className="box-border w-full bg-blackA5 shadow-blackA9 inline-flex appearance-none items-center justify-center rounded-[4px] h-[35px] px-[10px] text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA9 resize-none"
+                            className="box-border w-full bg-blackA5 shadow-blackA9 inline-flex appearance-none items-center justify-center rounded-[4px] h-[35px] px-[10px] text-xs md:text-[15px] leading-none shadow-[0_0_0_1px] outline-none hover:shadow-[0_0_0_1px_black] focus:shadow-[0_0_0_2px_black] selection:color-white selection:bg-blackA9 resize-none"
                             required
                         />
                     </Form.Control>
