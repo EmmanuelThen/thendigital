@@ -38,7 +38,7 @@ const Dashboard = (props: Props) => {
                     <div className='hidden lg:flex'>
                         <div className='hidden lg:flex lg:flex-col items-center justify-between border-r-[1px] p-10 w-fit overflow-y-hidden h-screen'>
                             <div id='loginLogo' className='hidden lg:block'>
-                                <span className='font-semibold text-red9'>Then</span>
+                                <span className='font-semibold text-blue9'>Then</span>
                                 <span className='text-slate11'>Pixel</span>
                             </div>
                             <div id='loginName' className='hidden lg:flex lg:flex-col items-center font-semibold text-sm'>

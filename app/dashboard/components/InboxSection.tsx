@@ -42,6 +42,7 @@ const InboxSection = () => {
     const handleMessagInTrashClick = (i) => {
         const clickedMessageInTrash = inboxTrash[i].message;
         setTrashMessageFullDisplay(clickedMessageInTrash);
+        setSelectedMessageIndex(i);
     }
 
     // When a trash can is clicked in Inbox
@@ -83,16 +84,12 @@ const InboxSection = () => {
         setSelectedMessageIndex(nextIndex);
     };
 
-
-
-
-
-
     // Button to permanently delete all trashed messages
     const handleEmptyTrashClick = () => {
         setInboxTrash([]);
         setTrashMessageFullDisplay('No message selected')
     }
+
     // Button in fullDisplay view that deletes the current message that is being seen
     const handleDeleteButtonWithMessageInView = () => {
         const currentIndex = selectedMessageIndex;
@@ -124,8 +121,9 @@ const InboxSection = () => {
         setGreenDotDisplay('hidden');
     }
 
+    // To disable delete current message in display button while there is no message in display
     const isButtonDisabled = messageFullDisplay === 'No message selected';
-
+    // To disble clear notification button when there are no new messages
     const isNotificationButtonDisabled = inboxMessage.length < 0
 
     return (
@@ -148,13 +146,13 @@ const InboxSection = () => {
                         <div className="ml-1 outline outline-1 rounded-lg shadow-md lg:max-w-[1275px]">
                             <Tabs.List className="shrink-0 flex border-b border-mauve6 w-full hover:cursor-pointer" aria-label="Manage your account">
                                 <Tabs.Trigger
-                                    className="w-[50%]  bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-[15px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-red9 data-[state=active]:text-red9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative  outline-none hover:cursor-pointer"
+                                    className="w-[50%]  bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-[15px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-blue9 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative  outline-none hover:cursor-pointer"
                                     value="tab1"
                                 >
                                     Inbox
                                 </Tabs.Trigger>
                                 <Tabs.Trigger
-                                    className="w-[50%] bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-[15px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-red9 data-[state=active]:text-red9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative  outline-none hover:cursor-pointer"
+                                    className="w-[50%] bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-[15px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-blue9 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative  outline-none hover:cursor-pointer"
                                     value="tab2"
                                 >
                                     Trash
@@ -170,7 +168,7 @@ const InboxSection = () => {
                                                     <div className="p-2" key={i}>
                                                         <div
                                                             className={
-                                                                `${selectedMessageIndex === i ? 'outline outline-1 outline-red9' : ''
+                                                                `${selectedMessageIndex === i ? 'outline outline-1 outline-blue9' : ''
                                                                 } scale-in-center max-w-[385px] shadow-md bg-slate2 rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 p-5`
                                                             }
                                                             onClick={() => handleMessageClick(i)}
@@ -178,7 +176,7 @@ const InboxSection = () => {
                                                             {message.read ? (
                                                                 ''
                                                             ) : (
-                                                                <p className={`${greenDotDisplay} text-[#22c55e]`}>•</p>
+                                                                <p className={`${greenDotDisplay} text-blue9`}>•</p>
                                                             )}
                                                             <p className="truncate text-sm ml-2">{message.message}</p>
                                                         </div>
@@ -230,8 +228,8 @@ const InboxSection = () => {
                                                         className='bg-slate8 hover:bg-slate8/80 text-white inline-flex h-[35px] items-center justify-center gap-2 rounded-[4px] px-[15px] font-light leading-none focus:outline-none'
                                                     >
                                                         Clear notifications
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="#22c55e" className="w-6 h-6">
-                                                            <path fill='#22c55e' strokeLinecap="round" strokeLinejoin="round" d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="hsl(206 100% 50.0%)" className="w-6 h-6">
+                                                            <path fill='hsl(206 100% 50.0%)' strokeLinecap="round" strokeLinejoin="round" d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                                         </svg>
                                                     </button>
                                                     :
@@ -256,7 +254,7 @@ const InboxSection = () => {
                                                         </>
                                                     }
                                                     dialogTitle='Delete message'
-                                                    dialogDesc={`Are you sure you want to delete this message, this can't be undone.`}
+                                                    dialogDesc={`Are you sure you want to delete this message?`}
                                                 />
                                             </div>
                                         </div>
@@ -275,7 +273,10 @@ const InboxSection = () => {
                                                 <div className='flex items-center'>
                                                     <div className="p-2" key={i}>
                                                         <div
-                                                            className="scale-in-center max-w-[385px] shadow-md  bg-slate2  rounded-lg mb-1 flex justify-between  items-center hover:cursor-pointer hover:bg-slate4 p-5"
+                                                            className={
+                                                                `${selectedMessageIndex === i ? 'outline outline-1 outline-blue9' : ''
+                                                                } scale-in-center max-w-[385px] shadow-md bg-slate2 rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 p-5`
+                                                            }
                                                             onClick={() => handleMessagInTrashClick(i)}
                                                         >
                                                             {message.read
@@ -283,7 +284,7 @@ const InboxSection = () => {
                                                                 // Check icon
                                                                 ''
                                                                 :
-                                                                <p className={`${greenDotDisplay} text-[#22c55e]`}>•</p>
+                                                                <p className={`${greenDotDisplay} text-blue9`}>•</p>
                                                             }
                                                             <p className="truncate text-sm ml-2">{message.message}</p>
                                                         </div>

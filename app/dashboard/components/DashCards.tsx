@@ -10,10 +10,10 @@ type Props = {
 
 const DashCards = ({ cardTitle, mainSection, bgColor }: Props) => {
     return (
-        <div id='CARD' className={`${bgColor} flex flex-col justify-between p-5 rounded-lg shadow-blackA9 shadow-[0_4px_7px] w-[400px] h-[350px]`}>
+        <div id='CARD' className={`${bgColor} flex flex-col justify-between p-5 rounded-lg shadow-blackA9 shadow-[0_4px_7px] w-[375px] h-[350px]`}>
             <div className='flex justify-between capitalize'>
                 <div className='flex items-center'>
-                    <div className='font-medium text-red9'>{cardTitle}</div>
+                    <div className='font-medium text-blue9'>{cardTitle}</div>
                 </div>
                 {/*<button
                     className="rounded-full w-[35px] h-[35px] inline-flex items-center justify-center bg-white shadow-[0_2px_10px] shadow-blackA7 outline-none hover:bg-slate2"

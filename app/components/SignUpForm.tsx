@@ -71,13 +71,13 @@ const SignUpForm = (props: Props) => {
                     </Form.Control>
                 </Form.Field>
                 <Form.Submit asChild>
-                    <button className="w-[300px]  box-border bg-red9 text-white hover:bg-red9/80 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none mt-5">
+                    <button className="w-[300px]  box-border bg-blue9 text-white hover:bg-blue9/80 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none mt-5">
                         Sign up
                     </button>
                 </Form.Submit>
                 <div id='signup-terms' className='w-[300px] flex justify-center mt-2'>
                     <div className='text-[10px] text-slate8 text-center'>
-                        By signing up, I accept ThenPixel's <Link href='termsofuse' className=' underline hover:text-red9/80'>terms of use.</Link>
+                        By signing up, I accept ThenPixel's <Link href='termsofuse' className=' underline hover:text-blue9/80'>terms of use.</Link>
                     </div>
                 </div>
                 <div className='flex justify-center w-[300px] mt-10'>

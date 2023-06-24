@@ -56,7 +56,7 @@ const ForgotPasswordModal = ({ }: Props) => {
                 </div>
                 <div className='flex justify-center w-full'>
                     <button onClick={handleButtonClickConfirmation}
-                        className={` bg-red9 text-white hover:bg-red9/80 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:outline-none`}
+                        className={` bg-blue9 text-white hover:bg-blue9/80 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:outline-none`}
                         disabled={isButtonDisabled}
                     >
                         Continue

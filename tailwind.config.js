@@ -1,5 +1,5 @@
 const plugin = require('tailwindcss/plugin');
-const { blackA, mauve, indigo, purple, red, slate, green, violet } = require('@radix-ui/colors');
+const { blackA, mauve, indigo, purple, red, slate, green, violet, blue } = require('@radix-ui/colors');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -19,6 +19,7 @@ module.exports = {
         ...slate,
         ...green,
         ...violet,
+        ...blue
       },
       keyframes: {
         enterFromRight: {

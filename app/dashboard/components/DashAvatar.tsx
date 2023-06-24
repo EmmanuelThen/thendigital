@@ -25,7 +25,7 @@ const DashAvatar = ({ iconHeight, iconWidth }: Props) => {
                     alt="Avatar"
                 />
                 <Avatar.Fallback
-                    className="text-red9 leading-1 flex h-full w-full items-center justify-center bg-white text-[15px] font-medium"
+                    className="text-blue9 leading-1 flex h-full w-full items-center justify-center bg-white text-[15px] font-medium"
                     delayMs={600}
                 >
                     CT{/** Use client first-name[0] and last-name[0] initials when you add logins */}
