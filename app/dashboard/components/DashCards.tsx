@@ -15,12 +15,12 @@ const DashCards = ({ cardTitle, mainSection, bgColor }: Props) => {
                 <div className='flex items-center'>
                     <div className='font-medium text-red9'>{cardTitle}</div>
                 </div>
-                <button
+                {/*<button
                     className="rounded-full w-[35px] h-[35px] inline-flex items-center justify-center bg-white shadow-[0_2px_10px] shadow-blackA7 outline-none hover:bg-slate2"
                     aria-label="Customise options"
                 >
                     <ExternalLinkIcon />
-                </button>
+    </button>*/}
             </div>
 
             <div id='mainSection' className='flex justify-center items-center p-5'>

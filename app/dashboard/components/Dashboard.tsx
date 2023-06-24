@@ -35,18 +35,18 @@ const Dashboard = (props: Props) => {
         <div className='flex w-full'>
             <div className='fixed h-screen '>
                 <>
-                    <div className='hidden md:flex'>
-                        <div className='hidden md:flex md:flex-col items-center justify-between border-r-[1px] p-10 w-fit overflow-y-hidden h-screen'>
-                            <div id='loginLogo' className='hidden md:block'>
+                    <div className='hidden lg:flex'>
+                        <div className='hidden lg:flex lg:flex-col items-center justify-between border-r-[1px] p-10 w-fit overflow-y-hidden h-screen'>
+                            <div id='loginLogo' className='hidden lg:block'>
                                 <span className='font-semibold text-red9'>Then</span>
                                 <span className='text-slate11'>Pixel</span>
                             </div>
-                            <div id='loginName' className='hidden md:flex md:flex-col items-center font-semibold text-sm'>
+                            <div id='loginName' className='hidden lg:flex lg:flex-col items-center font-semibold text-sm'>
                                 <div id='loginAvatar' className='mb-5'>
                                     <DashAvatar iconHeight='h-[65px]' iconWidth='w-[65px]' />
                                 </div>
-                                <p className='hidden md:block'>client.name</p>
-                                <div className='hidden md:flex justify-center mt-3'>
+                                <p className='hidden lg:block'>client.name</p>
+                                <div className='hidden lg:flex justify-center mt-3'>
                                     <div className='px-1 rounded-md w-fit text-[9px]'>
                                         <DialogButton
                                             buttonText='Edit'
@@ -63,7 +63,7 @@ const Dashboard = (props: Props) => {
                                 </div>
                             </div>
 
-                            <div id='loginTabs' className='hidden md:flex flex-col gap-8 '>
+                            <div id='loginTabs' className='hidden lg:flex flex-col gap-8 '>
 
                                 <button
                                     value={value}
@@ -112,19 +112,19 @@ const Dashboard = (props: Props) => {
                                 </button>
 
                             </div>
-                            <div className='hidden md:block'>
+                            <div className='hidden lg:block'>
                                 <Toggle />
                             </div>
                         </div>
                     </div>
 
-                    <div className='md:hidden w-[100vw]'>
+                    <div className='lg:hidden w-[100vw]'>
                         {/** Mobile screen nav */}
                         <div>
                             <DashMobileNavbar />
                         </div>
                         <div id='greeting' className='p-5'>
-                            <div className=''>
+                            <div className='md:text-center'>
                                 <ShinyText text='Welcome Client Name' />
                             </div>
                         </div>
@@ -134,7 +134,7 @@ const Dashboard = (props: Props) => {
                                 title2='PixelCare'
                                 title3='order history'
                                 title4='contracts & docs'
-                                title5='PixelCare'
+                                title5='Messages'
                                 title6='performance'
                             />
                             <div>
@@ -147,7 +147,7 @@ const Dashboard = (props: Props) => {
                     </div>
                 </>
             </div>
-            <section className='hidden md:block'>
+            <section className='ml-[220px] hidden lg:block'>
                 {(() => {
                     if (value === 'dashboard') {
                         return <DashGridSection />;

@@ -6,7 +6,7 @@ import EditTabs from './EditTabs';
 
 
 type Props = {
-    buttonText: string,
+    buttonText: any,
     dialogTitle: any,
     dialogDesc: string,
     content: any,
@@ -14,15 +14,16 @@ type Props = {
     buttonDisplay: string,
     myOwnButtonDisplay: string,
     myOwnButton: any
+    onClickfunction: any
 }
 
-const DialogButton = ({ buttonText, dialogTitle, dialogDesc, content, saveButton, buttonDisplay, myOwnButton, myOwnButtonDisplay }: Props) => {
+const DialogButton = ({ buttonText, dialogTitle, dialogDesc, content, saveButton, buttonDisplay, myOwnButton, myOwnButtonDisplay, onClickfunction }: Props) => {
     
 
     return (
         <Dialog.Root>
             <Dialog.Trigger asChild>
-                <button className="text-red9 shadow-blackA7 hover:bg-slate2 inline-flex  items-center justify-center rounded-md bg-white py-2 px-[15px] font-medium leading-none shadow-[0_2px_10px] focus:outline-none">
+                <button className="text-red9 hover:opacity-80 inline-flex  items-center justify-center rounded-md bg-white py-2 px-[15px] font-medium leading-none {shadow-[0_2px_10px]} focus:outline-none">
                     {buttonText}
                 </button>
             </Dialog.Trigger>
@@ -40,7 +41,7 @@ const DialogButton = ({ buttonText, dialogTitle, dialogDesc, content, saveButton
                     </div>
                     <div className="mt-[35px] flex justify-end">
                         <Dialog.Close asChild className={`${buttonDisplay}`}>
-                            <button className={`bg-red9 text-white hover:bg-red9/80 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:outline-none`}>
+                            <button onClick={onClickfunction} className={`bg-red9 text-white hover:bg-red9/80 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:outline-none`}>
                                 {saveButton}
                             </button>
                         </Dialog.Close>
