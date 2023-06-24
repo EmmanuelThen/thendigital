@@ -16,15 +16,16 @@ type Props = {
     myOwnButton: any
     onClickfunction: any
     disabled: any
+    saveButtonColor: any
 }
 
-const DialogButton = ({ buttonText, dialogTitle, dialogDesc, content, saveButton, buttonDisplay, myOwnButton, myOwnButtonDisplay, onClickfunction, disabled }: Props) => {
+const DialogButton = ({ buttonText, dialogTitle, dialogDesc, content, saveButton, buttonDisplay, myOwnButton, myOwnButtonDisplay, onClickfunction, disabled, saveButtonColor }: Props) => {
     
 
     return (
         <Dialog.Root>
             <Dialog.Trigger asChild>
-                <button disabled={disabled} className="text-blue9 hover:opacity-80 inline-flex  items-center justify-center rounded-md bg-white py-2 px-[15px] font-medium leading-none {shadow-[0_2px_10px]} focus:outline-none">
+                <button disabled={disabled} className="text-blue9 hover:opacity-80 inline-flex  items-center justify-center font-medium leading-none {shadow-[0_2px_10px]} focus:outline-none">
                     {buttonText}
                 </button>
             </Dialog.Trigger>
@@ -42,7 +43,7 @@ const DialogButton = ({ buttonText, dialogTitle, dialogDesc, content, saveButton
                     </div>
                     <div className="mt-[35px] flex justify-end">
                         <Dialog.Close asChild className={`${buttonDisplay}`}>
-                            <button disabled={disabled} onClick={onClickfunction} className={`bg-blue9 text-white hover:bg-blue9/80 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:outline-none`}>
+                            <button disabled={disabled} onClick={onClickfunction} className={`${saveButtonColor} text-white hover:${saveButtonColor}/80 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:outline-none`}>
                                 {saveButton}
                             </button>
                         </Dialog.Close>
@@ -54,7 +55,7 @@ const DialogButton = ({ buttonText, dialogTitle, dialogDesc, content, saveButton
                     </div>
                     <Dialog.Close asChild>
                         <button
-                            className="text-blue9 hover:bg-slate2 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:outline-none"
+                            className="text-slate10 hover:bg-slate2 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:outline-none"
                             aria-label="Close"
                         >
                             <Cross2Icon />

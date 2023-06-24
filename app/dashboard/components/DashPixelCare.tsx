@@ -63,6 +63,7 @@ const DashPixelCare = (props: Props) => {
                   dialogDesc='Choose your tier'
                   content={<SubTiers />}
                   saveButton='Purchase'
+                  saveButtonColor='bg-blue9'
                 />
               </button>
             </div>
