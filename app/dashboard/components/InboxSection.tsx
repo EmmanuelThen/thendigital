@@ -1,9 +1,11 @@
-import React, { use, useState } from 'react';
+import React, { useState } from 'react';
 import * as Tabs from '@radix-ui/react-tabs';
 import ShinyText from '@/app/components/ShinyText';
 import DialogButton from '@/app/components/DialogButton';
+import PopoverButton from '@/app/components/PopoverButton';
 
 const InboxSection = () => {
+    const [selectedMessageIndex, setSelectedMessageIndex] = useState(-1);
     const [messageFullDisplay, setMessageFullDisplay] = useState('No message selected');
     const [inboxMessage, setInboxMessage] = useState([
         { message: 'Your order has been successflyy received. we will get back to you within 2-4 business days. thank you!' },
@@ -19,12 +21,16 @@ const InboxSection = () => {
         { message: 'I apologize for the inconvenience. To troubleshoot the issue with the trash can functionality, here are a few steps you can take:sasaasas' },
         { message: 'Remember to provide specific details about the issue you are facing when contacting customer support. This will help them understand the problem better and provide a quicker resolution.' },
     ]);
-    const [trashMessageFullDisplay, setTrashMessageFullDisplay] = useState('No message selected')
+    const [trashMessageFullDisplay, setTrashMessageFullDisplay] = useState('No message selected');
     const [inboxTrash, setInboxTrash] = useState([]);
+    const [greenDotDisplay, setGreenDotDisplay] = useState('')
 
+    // To view Inbox message in full display
     const handleMessageClick = (i: any) => {
         const clickedMessage = inboxMessage[i].message;
         setMessageFullDisplay(clickedMessage);
+        //To make red border on messaged currently clicked
+        setSelectedMessageIndex(i);
 
         // Mark the message as read
         const updatedInboxMessage = [...inboxMessage];
@@ -32,31 +38,109 @@ const InboxSection = () => {
         setInboxMessage(updatedInboxMessage);
     };
 
+    // To view trash message in full display
     const handleMessagInTrashClick = (i) => {
         const clickedMessageInTrash = inboxTrash[i].message;
         setTrashMessageFullDisplay(clickedMessageInTrash);
     }
 
+    // When a trash can is clicked in Inbox
     const handleTrashCanClick = (i: any) => {
         const trashedMessage = inboxMessage[i];
+
         // Mark the message as read
         const updatedInboxTrashMessage = [...inboxMessage];
         updatedInboxTrashMessage[i].read = true;
         setInboxMessage(updatedInboxTrashMessage);
 
+        // To remove from previous array (inbox)
         setInboxTrash((prevTrash) => [...prevTrash, trashedMessage]);
-        setInboxMessage((prevMessages) => prevMessages.filter((_, index) => index !== i)); //To remove from previous array (inbox)
+        setInboxMessage((prevMessages) => prevMessages.filter((_, index) => index !== i));
+
+        // Check if the deleted message is the last one
+        if (i === inboxMessage.length - 1) {
+            setMessageFullDisplay('No message selected');
+        } else {
+            // Set the Full display message to the message right under the deleted message since it's deleted now.
+            const clickedMessage = inboxMessage[i + 1].message;
+            setMessageFullDisplay(clickedMessage);
+        }
     };
 
+    //When right arrow is clicked to show next message
+    const handleRightArrowClick = () => {
+        if (selectedMessageIndex < inboxMessage.length - 1) {
+            const nextMessage = inboxMessage[selectedMessageIndex + 1].message;
+            setMessageFullDisplay(nextMessage);
+            setSelectedMessageIndex(selectedMessageIndex + 1);
+        }
+    };
+    //When left arrow is clicked to show prev message but can loop around after reaching the last message
+    const handleLeftArrowClick = () => {
+        const nextIndex = (selectedMessageIndex - 1 + inboxMessage.length) % inboxMessage.length;
+        const nextMessage = inboxMessage[nextIndex].message;
+        setMessageFullDisplay(nextMessage);
+        setSelectedMessageIndex(nextIndex);
+    };
+
+
+
+
+
+
+    // Button to permanently delete all trashed messages
     const handleEmptyTrashClick = () => {
         setInboxTrash([]);
         setTrashMessageFullDisplay('No message selected')
     }
+    // Button in fullDisplay view that deletes the current message that is being seen
+    const handleDeleteButtonWithMessageInView = () => {
+        const currentIndex = selectedMessageIndex;
+        const updatedInboxMessage = [...inboxMessage];
+        const deletedMessage = updatedInboxMessage[currentIndex];
+
+        // Add the deleted message to the inboxTrash array
+        const updatedInboxTrash = [...inboxTrash, deletedMessage];
+
+        // Remove the current message from the inboxMessage array
+        updatedInboxMessage.splice(currentIndex, 1);
+
+        setInboxMessage(updatedInboxMessage);
+        setInboxTrash(updatedInboxTrash);
+
+        if (updatedInboxMessage.length === 0) {
+            setSelectedMessageIndex(null);
+            setMessageFullDisplay('');
+        } else if (currentIndex === updatedInboxMessage.length) {
+            setSelectedMessageIndex(0);
+            setMessageFullDisplay(updatedInboxMessage[0].message);
+        } else {
+            setSelectedMessageIndex(currentIndex);
+            setMessageFullDisplay(updatedInboxMessage[currentIndex].message);
+        }
+    };
+
+    const handleDeleteNotificationButtonClick = () => {
+        setGreenDotDisplay('hidden');
+    }
+
+    const isButtonDisabled = messageFullDisplay === 'No message selected';
+
+    const isNotificationButtonDisabled = inboxMessage.length < 0
 
     return (
         <div className="">
-            <div className="ml-2 w-screen">
+            <div className=" flex items-center justify-between ml-2 w-[1275px]">
                 <ShinyText text="Messages" />
+                <div className='notificationBell relative'>
+                    <div id='notificationDot' className='absolute h-[12px] w-[12px] bg-red9 rounded-full right-0 top-0' />
+                    <PopoverButton icon={
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" className="w-5 h-5">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                        </svg>
+                    }
+                    />
+                </div>
             </div>
             <div>
                 <Tabs.Root defaultValue="tab1" orientation="vertical">
@@ -85,16 +169,17 @@ const InboxSection = () => {
                                                 <div className='flex items-center'>
                                                     <div className="p-2" key={i}>
                                                         <div
-                                                            className="scale-in-center max-w-[385px] shadow-md  bg-slate2  rounded-lg mb-1 flex justify-between  items-center hover:cursor-pointer hover:bg-slate4 p-5"
+                                                            className={
+                                                                `${selectedMessageIndex === i ? 'outline outline-1 outline-red9' : ''
+                                                                } scale-in-center max-w-[385px] shadow-md bg-slate2 rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 p-5`
+                                                            }
                                                             onClick={() => handleMessageClick(i)}
                                                         >
-                                                            {message.read
-                                                                ?
-                                                                // Check icon
-                                                                <svg width="16" height="16" stroke='currentColor' viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-                                                                :
-                                                                <p className="text-[#22c55e]">•</p>
-                                                            }
+                                                            {message.read ? (
+                                                                ''
+                                                            ) : (
+                                                                <p className={`${greenDotDisplay} text-[#22c55e]`}>•</p>
+                                                            )}
                                                             <p className="truncate text-sm ml-2">{message.message}</p>
                                                         </div>
                                                     </div>
@@ -106,31 +191,55 @@ const InboxSection = () => {
                                                 </div>
                                             ))
                                         ) : (
-                                            <div className="flex justify-center items-center h-full">
+                                            <div className="flex flex-col justify-center items-center h-full">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="0.7" stroke="hsl(205 10.7% 78.0%)" className="w-20 h-20">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z" />
+                                                </svg>
                                                 <h1 className="font-light text-4xl text-slate8">Inbox is empty</h1>
+
+
                                             </div>
                                         )}
                                     </div>
-                                    <div className="hidden lg:block p-5 ml-3 outline outline-1 w-[65%] h-full overflow-y-hidden rounded-lg">
-                                        <div className='w-full flex justify-between items-center'>
+                                    <div className="hidden lg:block p-5 ml-3 shadow-lg border border-1 w-[65%] h-full overflow-y-hidden rounded-lg">
+                                        <div className='w-full flex justify-between items-center mb-1'>
                                             {/** Double arrows */}
-                                            <div className='flex gap-2'>
-                                                <div className='border border-1 rounded-[4px] bg-slate2 hover:bg-slate4 hover:cursor-pointer'>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" className="w-6 h-6">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                                                    </svg>
+                                            {inboxMessage.length > 0 ?
+                                                <div className='flex gap-2'>
+                                                    <div onClick={handleLeftArrowClick} className='border border-1 rounded-[4px] bg-slate2 hover:bg-slate4 hover:cursor-pointer'>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" className="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                                                        </svg>
 
+                                                    </div>
+                                                    <div onClick={handleRightArrowClick} className='border border-1 rounded-[4px] bg-slate2 hover:bg-slate4 hover:cursor-pointer'>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" className="w-6 h-6">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    </div>
                                                 </div>
-                                                <div className='border border-1 rounded-[4px] bg-slate2 hover:bg-slate4 hover:cursor-pointer'>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" className="w-6 h-6">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                            {/** Reply and delete button */}
-                                            <div className='flex  mb-2'>
+                                                :
+                                                ''
+                                            }
+                                            {/** clearNotifications and Delete button */}
+                                            <div className='flex items-center  mb-2'>
+                                                {inboxMessage.length > 0 ? //Button will only show when there is a message in the trash inbox
+                                                    <button onClick={handleDeleteNotificationButtonClick}
+                                                        disabled={isNotificationButtonDisabled}
+                                                        type='button'
+                                                        className='bg-slate8 hover:bg-slate8/80 text-white inline-flex h-[35px] items-center justify-center gap-2 rounded-[4px] px-[15px] font-light leading-none focus:outline-none'
+                                                    >
+                                                        Clear notifications
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="#22c55e" className="w-6 h-6">
+                                                            <path fill='#22c55e' strokeLinecap="round" strokeLinejoin="round" d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                        </svg>
+                                                    </button>
+                                                    :
+                                                    ''
+                                                }
                                                 <DialogButton
-                                                    onClickfunction={handleEmptyTrashClick}
+                                                    onClickfunction={handleDeleteButtonWithMessageInView}
+                                                    disabled={isButtonDisabled}
                                                     saveButton='Continue'
                                                     buttonText={
                                                         <>
@@ -151,8 +260,8 @@ const InboxSection = () => {
                                                 />
                                             </div>
                                         </div>
-                                        <div className=" p-2 flex justify-center items-center outline outline-1">
-                                            <div className=''>{messageFullDisplay}</div>
+                                        <div className=" p-2 flex justify-center items-center">
+                                            <div className='font-light text-4xl'>{messageFullDisplay}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -172,9 +281,9 @@ const InboxSection = () => {
                                                             {message.read
                                                                 ?
                                                                 // Check icon
-                                                                <svg width="16" height="16" stroke='currentColor' viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.4669 3.72684C11.7558 3.91574 11.8369 4.30308 11.648 4.59198L7.39799 11.092C7.29783 11.2452 7.13556 11.3467 6.95402 11.3699C6.77247 11.3931 6.58989 11.3355 6.45446 11.2124L3.70446 8.71241C3.44905 8.48022 3.43023 8.08494 3.66242 7.82953C3.89461 7.57412 4.28989 7.55529 4.5453 7.78749L6.75292 9.79441L10.6018 3.90792C10.7907 3.61902 11.178 3.53795 11.4669 3.72684Z" fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                                                                ''
                                                                 :
-                                                                <p className="text-[#22c55e]">•</p>
+                                                                <p className={`${greenDotDisplay} text-[#22c55e]`}>•</p>
                                                             }
                                                             <p className="truncate text-sm ml-2">{message.message}</p>
                                                         </div>
@@ -183,12 +292,15 @@ const InboxSection = () => {
                                                 </div>
                                             ))
                                         ) : (
-                                            <div className="flex justify-center items-center h-full">
+                                            <div className="flex flex-col justify-center items-center h-full">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="0.7" stroke="hsl(205 10.7% 78.0%)" className="w-20 h-20">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z" />
+                                                </svg>
                                                 <h1 className="font-light text-4xl text-slate8">Trash is empty</h1>
                                             </div>
                                         )}
                                     </div>
-                                    <div className="hidden lg:block p-5 ml-3 outline outline-1 w-[65%] h-full overflow-y-hidden rounded-lg">
+                                    <div className="hidden lg:block p-5 ml-3 shadow-lg border border-1 w-[65%] h-full overflow-y-hidden rounded-lg">
                                         <div className='flex justify-end pb-2'>
                                             <DialogButton
                                                 onClickfunction={handleEmptyTrashClick}
@@ -209,10 +321,15 @@ const InboxSection = () => {
                                                 }
                                                 dialogTitle='Empty trash'
                                                 dialogDesc={`Are you sure you want to delete all your messages, this can't be undone.`}
+                                                content=''
+                                                buttonDisplay=''
+                                                myOwnButtonDisplay=''
+                                                myOwnButton=''
+                                                disabled=''
                                             />
                                         </div>
-                                        <div className="p-2 flex justify-center items-center outline outline-1">
-                                            <div>{trashMessageFullDisplay}</div>
+                                        <div className="p-2 flex justify-center items-center ">
+                                            <div className='font-light text-4xl '>{trashMessageFullDisplay}</div>
                                         </div>
                                     </div>
                                 </div>
