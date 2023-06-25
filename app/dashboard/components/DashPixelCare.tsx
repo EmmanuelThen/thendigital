@@ -43,7 +43,7 @@ const DashPixelCare = (props: Props) => {
         (
           <div>
             <div className='flex flex-col gap-2 mb-10'>
-              <h1 className='font-light text-3xl tracking-[-0.06em]'>What are you waiting for?</h1>
+              <h1 className='font-light text-3xl tracking-[-0.06em] text-center'>What are you waiting for?</h1>
               <p className='text-slate10 text-xs font-medium'>
                 Maintain and secure your investment the correct way!
               </p>
