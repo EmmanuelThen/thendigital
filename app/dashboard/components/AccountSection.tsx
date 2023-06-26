@@ -45,24 +45,24 @@ const AccountSection = (props: Props) => {
                 </div>
             </div>
             <Tabs.Root className='mt-10' defaultValue="tab1" orientation="vertical">
-                <Tabs.List className='flex items-center gap-20 ml-2' aria-label="tabs">
-                    <Tabs.Trigger value="tab1" className='text-2xl data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
+                <Tabs.List className='flex items-center gap-20 ml-2 bg-white' aria-label="tabs">
+                    <Tabs.Trigger value="tab1" className='uppercase tracking-[5px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
                         My Profile
                     </Tabs.Trigger>
-                    <Tabs.Trigger value="tab2" className='text-2xl data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
+                    <Tabs.Trigger value="tab2" className='uppercase tracking-[5px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
                         Membership & Billing
                     </Tabs.Trigger>
-                    <Tabs.Trigger value="tab3" className='text-2xl data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
+                    <Tabs.Trigger value="tab3" className='uppercase tracking-[5px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
                         PixelCare
                     </Tabs.Trigger>
-                    <Tabs.Trigger value="tab4" className='text-2xl text-red9 data-[state=active]:text-red9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
+                    <Tabs.Trigger value="tab4" className='uppercase tracking-[5px] text-red9 data-[state=active]:text-red9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
                         Delete Account
                     </Tabs.Trigger>
                 </Tabs.List>
                 <Tabs.Content value="tab1">
                     <div className='flex flex-col gap-5 p-10 overflow-y-scroll'>
                         {/** First Card */}
-                        <div className='flex justify-between items-center rounded-lg border border-1 shadow-lg'>
+                        <div className='flex justify-between items-center rounded-lg border border-1 shadow-lg bg-white'>
                             <div className='flex'>
                                 <div className=' p-5'>
                                     <DashAvatar
@@ -99,7 +99,7 @@ const AccountSection = (props: Props) => {
                             </div>
                         </div>
                         {/** Second Card */}
-                        <div className='rounded-lg border border-1 shadow-lg p-5'>
+                        <div className='rounded-lg border border-1 shadow-lg p-5 bg-white'>
                             <div className='flex justify-between mb-10'>
                                 <h1 className='text-blue9 font-medium'>Personal Information</h1>
                                 <div className=''>
@@ -147,7 +147,7 @@ const AccountSection = (props: Props) => {
                             </div>
                         </div>
                         {/** Third Card */}
-                        <div className='rounded-lg border border-1 shadow-lg p-5'>
+                        <div className='rounded-lg border border-1 shadow-lg p-5 bg-white'>
                             <div className='flex justify-between mb-10'>
                                 <h1 className='text-blue9 font-medium'>Email Notifications</h1>
                                 {/** Toggle all button */}
@@ -229,7 +229,7 @@ const AccountSection = (props: Props) => {
                 <Tabs.Content value="tab2">
                     <div className='flex flex-col gap-5 p-10'>
                         {/** Card One Billing */}
-                        <div className='flex justify-between items-center rounded-lg border border-1 shadow-lg'>
+                        <div className='flex justify-between items-center rounded-lg border border-1 shadow-lg bg-white'>
                             <div className='flex'>
                                 <div className='p-5'>
                                     <div>
@@ -287,7 +287,7 @@ const AccountSection = (props: Props) => {
                             </div>
                         </div>
                         {/** Card Two Billing*/}
-                        <div className='rounded-lg border border-1 shadow-lg p-5'>
+                        <div className='rounded-lg border border-1 shadow-lg p-5 bg-white'>
                             <div className='flex justify-between mb-10'>
                                 <h1 className='text-blue9 font-medium'>Membership Information</h1>
                                 <div className=''>
@@ -391,7 +391,7 @@ const AccountSection = (props: Props) => {
                             </div>
                         </div>
                         {/** Card Three Billing */}
-                        <div className='rounded-lg border border-1 shadow-lg p-5'>
+                        <div className='rounded-lg border border-1 shadow-lg p-5 bg-white'>
                             <div className='flex justify-between mb-10'>
                                 <h1 className='text-blue9 font-medium'>Billing History</h1>
                                 <DialogButton

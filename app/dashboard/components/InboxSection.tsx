@@ -124,6 +124,7 @@ const InboxSection = () => {
     const handleDeleteAllInboxButton = () => {
         setInboxMessage([]);
         setInboxTrash([...inboxMessage])
+        setMessageFullDisplay('No message selected')
     }
 
     // To disable delete current message in display button while there is no message in display
@@ -148,16 +149,16 @@ const InboxSection = () => {
             <div>
                 <Tabs.Root defaultValue="tab1" orientation="vertical">
                     <div className="">
-                        <div className="ml-1 outline outline-2 outline-blue9 rounded-lg shadow-lg w-[1275px] 2xl:w-[1685px] {4xl:w-[2209px]}">
+                        <div className="bg-white ml-1 outline outline-2 outline-blue9 rounded-lg shadow-lg w-[1275px] 2xl:w-[1685px] {4xl:w-[2209px]}">
                             <Tabs.List className="shrink-0 flex border-b border-mauve6 w-full hover:cursor-pointer" aria-label="Manage your account">
                                 <Tabs.Trigger
-                                    className="w-[50%]  bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-[15px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-blue9 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative  outline-none hover:cursor-pointer"
+                                    className="uppercase tracking-[5px] w-[50%]  bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-[15px] leading-none text-gray-500 select-none first:rounded-tl-md last:rounded-tr-md hover:text-blue9 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative  outline-none hover:cursor-pointer"
                                     value="tab1"
                                 >
                                     Inbox
                                 </Tabs.Trigger>
                                 <Tabs.Trigger
-                                    className="w-[50%] bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-[15px] leading-none text-mauve11 select-none first:rounded-tl-md last:rounded-tr-md hover:text-blue9 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative  outline-none hover:cursor-pointer"
+                                    className="uppercase tracking-[5px] w-[50%] bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-[15px] leading-none text-gray-500 select-none first:rounded-tl-md last:rounded-tr-md hover:text-blue9 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative  outline-none hover:cursor-pointer"
                                     value="tab2"
                                 >
                                     Trash
@@ -194,17 +195,15 @@ const InboxSection = () => {
                                                 </div>
                                             ))
                                         ) : (
-                                            <div className="flex flex-col justify-center items-center h-full">
+                                            <div className="flex flex-col justify-center items-center h-full bg-white">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="0.7" stroke="hsl(205 10.7% 78.0%)" className="w-20 h-20">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z" />
                                                 </svg>
-                                                <h1 className="font-light text-4xl text-slate8">Inbox is empty</h1>
-
-
+                                                <h1 className="font-light text-4xl uppercase tracking-[5px] text-gray-500">Inbox is empty</h1>
                                             </div>
                                         )}
                                     </div>
-                                    <div className="hidden lg:block p-5 ml-3 shadow-lg border border-1 w-[65%] 2xl:w-[90%] h-full overflow-y-hidden rounded-lg">
+                                    <div className="bg-white hidden lg:block p-5 ml-3 shadow-lg border border-1 w-[65%] 2xl:w-[90%] h-full overflow-y-hidden rounded-lg">
                                         <div className='w-full flex justify-between items-center mb-1'>
                                             {/** Double arrows */}
                                             {inboxMessage.length > 0 ?
@@ -289,7 +288,7 @@ const InboxSection = () => {
                                             </div>
                                         </div>
                                         <div className=" p-2 flex justify-center items-center">
-                                            <div className='font-light text-4xl'>{messageFullDisplay}</div>
+                                            <div className='font-light text-4xl uppercase tracking-[5px] text-gray-500'>{messageFullDisplay}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -327,11 +326,11 @@ const InboxSection = () => {
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="0.7" stroke="hsl(205 10.7% 78.0%)" className="w-20 h-20">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z" />
                                                 </svg>
-                                                <h1 className="font-light text-4xl text-slate8">Trash is empty</h1>
+                                                <h1 className="font-light text-4xl uppercase tracking-[5px] text-gray-500">Trash is empty</h1>
                                             </div>
                                         )}
                                     </div>
-                                    <div className="hidden lg:block p-5 ml-3 shadow-lg border border-1 w-[65%] 2xl:w-[90%]  h-full overflow-y-hidden rounded-lg">
+                                    <div className="bg-white hidden lg:block p-5 ml-3 shadow-lg border border-1 w-[65%] 2xl:w-[90%]  h-full overflow-y-hidden rounded-lg">
                                         <div className='flex justify-end pb-2'>
                                             <DialogButton
                                                 onClickfunction={handleEmptyTrashClick}
@@ -361,7 +360,7 @@ const InboxSection = () => {
                                             />
                                         </div>
                                         <div className="p-2 flex justify-center items-center ">
-                                            <div className='font-light text-4xl '>{trashMessageFullDisplay}</div>
+                                            <div className='font-light text-4xl uppercase tracking-[5px] text-gray-500'>{trashMessageFullDisplay}</div>
                                         </div>
                                     </div>
                                 </div>

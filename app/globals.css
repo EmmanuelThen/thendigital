@@ -522,8 +522,11 @@ body {
   border-image: linear-gradient(to right, hsl(358 75% 59%), pink, purple, rgb(64, 64, 234), #3b82f6) 1;
 }
 
-#signinPage {
+#signinPage, #grid-section {
   background: url(../resources/frame_background.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .slide-in-blurred-bottom {

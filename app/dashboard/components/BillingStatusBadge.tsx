@@ -16,7 +16,7 @@ const BillingStatusBadge = ({ paymentStatus }: Props) => {
                         case 'paid':
                             return (
                                 <>
-                                    <div className='rounded-full border border-1 border-[#22c55e] bg-[#22c55e]/10 py-[1px] px-3'>
+                                    <div className='rounded-full border border-1 border-[#22c55e] bg-[#22c55e]/10 py-[1px] px-3 cursor-default'>
                                         <p className='text-[#22c55e] text-[10px]'>Paid</p>
                                     </div>
                                 </>
@@ -24,7 +24,7 @@ const BillingStatusBadge = ({ paymentStatus }: Props) => {
                         case 'pending':
                             return (
                                 <>
-                                    <div className='rounded-full border border-1 border-yellow10 bg-yellow3 py-[1px] px-3'>
+                                    <div className='rounded-full border border-1 border-yellow10 bg-yellow3 py-[1px] px-3 cursor-default'>
                                         <p className='text-yellow8 text-[10px]'>Pending</p>
                                     </div>
                                 </>
@@ -32,7 +32,7 @@ const BillingStatusBadge = ({ paymentStatus }: Props) => {
                         case 'failed':
                             return (
                                 <>
-                                    <div className='rounded-full border border-1 border-red9 bg-red4 py-[1px] px-3'>
+                                    <div className='rounded-full border border-1 border-red9 bg-red4 py-[1px] px-3 cursor-default'>
                                         <p className='text-red9 text-[10px]'>Failed</p>
                                     </div>
                                 </>

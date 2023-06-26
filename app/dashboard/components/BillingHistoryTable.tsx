@@ -4,7 +4,7 @@ import Link from 'next/link';
 import PaymentStatusButton from './PaymentStatusButton';
 
 const BillingHistoryTable = () => {
-    const [paymentStatus, setPaymentStatus] = useState('');
+
     const [paymentButtonDisplay, setPaymentButtonDisplay] = useState('');
     // Using a function as its original state, to conditionally initialize the 'billingHistory' state based on if the 'billingHistory ket exist in local storage,
     // If it does exist the stored history is parsed back to the array with JSON.parse(), otherwise an empty aray is used as the inital state.
@@ -29,17 +29,13 @@ const BillingHistoryTable = () => {
         localStorage.setItem('billingHistory', JSON.stringify(updatedHistory));
         setBillingHistory(updatedHistory);
 
-        // Update payment button display
-        if (paymentStatus === 'failed') {
-            setPaymentButtonDisplay('');
-        } else {
-            setPaymentButtonDisplay('hidden');
-        }
+        localStorage.setItem('paymentStatus', paymentStatus)
+        localStorage.setItem('paymentButtonDisplay', paymentButtonDisplay);
     }
 
 
     // Functions to test payment status on billing history
-    const handleFailedPaymentStatus = () => {
+    /*const handleFailedPaymentStatus = () => {
         setPaymentStatus('failed')
     }
     const handlePaidPaymentStatus = () => {
@@ -47,7 +43,7 @@ const BillingHistoryTable = () => {
     }
     const handlePendingPaymentStatus = () => {
         setPaymentStatus('pending')
-    }
+    }*/
 
     /*useEffect(() => {
         if (paymentStatus === 'failed') {
@@ -68,27 +64,7 @@ const BillingHistoryTable = () => {
     return (
         <div className="max-h-72 overflow-y-auto w-full">
             {/** Test buttons for payment statuses */}
-            <button onClick={handlePaidPaymentStatus} className='text-xs border border-1 p-2 rounded-lg bg-green9'>
-                Test for paid
-            </button>
-            <button onClick={handlePendingPaymentStatus} className='text-xs border border-1 p-2 rounded-lg bg-yellow9'>
-                Test for pending
-            </button>
-            <button onClick={handleFailedPaymentStatus} className='text-xs border border-1 p-2 rounded-lg bg-red9'>
-                Test for failed
-            </button>
-            <button onClick={() => addInvoiceToHistory(billingHistory, 'paid', 500)} className='text-xs border border-1 p-2 rounded-lg bg-blue10'>
-                Test for new paid invoice
-            </button>
-            <button onClick={() => addInvoiceToHistory(billingHistory, 'pending', 1500)} className='text-xs border border-1 p-2 rounded-lg bg-violet10'>
-                Test for new pending invoice
-            </button>
-            <button onClick={() => addInvoiceToHistory(billingHistory, 'failed', 5000)} className='text-xs border border-1 p-2 rounded-lg bg-orange-500'>
-                Test for new failed invoice
-            </button>
-            <button onClick={clearLocalStorage} className='text-xs border border-1 p-2 rounded-lg bg-pink-500'>
-                Clear local storage
-            </button>
+            
             <table className="min-w-full divide-y divide-gray-200">
                 <thead>
                     <tr className='flex justify-between bg-slate5'>
@@ -132,8 +108,12 @@ const BillingHistoryTable = () => {
                                     <td className="py-3 font-medium">{entry.amount}</td>
                                     <div className='flex items-center gap-3 px-5'>
                                         <td className='py-3'><BillingStatusBadge paymentStatus={entry.paymentStatus} /></td>
-                                        {paymentStatus === 'failed' && (
-                                            <td className={`${paymentButtonDisplay} py-3`}><PaymentStatusButton /></td>
+                                        {entry.paymentStatus === 'failed' && (
+                                            <td className={`${paymentButtonDisplay} py-3`}>
+                                                <PaymentStatusButton
+                                                    paymentStatus={entry.paymentStatus}
+                                                />
+                                            </td>
                                         )}
                                     </div>
                                     <td className="mx-3 py-3">

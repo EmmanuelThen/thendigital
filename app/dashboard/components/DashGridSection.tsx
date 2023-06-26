@@ -36,7 +36,7 @@ const DashGridSection = (props: Props) => {
                     <DashCards
                         cardTitle='production tracker'
                         mainSection={<DashProgress />}
-                        bgColor=''
+                        bgColor='bg-white'
                     />
                 </div>
                 <div>
@@ -54,28 +54,28 @@ const DashGridSection = (props: Props) => {
                     <DashCards
                         cardTitle='Order History'
                         mainSection={<DashOrderHistory />}
-                        bgColor=''
+                        bgColor='bg-white'
                     />
                 </div>
                 <div>
                     <DashCards
                         cardTitle='Contracts & Docs'
                         mainSection={<DashSpeedTest />}
-                        bgColor=''
+                        bgColor='bg-white'
                     />
                 </div>
                 <div>
                     <DashCards
                         cardTitle='production tracker'
                         mainSection={<DashSpeedTest />}
-                        bgColor=''
+                        bgColor='bg-white'
                     />
                 </div>
                 <div>
                     <DashCards
                         cardTitle='Technical Support'
                         mainSection={<DashFileUpload />}
-                        bgColor=''
+                        bgColor='bg-white'
                     />
                 </div>
             </div>

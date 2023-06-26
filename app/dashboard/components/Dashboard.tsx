@@ -170,7 +170,7 @@ const Dashboard = (props: Props) => {
                     </div>
                 </>
             </div>
-            <section className='ml-[220px] hidden lg:block w-[1275px] 2xl:w-[1685px] {4xl:w-[2209px]}'>
+            <section className='ml-[220px] hidden lg:block w-[1275px] 2xl:w-[1685px] {4xl:w-[2209px]}' id='grid-section'>
                 {(() => {
                     switch (value) {
                         case 'dashboard':
