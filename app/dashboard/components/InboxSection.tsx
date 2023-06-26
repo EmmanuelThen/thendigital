@@ -300,8 +300,8 @@ const InboxSection = () => {
                                     <div className="w-[35%] overflow-y-scroll">
                                         {inboxTrash.length > 0 ? (
                                             inboxTrash.map((message, i) => (
-                                                <div className='flex items-center'>
-                                                    <div className="p-2" key={i}>
+                                                <div className='flex items-center' key={i}>
+                                                    <div className="p-2">
                                                         <div
                                                             className={
                                                                 `${selectedMessageIndex === i ? 'outline outline-1 outline-blue9' : ''

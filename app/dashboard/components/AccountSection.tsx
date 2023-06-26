@@ -334,25 +334,11 @@ const AccountSection = (props: Props) => {
                                                 dialogTitle='Explore plans'
                                                 dialogDesc={`Choose your plan`}
                                             />
-                                            <DialogButton
-                                                onClickfunction=''
-                                                disabled=''
-                                                saveButton='Save changes'
-                                                saveButtonColor='bg-blue9'
-                                                buttonText={
-                                                    <>
-                                                        <div className='text-xs hover:cursor-pointer bg-slate8 text-white inline-flex h-[25px] items-center justify-center gap-2 rounded-[4px] px-[10px] font-medium leading-none focus:outline-none' >
-                                                            Manage plan
-                                                        </div>
-                                                    </>
-                                                }
-                                                dialogTitle='Membership Information'
-                                                dialogDesc={`Edit your personal information below.`}
-                                            />
+
                                         </div>
                                     </div>
                                     <div>
-                                        <h1 className='text-red9 font-medium mb-1'>Cancel membership</h1>
+                                        <h1 className='text-slate10 font-medium mb-1'>Cancel membership</h1>
                                         <DialogButton
                                             onClickfunction=''
                                             disabled=''
@@ -408,7 +394,25 @@ const AccountSection = (props: Props) => {
                         <div className='rounded-lg border border-1 shadow-lg p-5'>
                             <div className='flex justify-between mb-10'>
                                 <h1 className='text-blue9 font-medium'>Billing History</h1>
-                
+                                <DialogButton
+                                    onClickfunction=''
+                                    disabled=''
+                                    content={<EditTabs />}
+                                    saveButton='Save changes'
+                                    saveButtonColor='bg-red9'
+                                    buttonText={
+                                        <>
+                                            <div className='hover:cursor-pointer bg-red9 text-white inline-flex h-[35px] items-center justify-center gap-2 rounded-[4px] px-[15px] font-light leading-none focus:outline-none' >
+                                                Clear all invoices
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-5 h-5">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                            </div>
+                                        </>
+                                    }
+                                    dialogTitle='Edit Profile'
+                                    dialogDesc={`Edit your profile below.`}
+                                />
                             </div>
                             <div className='flex justify-between w-full'>
                                 <BillingHistoryTable />

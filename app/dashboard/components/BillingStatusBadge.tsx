@@ -24,7 +24,7 @@ const BillingStatusBadge = ({ paymentStatus }: Props) => {
                         case 'pending':
                             return (
                                 <>
-                                    <div className='rounded-full border border-1 border-yellow9 bg-yellow3 py-[1px] px-3'>
+                                    <div className='rounded-full border border-1 border-yellow10 bg-yellow3 py-[1px] px-3'>
                                         <p className='text-yellow8 text-[10px]'>Pending</p>
                                     </div>
                                 </>
@@ -34,14 +34,6 @@ const BillingStatusBadge = ({ paymentStatus }: Props) => {
                                 <>
                                     <div className='rounded-full border border-1 border-red9 bg-red4 py-[1px] px-3'>
                                         <p className='text-red9 text-[10px]'>Failed</p>
-                                    </div>
-                                </>
-                            );
-                        case 'settings':
-                            return (
-                                <>
-                                    <div className='rounded-full border border-1 border-green-500 py-[1px] px-3'>
-                                        <p className='text-green-500 text-[10px]'>Paid</p>
                                     </div>
                                 </>
                             );
