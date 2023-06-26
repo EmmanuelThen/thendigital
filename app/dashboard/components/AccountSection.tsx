@@ -9,6 +9,7 @@ import EditTabs from '@/app/components/EditTabs';
 import DashPixelCare from './DashPixelCare';
 import SubTiers from '@/app/components/SubTiers';
 import AccountToggle from './AccountToggle';
+import BillingHistoryTable from './BillingHistoryTable';
 
 type Props = {}
 
@@ -20,7 +21,7 @@ const AccountSection = (props: Props) => {
         setChecked(updatedChecked);
     };
 
-    const handleToggle = (i) => {
+    const handleToggle = (i: any) => {
         const updatedChecked = [...checked];
         updatedChecked[i] = !updatedChecked[i];
         setChecked(updatedChecked);
@@ -49,7 +50,7 @@ const AccountSection = (props: Props) => {
                         My Profile
                     </Tabs.Trigger>
                     <Tabs.Trigger value="tab2" className='text-2xl data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
-                        Billing
+                        Membership & Billing
                     </Tabs.Trigger>
                     <Tabs.Trigger value="tab3" className='text-2xl data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
                         PixelCare
@@ -227,13 +228,14 @@ const AccountSection = (props: Props) => {
                 {/** Billing Tab */}
                 <Tabs.Content value="tab2">
                     <div className='flex flex-col gap-5 p-10'>
+                        {/** Card One Billing */}
                         <div className='flex justify-between items-center rounded-lg border border-1 shadow-lg'>
                             <div className='flex'>
                                 <div className='p-5'>
                                     <div>
                                         <svg width="100" height="100" viewBox="0 0 425 270" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <rect width="774" height="420" fill="none" />
-                                            <g id="undraw_payments_re_77x0 1" clip-path="url(#clip0_0_1)">
+                                            <g id="credit-card-svg" clip-path="url(#clip0_0_1)">
                                                 <path id="bottom-section" d="M420 221.693V222.603C419.999 230.961 416.677 238.977 410.766 244.886C404.855 250.795 396.838 254.114 388.48 254.113H32.71C24.3533 254.112 16.3391 250.792 10.4301 244.883C4.52104 238.974 1.20102 230.96 1.20023 222.603V221.693H420Z" fill="#F2F2F2" />
                                                 <path id="leafe" d="M75.6098 71.6929C49.8998 78.0429 26.8199 58.2629 22.79 39.9129L24.58 39.5929C46.25 34.8029 70.4399 50.2928 75.6098 71.6929Z" fill="hsl(206 100% 50.0%)" />
                                                 <path id="chip-outline" d="M323.218 203.043C317.475 203.043 312.908 201.335 309.642 197.966C302.26 190.351 302.722 175.672 303.094 163.878C303.202 160.447 303.304 157.206 303.201 154.491L303.2 154.45C303.226 149.145 305.344 144.066 309.094 140.314C312.844 136.562 317.923 134.441 323.227 134.413H370.843C376.579 134.413 381.142 136.118 384.406 139.483C391.787 147.092 391.33 161.767 390.962 173.558C390.855 176.997 390.754 180.245 390.859 182.964C390.841 188.277 388.725 193.366 384.973 197.127C381.22 200.887 376.135 203.013 370.823 203.043H323.218ZM305.2 154.436C305.305 157.215 305.202 160.482 305.093 163.941C304.733 175.358 304.286 189.567 311.078 196.574C313.993 199.581 317.964 201.043 323.218 201.043H370.82C375.597 201.018 380.171 199.109 383.549 195.73C386.927 192.352 388.835 187.777 388.86 183C388.753 180.252 388.855 176.97 388.963 173.496C389.319 162.081 389.761 147.876 382.97 140.875C380.057 137.872 376.09 136.413 370.843 136.413H323.23C318.458 136.439 313.888 138.346 310.513 141.72C307.138 145.094 305.229 149.663 305.2 154.436Z" fill="#3F3D56" />
@@ -257,8 +259,8 @@ const AccountSection = (props: Props) => {
                                     </div>
                                 </div>
                                 <div className='flex flex-col justify-center p-5'>
-                                    <h1 className='font-medium'>Card on file</h1>
-                                    <h2 className='text-slate10 font-light'>Card issuer</h2>
+                                    <h1 className='font-medium'>Visa ending in 1234</h1>
+                                    <h2 className='text-slate10 font-light'>Exp. 06/13/25</h2>
                                     <h3 className='text-slate10'>Exp.</h3>
                                 </div>
                             </div>
@@ -284,9 +286,10 @@ const AccountSection = (props: Props) => {
                                 />
                             </div>
                         </div>
+                        {/** Card Two Billing*/}
                         <div className='rounded-lg border border-1 shadow-lg p-5'>
                             <div className='flex justify-between mb-10'>
-                                <h1 className='text-blue9 font-medium'>Personal Information</h1>
+                                <h1 className='text-blue9 font-medium'>Membership Information</h1>
                                 <div className=''>
                                     <DialogButton
                                         onClickfunction=''
@@ -303,33 +306,112 @@ const AccountSection = (props: Props) => {
                                                 </div>
                                             </>
                                         }
-                                        dialogTitle='Personal Information'
+                                        dialogTitle='Membership Information'
                                         dialogDesc={`Edit your personal information below.`}
                                     />
                                 </div>
                             </div>
-                            {/** Third Card */}
                             <div className='flex justify-between w-[50%]'>
                                 <div className='flex flex-col justify-between'>
                                     <div className='mb-10'>
-                                        <h1 className='text-slate10 font-medium mb-1'>First Name</h1>
-                                        <p>clientFirst</p>
+                                        <h1 className='text-slate10 font-medium mb-1'>Plan</h1>
+                                        <p className='mb-1' id='text_gradient'>PixelCare Tier</p>
+                                        {/** Div with both buttons in them */}
+                                        <div className='flex gap-3'>
+                                            <DialogButton
+                                                onClickfunction=''
+                                                disabled=''
+                                                saveButton='Purchase'
+                                                saveButtonColor='bg-blue9'
+                                                buttonText={
+                                                    <>
+                                                        <div className='text-xs hover:cursor-pointer bg-blue9 text-white inline-flex h-[25px] items-center justify-center gap-2 rounded-[4px] px-[10px] font-medium leading-none focus:outline-none' >
+                                                            Explore plans
+                                                        </div>
+                                                    </>
+                                                }
+                                                content={<SubTiers />}
+                                                dialogTitle='Explore plans'
+                                                dialogDesc={`Choose your plan`}
+                                            />
+                                            <DialogButton
+                                                onClickfunction=''
+                                                disabled=''
+                                                saveButton='Save changes'
+                                                saveButtonColor='bg-blue9'
+                                                buttonText={
+                                                    <>
+                                                        <div className='text-xs hover:cursor-pointer bg-slate8 text-white inline-flex h-[25px] items-center justify-center gap-2 rounded-[4px] px-[10px] font-medium leading-none focus:outline-none' >
+                                                            Manage plan
+                                                        </div>
+                                                    </>
+                                                }
+                                                dialogTitle='Membership Information'
+                                                dialogDesc={`Edit your personal information below.`}
+                                            />
+                                        </div>
                                     </div>
                                     <div>
-                                        <h1 className='text-slate10 font-medium mb-1 '>Last Name</h1>
-                                        <p>clientLast</p>
+                                        <h1 className='text-red9 font-medium mb-1'>Cancel membership</h1>
+                                        <DialogButton
+                                            onClickfunction=''
+                                            disabled=''
+                                            saveButton='Cancel memberhsip'
+                                            myOwnButton={
+                                                <>
+                                                    <div className='ml-5 hover:cursor-pointer bg-blue9 text-white inline-flex h-[35px] items-center justify-center gap-2 rounded-[4px] px-[15px] font-medium leading-none focus:outline-none' >
+                                                        Keep membership
+                                                    </div>
+                                                </>
+                                            }
+                                            saveButtonColor='bg-red9'
+                                            buttonText={
+                                                <>
+                                                    <div className='text-xs hover:cursor-pointer bg-red9 text-white inline-flex h-[25px] items-center justify-center gap-2 rounded-[4px] px-[10px] font-medium leading-none focus:outline-none' >
+                                                        Cancel membership
+                                                    </div>
+                                                </>
+                                            }
+                                            dialogTitle='Cancel Membership'
+                                            dialogDesc={`We're sorry to see you go {client.name}! Stay with us and get 15% off for the next three months!`}
+                                        />
                                     </div>
                                 </div>
-                                <div className='flex flex-col justify-between '>
+                                <div className='flex flex-wrap flex-col justify-between '>
                                     <div className='mb-10'>
-                                        <h1 className='text-slate10 font-medium mb-1'>Email address</h1>
-                                        <p>ClientEmail@gmail.com</p>
+                                        <h1 className='text-slate10 font-medium mb-1'>Billing period</h1>
+                                        <p className='mb-1' id='text_gradient'>Monthly <span className='text-[10px]'>/Renews Jun. 13, 2023</span></p>
+                                        <DialogButton
+                                            onClickfunction=''
+                                            disabled=''
+                                            saveButton='Save changes'
+                                            saveButtonColor='bg-blue9'
+                                            buttonText={
+                                                <>
+                                                    <div className='text-xs hover:cursor-pointer bg-slate8 text-white inline-flex h-[25px] items-center justify-center gap-2 rounded-[4px] px-[10px] font-medium leading-none focus:outline-none' >
+                                                        Change billing period
+                                                    </div>
+                                                </>
+                                            }
+                                            dialogTitle='Membership Information'
+                                            dialogDesc={`Edit your personal information below.`}
+                                        />
                                     </div>
                                     <div>
                                         <h1 className='text-slate10 font-medium mb-1 '>Phone</h1>
                                         <p>718-123-1232</p>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        {/** Card Three Billing */}
+                        <div className='rounded-lg border border-1 shadow-lg p-5'>
+                            <div className='flex justify-between mb-10'>
+                                <h1 className='text-blue9 font-medium'>Billing History</h1>
+                
+                            </div>
+                            <div className='flex justify-between w-full'>
+                                <BillingHistoryTable />
                             </div>
                         </div>
                     </div>
