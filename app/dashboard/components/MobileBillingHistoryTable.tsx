@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import BillingStatusBadge from './BillingStatusBadge';
 import Link from 'next/link';
 import PaymentStatusButton from './PaymentStatusButton';
+import MobilePaymentStatusButton from './MobilePaymentStatusButton';
+import MobileBillingStatusBadge from './MobileBillingStatusBadge';
 
-const BillingHistoryTable = () => {
+const MobileBillingHistoryTable = () => {
     const [paymentButtonDisplay, setPaymentButtonDisplay] = useState('');
 
     const [billingHistory, setBillingHistory] = useState(() => {
@@ -59,19 +61,19 @@ const BillingHistoryTable = () => {
                 <table className="min-w-full divide-y divide-gray-200 overflow-ellipsis whitespace-nowrap">
                     <thead>
                         <tr className='flex justify-between bg-slate8'>
-                            <th className="w-1/5 py-3 text-left text-xs font-medium text-blue9 uppercase tracking-wider flex justify-center">
+                            <th className="w-1/5 text-left text-[10px] font-medium text-blue9 uppercase tracking-wider flex justify-center">
                                 Date
                             </th>
-                            <th className="w-1/5 py-3 text-left text-xs font-medium text-blue9 uppercase tracking-wider flex justify-center">
+                            <th className="w-1/5 text-left text-[10px] font-medium text-blue9 uppercase tracking-wider flex justify-center">
                                 Details
                             </th>
-                            <th className="w-1/5 py-3 text-left text-xs font-medium text-blue9 uppercase tracking-wider flex justify-center">
-                                Total Amount
+                            <th className="w-1/5 text-left text-[10px] font-medium text-blue9 uppercase tracking-wider flex justify-center">
+                                Total
                             </th>
-                            <th className="w-1/5 py-3 text-left text-xs font-medium text-blue9 uppercase tracking-wider flex justify-center">
+                            <th className="w-1/5 text-left text-[10px] font-medium text-blue9 uppercase tracking-wider flex justify-center">
                                 Status
                             </th>
-                            <th className="w-1/5 py-3 text-left text-xs font-medium text-blue9 uppercase tracking-wider flex justify-center">
+                            <th className="w-1/5 text-left text-[10px] font-medium text-blue9 uppercase tracking-wider flex justify-center">
                                 Download
                             </th>
                         </tr>
@@ -88,15 +90,15 @@ const BillingHistoryTable = () => {
                             </tr>
                         ) : (
                             billingHistory.map((entry: any, i: any) => (
-                                <tr className='flex justify-between items-center' key={i}>
-                                    <td className="w-1/5 py-3 flex justify-center">{entry.date}</td>
-                                    <td className="w-1/5 py-3 flex justify-center">{entry.details}</td>
-                                    <td className="w-1/5 py-3 font-medium flex justify-center">{entry.amount}</td>
-                                    <div className='w-1/5 py-3 flex justify-center gap-2 items-center'>
-                                        <td className='py-3'><BillingStatusBadge paymentStatus={entry.paymentStatus} /></td>
+                                <tr className='flex justify-between items-center text-[10px]' key={i}>
+                                    <td className="w-1/5  flex justify-center">{entry.date}</td>
+                                    <td className="w-1/5  flex justify-center">{entry.details}</td>
+                                    <td className="w-1/5  font-medium flex justify-center">{entry.amount}</td>
+                                    <div className='w-1/5  flex flex-col justify-center items-center py-3'>
+                                        <td className=''><MobileBillingStatusBadge paymentStatus={entry.paymentStatus} /></td>
                                         {entry.paymentStatus === 'failed' && (
-                                            <td className={`${paymentButtonDisplay} py-3`}>
-                                                <PaymentStatusButton
+                                            <td className={`${paymentButtonDisplay} `}>
+                                                <MobilePaymentStatusButton
                                                     paymentStatus={entry.paymentStatus}
                                                 />
                                             </td>
@@ -104,7 +106,7 @@ const BillingHistoryTable = () => {
                                     </div>
                                     <td className="w-1/5 py-3 flex justify-center">
                                         <Link href={entry.downloadLink} download className="text-blue-500 hover:text-blue-700">
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" className="w-6 h-6">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" className="w-4 h-4">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 13.5l3 3m0 0l3-3m-3 3v-6m1.06-4.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
                                             </svg>
                                         </Link>
@@ -119,9 +121,4 @@ const BillingHistoryTable = () => {
     );
 };
 
-export default BillingHistoryTable;
-
-
-
-
-
+export default MobileBillingHistoryTable;

@@ -25,7 +25,7 @@ const DialogButton = ({ buttonText, dialogTitle, dialogDesc, content, saveButton
     return (
         <Dialog.Root>
             <Dialog.Trigger asChild>
-                <button disabled={disabled} className="text-blue9 hover:opacity-80 inline-flex  items-center justify-center font-medium leading-none {shadow-[0_2px_10px]} focus:outline-none">
+                <button disabled={disabled} className="text-blue9 lg:hover:opacity-80 inline-flex  items-center justify-center font-medium leading-none {shadow-[0_2px_10px]} focus:outline-none">
                     {buttonText}
                 </button>
             </Dialog.Trigger>

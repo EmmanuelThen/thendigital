@@ -142,7 +142,7 @@ const Dashboard = (props: Props) => {
                         </div>
                     </div>
 
-                    <div className='lg:hidden w-[100vw]'>
+                    <div className='lg:hidden w-[100vw] h-screen overflow-y-scroll'>
                         <MobileFullDashboard />
                     </div>
                 </>
