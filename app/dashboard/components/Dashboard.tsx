@@ -13,6 +13,7 @@ import EditTabs from '@/app/components/EditTabs'
 import InboxSection from './InboxSection'
 import EliteInboxSection from './EliteInboxSection'
 import AccountSection from './AccountSection'
+import MobileFullDashboard from './MobileFullDashboard'
 
 type Props = {}
 
@@ -142,35 +143,11 @@ const Dashboard = (props: Props) => {
                     </div>
 
                     <div className='lg:hidden w-[100vw]'>
-                        {/** Mobile screen nav */}
-                        <div>
-                            <DashMobileNavbar />
-                        </div>
-                        <div id='greeting' className='p-5'>
-                            <div className='md:text-center'>
-                                <ShinyText text='Welcome Client Name' />
-                            </div>
-                        </div>
-                        <div className='flex flex-col justify-between gap-10 p-2'>
-                            <DashAccordion
-                                title1='production tracker'
-                                title2='PixelCare'
-                                title3='order history'
-                                title4='contracts & docs'
-                                title5='Messages'
-                                title6='performance'
-                            />
-                            <div>
-                                <h1 className='flex justify-center'><ShinyText text='Any Questions?' /></h1>
-                                <div className='flex justify-center'>
-                                    <DashFileUpload />
-                                </div>
-                            </div>
-                        </div>
+                        <MobileFullDashboard />
                     </div>
                 </>
             </div>
-            <section className='ml-[220px] hidden lg:block w-[1275px] 2xl:w-[1685px] {4xl:w-[2209px]}' id='grid-section'>
+            <section className='ml-[220px] hidden lg:block w-[1275px] 2xl:w-[1685px] {4xl:w-[2209px]} h-screen' id='grid-section'>
                 {(() => {
                     switch (value) {
                         case 'dashboard':

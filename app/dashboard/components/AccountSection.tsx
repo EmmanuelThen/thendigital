@@ -46,13 +46,13 @@ const AccountSection = (props: Props) => {
             </div>
             <Tabs.Root className='mt-10' defaultValue="tab1" orientation="vertical">
                 <Tabs.List className='flex items-center gap-20 ml-2 bg-white' aria-label="tabs">
-                    <Tabs.Trigger value="tab1" className='uppercase tracking-[5px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
+                    <Tabs.Trigger value="tab1" className='uppercase tracking-[5px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current hover:cursor-pointer'>
                         My Profile
                     </Tabs.Trigger>
-                    <Tabs.Trigger value="tab2" className='uppercase tracking-[5px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
+                    <Tabs.Trigger value="tab2" className='uppercase tracking-[5px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current hover:cursor-pointer'>
                         Membership & Billing
                     </Tabs.Trigger>
-                    <Tabs.Trigger value="tab3" className='uppercase tracking-[5px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
+                    <Tabs.Trigger value="tab3" className='uppercase tracking-[5px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current hover:cursor-pointer'>
                         PixelCare
                     </Tabs.Trigger>
                     <Tabs.Trigger value="tab4" className='uppercase tracking-[5px] text-red9 data-[state=active]:text-red9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
@@ -160,13 +160,13 @@ const AccountSection = (props: Props) => {
                                 </button>
                             </div>
                             <div className='flex justify-between w-[50%]'>
-                                <div className='flex flex-col gap-10 justify-between'>
-                                    <div className=''>
+                                <div className=' flex flex-col gap-10 justify-between'>
+                                    <div className=' mr-5'>
                                         <Toggle
                                             label={
                                                 <>
-                                                    <div>
-                                                        <h1 className='font-medium'>Marketing emails</h1>
+                                                    <div className='mb-2'>
+                                                        <h1 className='font-medium'>Marketing </h1>
                                                         <p className='mt-1 text-[10px] text-slate8'>Monthly marketing emails</p>
                                                     </div>
                                                 </>
@@ -175,12 +175,12 @@ const AccountSection = (props: Props) => {
                                             checked={checked[0]}
                                         />
                                     </div>
-                                    <div className=''>
+                                    <div className=' mr-5'>
                                         <Toggle
                                             label={
                                                 <>
-                                                    <div>
-                                                        <h1 className='font-medium'>Production emails</h1>
+                                                    <div className='mb-2'>
+                                                        <h1 className='font-medium'>Production</h1>
                                                         <p className='mt-1 text-[10px] text-slate8'>Weekly production emails</p>
                                                     </div>
                                                 </>
@@ -190,13 +190,13 @@ const AccountSection = (props: Props) => {
                                         />
                                     </div>
                                 </div>
-                                <div className='flex flex-col gap-10 justify-between'>
-                                    <div className=''>
+                                <div className=' flex flex-col gap-10 justify-between'>
+                                    <div className=' mr-5'>
                                         <Toggle
                                             label={
                                                 <>
-                                                    <div>
-                                                        <h1 className='font-medium'>Something emails</h1>
+                                                    <div className='mb-2'>
+                                                        <h1 className='font-medium'>Something</h1>
                                                         <p className='mt-1 text-[10px] text-slate8'>Something emails</p>
                                                     </div>
                                                 </>
@@ -205,12 +205,12 @@ const AccountSection = (props: Props) => {
                                             checked={checked[2]}
                                         />
                                     </div>
-                                    <div className=''>
+                                    <div className=' mr-5'>
                                         <Toggle
                                             label={
                                                 <>
-                                                    <div>
-                                                        <h1 className='font-medium'>Something emails</h1>
+                                                    <div className='mb-2'>
+                                                        <h1 className='font-medium'>Something</h1>
                                                         <p className='mt-1 text-[10px] text-slate8'>Something emails</p>
                                                     </div>
                                                 </>

@@ -14,7 +14,7 @@ const Toggle = ({ label, defaultChecked, checked, onCheckedChange }: Props) => {
 
     return (
         <form>
-            <div className="flex items-center" style={{ display: 'flex', alignItems: 'center' }}>
+            <div className="flex flex-wrap items-center justify-between w-full" style={{ display: 'flex', alignItems: 'center' }}>
                 <label className="text-slate10 text-[15px] leading-none pr-[15px]" htmlFor="notification-toggle">
                     {label}
                 </label>

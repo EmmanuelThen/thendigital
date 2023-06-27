@@ -123,7 +123,7 @@ const InboxSection = () => {
 
     const handleDeleteAllInboxButton = () => {
         setInboxMessage([]);
-        setInboxTrash([...inboxMessage])
+        setInboxTrash([...inboxMessage, ...inboxTrash])
         setMessageFullDisplay('No message selected')
     }
 
@@ -196,10 +196,10 @@ const InboxSection = () => {
                                             ))
                                         ) : (
                                             <div className="flex flex-col justify-center items-center h-full bg-white">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="0.7" stroke="hsl(205 10.7% 78.0%)" className="w-20 h-20">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="0.7" stroke="hsl(205 10.7% 78.0%)" className="w-10 h-10">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z" />
                                                 </svg>
-                                                <h1 className="font-light text-4xl uppercase tracking-[5px] text-gray-500">Inbox is empty</h1>
+                                                <h1 className="font-light uppercase tracking-[5px] text-slate8">Inbox is empty</h1>
                                             </div>
                                         )}
                                     </div>
@@ -288,7 +288,13 @@ const InboxSection = () => {
                                             </div>
                                         </div>
                                         <div className=" p-2 flex justify-center items-center">
-                                            <div className='font-light text-4xl uppercase tracking-[5px] text-gray-500'>{messageFullDisplay}</div>
+                                            <div className={
+                                                messageFullDisplay === 'No message selected' ?
+                                                    `font-light flex justify-center items-center h-[500px] uppercase tracking-[5px] text-slate8` :
+                                                    `font-light`}
+                                            >
+                                                {messageFullDisplay}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -323,10 +329,10 @@ const InboxSection = () => {
                                             ))
                                         ) : (
                                             <div className="flex flex-col justify-center items-center h-full">
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="0.7" stroke="hsl(205 10.7% 78.0%)" className="w-20 h-20">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="0.7" stroke="hsl(205 10.7% 78.0%)" className="w-10 h-10">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z" />
                                                 </svg>
-                                                <h1 className="font-light text-4xl uppercase tracking-[5px] text-gray-500">Trash is empty</h1>
+                                                <h1 className="font-light  uppercase tracking-[5px] text-slate8">Trash is empty</h1>
                                             </div>
                                         )}
                                     </div>
@@ -360,7 +366,13 @@ const InboxSection = () => {
                                             />
                                         </div>
                                         <div className="p-2 flex justify-center items-center ">
-                                            <div className='font-light text-4xl uppercase tracking-[5px] text-gray-500'>{trashMessageFullDisplay}</div>
+                                            <div className={
+                                                trashMessageFullDisplay === 'No message selected' ?
+                                                    `font-light flex justify-center items-center h-[500px] uppercase tracking-[5px] text-slate8` :
+                                                    `font-light`}
+                                            >
+                                                {trashMessageFullDisplay}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

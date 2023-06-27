@@ -17,7 +17,7 @@ type Props = {
 }
 
 
-const AccordionDemo = ({ title1, title2, title3, title4, title5, title6 }: Props) => (
+const DashAccordion = ({ title1, title2, title3, title4, title5, title6 }: Props) => (
     <Accordion.Root
         className=" w-full rounded-md shadow-[0_2px_10px] shadow-black/5"
         type="single"
@@ -137,7 +137,7 @@ const AccordionContent = React.forwardRef(({ children, className, ...props }, fo
     </Accordion.Content>
 ));
 
-export default AccordionDemo;
+export default DashAccordion;
 
 /**import React from 'react';
 import classNames from 'classnames';
