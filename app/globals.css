@@ -18,17 +18,56 @@
 }
 
 /* Work around to set inbox buttons only on tablet screns and smaller, since tailwind wont allow it*/
+/* Everything here will only work on small and tablet screens */
 @media (max-width: 1022px) {
-    #threeInboxButtons {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
-    #messageFullDisplay, #trashMessageFullDisplay {
-      display: flex;
-      flex-direction: column;
-    }
+  #threeInboxButtons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
 
+  #messageFullDisplay,
+  #trashMessageFullDisplay {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cards:hover>.card:not(:hover) {
+    filter: none;
+    transform: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  #signinPage,
+  #mobile-grid-section {
+    background: #262626;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+}
+
+/* Everything in here will work on larger screens and up */
+@media (min-width: 1022px) {
+  .card:hover {
+    transform: scale(1.1, 1.1);
+  }
+
+  .cards:hover>.card:not(:hover) {
+    filter: blur(10px);
+    transform: scale(0.9, 0.9);
+  }
+}
+
+#grid-section {
+  background: #262626;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 body {
@@ -117,7 +156,7 @@ body {
     background: radial-gradient(hsl(358 75% 59%), pink, purple, rgb(64, 64, 234), #3b82f6);
     transform: translate(-15%, 35%)
   }
-  
+
 }
 
 
@@ -292,14 +331,6 @@ body {
   font-size: .7em;
 }
 
-.card:hover {
-  transform: scale(1.1, 1.1);
-}
-
-.cards:hover>.card:not(:hover) {
-  filter: blur(10px);
-  transform: scale(0.9, 0.9);
-}
 
 
 
@@ -534,87 +565,90 @@ body {
   border-image: linear-gradient(to right, hsl(358 75% 59%), pink, purple, rgb(64, 64, 234), #3b82f6) 1;
 }
 
-#signinPage, #grid-section {
-  background: url(../resources/frame_background.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+
 
 .slide-in-blurred-bottom {
-	-webkit-animation: slide-in-blurred-bottom 0.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-	        animation: slide-in-blurred-bottom 0.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+  -webkit-animation: slide-in-blurred-bottom 0.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+  animation: slide-in-blurred-bottom 0.5s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
 }
 
 @-webkit-keyframes slide-in-blurred-bottom {
   0% {
     -webkit-transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
-            transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+    transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
     -webkit-transform-origin: 50% 100%;
-            transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
     -webkit-filter: blur(40px);
-            filter: blur(40px);
+    filter: blur(40px);
     opacity: 0;
   }
+
   100% {
     -webkit-transform: translateY(0) scaleY(1) scaleX(1);
-            transform: translateY(0) scaleY(1) scaleX(1);
+    transform: translateY(0) scaleY(1) scaleX(1);
     -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
     -webkit-filter: blur(0);
-            filter: blur(0);
+    filter: blur(0);
     opacity: 1;
   }
 }
+
 @keyframes slide-in-blurred-bottom {
   0% {
     -webkit-transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
-            transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
+    transform: translateY(1000px) scaleY(2.5) scaleX(0.2);
     -webkit-transform-origin: 50% 100%;
-            transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
     -webkit-filter: blur(40px);
-            filter: blur(40px);
+    filter: blur(40px);
     opacity: 0;
   }
+
   100% {
     -webkit-transform: translateY(0) scaleY(1) scaleX(1);
-            transform: translateY(0) scaleY(1) scaleX(1);
+    transform: translateY(0) scaleY(1) scaleX(1);
     -webkit-transform-origin: 50% 50%;
-            transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
     -webkit-filter: blur(0);
-            filter: blur(0);
+    filter: blur(0);
     opacity: 1;
   }
 }
 
 .fade-in {
-	-webkit-animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-	        animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  -webkit-animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
- @-webkit-keyframes fade-in {
+@-webkit-keyframes fade-in {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 @keyframes fade-in {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 /* In order to make a border radius with color gradient, that can be animated if necessary */
 #PCcard {
   position: relative;
   border-radius: 8px;
 }
 
-#PCcard::before, #PCcard::after {
+#PCcard::before,
+#PCcard::after {
   content: '';
   position: absolute;
   inset: 0;
@@ -622,42 +656,46 @@ body {
 }
 
 #PCcard::after {
-  background-color: white ;
+  background-color: white;
   border-radius: 8px;
 }
 
 #PCcard::before {
-  background-image: linear-gradient(216deg, rgb(180, 39, 180), rgb(239, 26, 26),  hsl(358 75% 59%), rgb(20, 66, 235), rgb(64, 64, 234), #3b82f6);
-  margin: -0.05rem; /* works like border width now */
+  background-image: linear-gradient(216deg, rgb(180, 39, 180), rgb(239, 26, 26), hsl(358 75% 59%), rgb(20, 66, 235), rgb(64, 64, 234), #3b82f6);
+  margin: -0.05rem;
+  /* works like border width now */
   border-radius: 8px;
 }
 
 .scale-in-center {
-	-webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
- @-webkit-keyframes scale-in-center {
+@-webkit-keyframes scale-in-center {
   0% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     opacity: 1;
   }
+
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 1;
   }
 }
+
 @keyframes scale-in-center {
   0% {
     -webkit-transform: scale(0);
-            transform: scale(0);
+    transform: scale(0);
     opacity: 1;
   }
+
   100% {
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
     opacity: 1;
   }
 }

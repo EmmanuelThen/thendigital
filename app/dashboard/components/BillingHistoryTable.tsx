@@ -38,7 +38,7 @@ const BillingHistoryTable = () => {
     return (
         <div className="max-h-72 overflow-y-auto w-full">
             {/* Test buttons for payment statuses */}
-            {/*<div className="flex space-x-2 my-2">
+            <div className="flex space-x-2 my-2">
                 <button onClick={() => addInvoiceToHistory(billingHistory, 'paid', 500)} className="text-white text-xs border border-1 p-2 rounded-lg bg-blue-500">
                     Test for new paid invoice
                 </button>
@@ -54,7 +54,7 @@ const BillingHistoryTable = () => {
                 <button onClick={clearLocalStorage} className="text-white text-xs border border-1 p-2 rounded-lg bg-slate-800">
                     Clear local storage
                 </button>
-    </div>*/}
+            </div>
             <div className="max-h-72 overflow-y-auto">
                 <table className="min-w-full divide-y divide-gray-200 overflow-ellipsis whitespace-nowrap">
                     <thead>

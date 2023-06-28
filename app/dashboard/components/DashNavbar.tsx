@@ -20,8 +20,8 @@ const DashNavbar = () => {
             <div className='hidden lg:flex'>
                 <div className='hidden md:flex md:flex-col items-center justify-between border-r-[1px] p-10 w-fit overflow-y-hidden h-screen'>
                     <div id='loginLogo' className='hidden md:block'>
-                        <span className='font-semibold text-red9'>Then</span>
-                        <span className='text-slate11'>Pixel</span>
+                        <span className='font-semibold text-blue9'>Then</span>
+                        <span className='font-semibold text-red9'>Pixels</span>
                     </div>
                     <div id='loginName' className='hidden md:flex md:flex-col items-center font-semibold text-sm'>
                         <div id='loginAvatar' className='mb-5'>

@@ -47,15 +47,15 @@ const AccountSection = (props: Props) => {
                 </div>
             </div>
             <Tabs.Root className='mt-10' defaultValue="tab1" orientation="vertical">
-                <Tabs.List className='flex lg:items-center lg:gap-20 lg:ml-2 bg-white {shrink-0 justify-around p-5 w-full}' aria-label="tabs">
-                    <Tabs.Trigger value="tab1" className='text-xs lg:text-base lg:uppercase lg:tracking-[5px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current hover:cursor-pointer'>
+                <Tabs.List className='flex lg:items-center lg:gap-20 lg:ml-2 {shrink-0 justify-around p-5 w-full}' aria-label="tabs">
+                    <Tabs.Trigger value="tab1" className='font-semibold text-xs lg:text-base lg:uppercase lg:tracking-[5px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current hover:cursor-pointer'>
                         My Profile
                     </Tabs.Trigger>
-                    <Tabs.Trigger value="tab2" className='text-xs lg:text-base lg:uppercase lg:tracking-[5px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current hover:cursor-pointer'>
+                    <Tabs.Trigger value="tab2" className='font-semibold text-xs lg:text-base lg:uppercase lg:tracking-[5px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current hover:cursor-pointer'>
                         Membership & Billing
                     </Tabs.Trigger>
 
-                    <Tabs.Trigger value="tab4" className='text-xs lg:text-base lg:uppercase lg:tracking-[5px] text-red9 data-[state=active]:text-red9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
+                    <Tabs.Trigger value="tab4" className='font-semibold text-xs lg:text-base lg:uppercase lg:tracking-[5px] text-red9 data-[state=active]:text-red9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
                         Delete Account
                     </Tabs.Trigger>
                 </Tabs.List>
@@ -64,7 +64,7 @@ const AccountSection = (props: Props) => {
 
 
                 <Tabs.Content value="tab1">
-                    <div className='flex flex-col gap-5 p-5 lg:p-10 overflow-y-scroll'>
+                    <div className='flex flex-col gap-5 p-5 lg:p-10 {overflow-y-scroll}'>
                         {/** First Card */}
                         <div className='flex justify-between items-center rounded-lg border border-1 shadow-lg bg-white'>
                             <div className='flex'>
@@ -105,7 +105,7 @@ const AccountSection = (props: Props) => {
                         {/** Second Card */}
                         <div className='rounded-lg border border-1 shadow-lg p-5 bg-white text-xs lg:text-base'>
                             <div className='flex justify-between mb-10'>
-                                <h1 className='text-blue9 font-medium'>Personal Information</h1>
+                                <h1 className='text-blue9 font-semibold'>Personal Information</h1>
                                 <div className=''>
                                     <DialogButton
                                         onClickfunction=''
@@ -130,21 +130,21 @@ const AccountSection = (props: Props) => {
                             <div className='flex justify-between lg:w-[50%]'>
                                 <div className='flex flex-col justify-between'>
                                     <div className='mb-10'>
-                                        <h1 className='text-slate10 font-medium mb-1'>First Name</h1>
+                                        <h1 className='text-slate10 font-semibold mb-1'>First Name</h1>
                                         <p>clientFirst</p>
                                     </div>
                                     <div>
-                                        <h1 className='text-slate10 font-medium mb-1 '>Last Name</h1>
+                                        <h1 className='text-slate10 font-semibold mb-1 '>Last Name</h1>
                                         <p>clientLast</p>
                                     </div>
                                 </div>
                                 <div className='flex flex-col justify-between '>
                                     <div className='mb-10'>
-                                        <h1 className='text-slate10 font-medium mb-1'>Email address</h1>
+                                        <h1 className='text-slate10 font-semibold mb-1'>Email address</h1>
                                         <p>ClientEmail@gmail.com</p>
                                     </div>
                                     <div>
-                                        <h1 className='text-slate10 font-medium mb-1 '>Phone</h1>
+                                        <h1 className='text-slate10 font-semibold mb-1 '>Phone</h1>
                                         <p>718-123-1232</p>
                                     </div>
                                 </div>
@@ -153,7 +153,7 @@ const AccountSection = (props: Props) => {
                         {/** Third Card */}
                         <div className='rounded-lg border border-1 shadow-lg p-5 bg-white'>
                             <div className='flex justify-between mb-10'>
-                                <h1 className='text-blue9 font-medium text-xs lg:text-base'>Email Notifications</h1>
+                                <h1 className='text-blue9 font-semibold text-xs lg:text-base'>Email Notifications</h1>
                                 {/** Toggle all button */}
                                 <button onClick={handleToggleAllButton} type='button' className='hover:cursor-pointer bg-blue9 hover:bg-blue9/80 text-white inline-flex items-center justify-center rounded-[4px] gap-1 lg:gap-2 py-1 px-2 text-xs lg:py-0 lg:px-[15px] lg:h-[35px] font-light leading-none focus:outline-none' >
                                     Toggle all
@@ -170,7 +170,7 @@ const AccountSection = (props: Props) => {
                                             label={
                                                 <>
                                                     <div className='mb-2 text-xs lg:text-base'>
-                                                        <h1 className='font-medium'>Marketing </h1>
+                                                        <h1 className='font-semibold'>Marketing </h1>
                                                         <p className='mt-1 text-[10px] text-slate8'>Monthly marketing emails</p>
                                                     </div>
                                                 </>
@@ -184,7 +184,7 @@ const AccountSection = (props: Props) => {
                                             label={
                                                 <>
                                                     <div className='mb-2 text-xs lg:text-base'>
-                                                        <h1 className='font-medium'>Production</h1>
+                                                        <h1 className='font-semibold'>Production</h1>
                                                         <p className='mt-1 text-[10px] text-slate8'>Weekly production emails</p>
                                                     </div>
                                                 </>
@@ -200,7 +200,7 @@ const AccountSection = (props: Props) => {
                                             label={
                                                 <>
                                                     <div className='mb-2 text-xs lg:text-base'>
-                                                        <h1 className='font-medium'>Something</h1>
+                                                        <h1 className='font-semibold'>Something</h1>
                                                         <p className='mt-1 text-[10px] text-slate8'>Something emails</p>
                                                     </div>
                                                 </>
@@ -214,7 +214,7 @@ const AccountSection = (props: Props) => {
                                             label={
                                                 <>
                                                     <div className='mb-2 text-xs lg:text-base'>
-                                                        <h1 className='font-medium'>Something</h1>
+                                                        <h1 className='font-semibold'>Something</h1>
                                                         <p className='mt-1 text-[10px] text-slate8'>Something emails</p>
                                                     </div>
                                                 </>
@@ -293,7 +293,7 @@ const AccountSection = (props: Props) => {
                         {/** Card Two Billing*/}
                         <div className='rounded-lg border border-1 shadow-lg p-5 bg-white'>
                             <div className='flex justify-between mb-10'>
-                                <h1 className='text-blue9 font-medium text-xs lg:text-base'>Membership Information</h1>
+                                <h1 className='text-blue9 font-semibold text-xs lg:text-base'>Membership Information</h1>
                                 <div className=''>
                                     <DialogButton
                                         onClickfunction=''
@@ -318,7 +318,7 @@ const AccountSection = (props: Props) => {
                             <div className='flex justify-between text-xs lg:text-base lg:w-[50%]'>
                                 <div className='flex flex-col justify-between'>
                                     <div className='mb-10'>
-                                        <h1 className='text-slate10 font-medium mb-1'>Plan</h1>
+                                        <h1 className='text-slate10 font-semibold mb-1'>Plan</h1>
                                         <p className='mb-1' id='text_gradient'>PixelCare Tier</p>
                                         {/** Div with both buttons in them */}
                                         <div className='flex gap-3'>
@@ -342,7 +342,7 @@ const AccountSection = (props: Props) => {
                                         </div>
                                     </div>
                                     <div>
-                                        <h1 className='text-slate10 font-medium mb-1'>Cancel membership</h1>
+                                        <h1 className='text-slate10 font-semibold mb-1'>Cancel membership</h1>
                                         <DialogButton
                                             onClickfunction=''
                                             disabled=''
@@ -369,7 +369,7 @@ const AccountSection = (props: Props) => {
                                 </div>
                                 <div className='flex flex-wrap flex-col justify-between '>
                                     <div className='mb-10'>
-                                        <h1 className='text-slate10 font-medium mb-1'>Billing period</h1>
+                                        <h1 className='text-slate10 font-semibold mb-1'>Billing period</h1>
                                         <p className='mb-1' id='text_gradient'>Monthly <span className='text-[10px]'>/Renews Jun. 13, 2023</span></p>
                                         <DialogButton
                                             onClickfunction=''
@@ -394,11 +394,11 @@ const AccountSection = (props: Props) => {
                         {/** Card Three Billing */}
                         <div className='rounded-lg border border-1 shadow-lg text-xs lg:text-base lg:p-5 bg-white'>
                             <div className='flex justify-between p-5 bg-slate5 lg:bg-transparent lg:p-0 lg:mb-10'>
-                                <h1 className='text-blue9 font-medium'>Billing History</h1>
+                                <h1 className='text-blue9 font-semibold'>Billing History</h1>
                                 <DialogButton
                                     onClickfunction=''
                                     disabled=''
-                                    content={<EditTabs />}
+                                    content=''
                                     saveButton='Save changes'
                                     saveButtonColor='bg-red9'
                                     buttonText={

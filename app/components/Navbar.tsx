@@ -41,7 +41,7 @@ const Navbar = () => {
                 <div className='flex justify-between p-2'>
                     <div>
                         <span className='font-semibold text-blue9'>Then</span>
-                        <span className='text-slate11'>Digital</span>
+                        <span className='font-semibold text-red9'>Pixels</span>
                     </div>
                     <div className='cursor-pointer z-[100]' onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                         <button

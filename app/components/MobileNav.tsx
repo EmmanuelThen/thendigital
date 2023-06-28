@@ -19,37 +19,37 @@ const MobileNav = ({ nav1, nav2, nav3, nav4, nav5, nav6, nav7 }: Props) => {
             <div className='absolute flex justify-center top-0 right-0 transition-all duration-75 ease-in-out backdrop-blur-lg w-screen h-screen z-[3] p-5'>
                 <div className=' flex flex-col  w-full h-screen  bg-white rounded-md z-[4] bounce-in-right shadow-md p-5'>
                     <div id='loginLogo' className='flex items-center p-3'>
-                        <span className='font-semibold text-red9'>Then</span>
-                        <span className='text-slate11'>Pixel</span>
+                        <span className='font-semibold text-blue9'>Then</span>
+                        <span className='font-semibold text-red9'>Pixels</span>
                     </div>
                     <div className='flex flex-col justify-between h-full'>
                         <div>
                             <Link className='flex justify-between items-center hover:bg-slate2 font-light border-dashed border-b-[1px] p-3 my-8 ' href='/'>
-                                <div className='text-slate10'>{nav1}</div>
+                                <div className='text-slate10 font-medium'>{nav1}</div>
                                 <ChevronRightIcon />
                             </Link>
                             <Link className='flex justify-between items-center hover:bg-slate2 font-light border-dashed border-b-[1px] p-3 my-8 ' href='/dashboard'>
-                                <div className='text-slate10'>{nav2}</div>
+                                <div className='text-slate10 font-medium'>{nav2}</div>
                                 <ChevronRightIcon />
                             </Link>
                             <Link className='flex justify-between items-center hover:bg-slate2 font-light border-dashed border-b-[1px] p-3 my-8 ' href='/showcase'>
-                                <div className='text-slate10'>{nav3}</div>
+                                <div className='text-slate10 font-medium'>{nav3}</div>
                                 <ChevronRightIcon />
                             </Link>
                             <Link className='flex justify-between items-center hover:bg-slate2 font-light border-dashed border-b-[1px] p-3 my-8 ' href='/contact'>
-                                <div className='text-slate10'>{nav4}</div>
+                                <div className='text-slate10 font-medium'>{nav4}</div>
                                 <ChevronRightIcon />
                             </Link>
                             <Link className='flex justify-between items-center hover:bg-slate2 font-light border-dashed border-b-[1px] p-3 my-8' href='/contact'>
-                                <div className='text-slate10'>{nav5}</div>
+                                <div className='text-slate10 font-medium'>{nav5}</div>
                                 <ChevronRightIcon />
                             </Link>
-                            <Link className='flex justify-between items-center hover:bg-slate2 font-light border-dashed border-b-[1px] p-3 my-8 ' href='/contact'>
-                                <div className='text-slate10'>{nav6}</div>
+                            <Link className='flex justify-between items-center hover:bg-slate2 font-light border-dashed border-b-[1px] p-3 my-8 ' href='/signin'>
+                                <div className='text-slate10 font-medium'>{nav6}</div>
                                 <ChevronRightIcon />
                             </Link>
                             <Link className='flex justify-between items-center hover:bg-slate2 font-light border-dashed border-b-[1px] p-3  my-8' href='/contact'>
-                                <div className='text-slate10'>{nav7}</div>
+                                <div className='text-slate10 font-medium'>{nav7}</div>
                                 <EnterIcon />
                             </Link>
                         </div>

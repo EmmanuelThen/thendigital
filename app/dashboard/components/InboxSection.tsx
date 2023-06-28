@@ -105,6 +105,7 @@ const InboxSection = () => {
         setInboxMessage(updatedInboxMessage);
         setInboxTrash(updatedInboxTrash);
 
+        // Fix this function becuase when you delete the last message left in inbox with the DeleteButtonWhileMessageIsInView the message display is blank when it should say 'No message selected
         if (updatedInboxMessage.length === 0) {
             setSelectedMessageIndex(null);
             setMessageFullDisplay('');
@@ -177,7 +178,7 @@ const InboxSection = () => {
                                                         <div
                                                             className={
                                                                 `${selectedMessageIndex === i ? 'outline outline-1 outline-blue9' : ''
-                                                                } ml-2 lg:ml-0 scale-in-center lg:max-w-[385px] shadow-md bg-slate2 rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 p-3 w-[330px] lg:w-full lg:p-5`
+                                                                } ml-2 lg:ml-0 scale-in-center lg:max-w-[385px] shadow-md bg-slate2 rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 p-3 w-[380px] lg:w-full lg:p-5`
                                                             }
                                                             onClick={() => handleMessageClick(i)}
                                                         >
@@ -313,7 +314,7 @@ const InboxSection = () => {
                                                         <div
                                                             className={
                                                                 `${selectedMessageIndex === i ? 'outline outline-1 outline-blue9' : ''
-                                                                } ml-2 scale-in-center lg:max-w-[385px] shadow-md bg-slate2 rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 p-3 w-[330px] lg:p-5`
+                                                                } ml-2 scale-in-center lg:max-w-[385px] shadow-md bg-slate2 rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 p-3 w-[400px] lg:p-5`
                                                             }
                                                             onClick={() => handleMessagInTrashClick(i)}
                                                         >

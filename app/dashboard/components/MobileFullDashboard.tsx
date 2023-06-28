@@ -12,7 +12,7 @@ type Props = {}
 
 const MobileFullDashboard = (props: Props) => {
     return (
-        <>
+        <div id='mobile-grid-section'>
             <div className=''>
                 <DashMobileNavbar />
             </div>
@@ -59,7 +59,7 @@ const MobileFullDashboard = (props: Props) => {
                     <AccountSection />
                 </Tabs.Content>
             </Tabs.Root>
-        </>
+        </div>
     )
 }
 
