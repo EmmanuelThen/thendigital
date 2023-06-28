@@ -17,7 +17,19 @@
   }
 }
 
+/* Work around to set inbox buttons only on tablet screns and smaller, since tailwind wont allow it*/
+@media (max-width: 1022px) {
+    #threeInboxButtons {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    #messageFullDisplay, #trashMessageFullDisplay {
+      display: flex;
+      flex-direction: column;
+    }
 
+}
 
 body {
   font-size: 16px;

@@ -39,18 +39,20 @@ const MobileAccountSection = (props: Props) => {
                 </div>
             </div>
             <Tabs.Root className='mt-5' defaultValue="tab1" orientation="vertical">
-                <Tabs.List className='shrink-0 flex justify-between p-3 w-full hover:cursor-pointer bg-white' aria-label="tabs">
-                    <Tabs.Trigger value="tab1" className=' text-xs uppercase tracking-[3px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current hover:cursor-pointer'>
+                <Tabs.List className='shrink-0 flex justify-around p-5 w-full hover:cursor-pointer bg-white' aria-label="tabs">
+                    <Tabs.Trigger value="tab1" className=' text-xs text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current hover:cursor-pointer'>
                         Profile
                     </Tabs.Trigger>
-                    <Tabs.Trigger value="tab2" className=' text-xs uppercase tracking-[3px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current hover:cursor-pointer'>
+                    <Tabs.Trigger value="tab2" className=' text-xs text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current hover:cursor-pointer'>
                         Membership
                     </Tabs.Trigger>
 
-                    <Tabs.Trigger value="tab4" className=' text-xs uppercase tracking-[3px] text-red9 data-[state=active]:text-red9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
+                    <Tabs.Trigger value="tab4" className=' text-xs text-red9 data-[state=active]:text-red9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state hover:cursor-pointer'>
                         Delete Account
                     </Tabs.Trigger>
                 </Tabs.List>
+
+                
                 <Tabs.Content value="tab1">
                     <div className='flex flex-col gap-5 p-5 overflow-y-scroll'>
                         {/** First Card */}

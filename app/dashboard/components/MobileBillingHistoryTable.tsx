@@ -16,7 +16,7 @@ const MobileBillingHistoryTable = () => {
     function addInvoiceToHistory(billingHistory: any[], paymentStatus: string, amount: number) {
         const newInvoice = {
             date: '2023-06-25',
-            details: 'Invoice #124',
+            invoice: 'I123123123',
             amount: amount.toLocaleString('en-US', {
                 style: 'currency',
                 currency: 'USD'
@@ -65,7 +65,7 @@ const MobileBillingHistoryTable = () => {
                                 Date
                             </th>
                             <th className="w-1/5 text-left text-[10px] font-medium text-blue9 uppercase tracking-wider flex justify-center">
-                                Details
+                                Invoice
                             </th>
                             <th className="w-1/5 text-left text-[10px] font-medium text-blue9 uppercase tracking-wider flex justify-center">
                                 Total
@@ -92,7 +92,7 @@ const MobileBillingHistoryTable = () => {
                             billingHistory.map((entry: any, i: any) => (
                                 <tr className='flex justify-between items-center text-[10px]' key={i}>
                                     <td className="w-1/5  flex justify-center">{entry.date}</td>
-                                    <td className="w-1/5  flex justify-center">{entry.details}</td>
+                                    <td className="w-1/5  flex justify-center">{entry.invoice}</td>
                                     <td className="w-1/5  font-medium flex justify-center">{entry.amount}</td>
                                     <div className='w-1/5  flex flex-col justify-center items-center py-3'>
                                         <td className=''><MobileBillingStatusBadge paymentStatus={entry.paymentStatus} /></td>

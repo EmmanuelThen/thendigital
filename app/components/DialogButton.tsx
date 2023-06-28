@@ -35,15 +35,15 @@ const DialogButton = ({ buttonText, dialogTitle, dialogDesc, content, saveButton
                     <Dialog.Title className="text-mauve12 m-0 text-[17px] font-medium">
                         {dialogTitle}
                     </Dialog.Title>
-                    <Dialog.Description className="text-mauve11 mt-[10px] mb-5 text-2xl font-semibold leading-normal">
+                    <Dialog.Description className="text-mauve11 mt-[10px] mb-5 text-sm lg:text-2xl font-semibold leading-normal">
                         {dialogDesc}
                     </Dialog.Description>
                     <div className='flex justify-center'>
                         {content}
                     </div>
-                    <div className="mt-[35px] flex justify-end">
+                    <div className="lg:mt-[35px] flex items-center  justify-end">
                         <Dialog.Close asChild className={`${buttonDisplay}`}>
-                            <button disabled={disabled} onClick={onClickfunction} className={`${saveButtonColor} text-white hover:${saveButtonColor}/80 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:outline-none`}>
+                            <button disabled={disabled} onClick={onClickfunction} className={`${saveButtonColor} text-white hover:${saveButtonColor}/80 inline-flex items-center justify-center rounded-[4px] gap-1 lg:gap-2 py-2 px-2 text-xs lg:text-base lg:py-0 lg:px-[10px] lg:h-[35px] font-medium leading-none focus:outline-none`}>
                                 {saveButton}
                             </button>
                         </Dialog.Close>

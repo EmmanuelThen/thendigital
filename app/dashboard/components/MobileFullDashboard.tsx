@@ -50,13 +50,13 @@ const MobileFullDashboard = (props: Props) => {
                     </div>
                 </Tabs.Content>
                 <Tabs.Content value="tab2">
-                    <MobileInboxSection />
+                    <InboxSection />
                 </Tabs.Content>
                 <Tabs.Content value="tab3">
                     Tab 3 content
                 </Tabs.Content>
                 <Tabs.Content value="tab4">
-                    <MobileAccountSection />
+                    <AccountSection />
                 </Tabs.Content>
             </Tabs.Root>
         </>

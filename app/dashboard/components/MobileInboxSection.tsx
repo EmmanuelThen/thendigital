@@ -205,7 +205,7 @@ const MobileInboxSection = () => {
                                                     <button onClick={handleDeleteNotificationButtonClick}
                                                         disabled={isNotificationButtonDisabled}
                                                         type='button'
-                                                        className='bg-slate8 text-white inline-flex items-center justify-center gap-1 rounded-[4px] py-1 px-2 text-xs font-light leading-none focus:outline-none'
+                                                        className='bg-slate8 text-white inline-flex items-center justify-center rounded-[4px] py-1 px-2 text-xs gap-1 font-light leading-none focus:outline-none'
                                                     >
                                                          Notifications
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="hsl(206 100% 50.0%)" className="w-4 h-4">
