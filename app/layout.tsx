@@ -1,6 +1,5 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import Navbar from './components/Navbar'
 import { AvatarProvider } from '@/context/AvatarContext'
 import { SessionProvider } from 'next-auth/react';
 import NextAuthProvider from './components/NextAuthProvider';
@@ -24,7 +23,6 @@ export default function RootLayout({
       <body>
         <NextAuthProvider>
           <AvatarProvider>
-            
             <main className='grow'>
               {children}
             </main>

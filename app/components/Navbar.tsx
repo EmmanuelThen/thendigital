@@ -38,14 +38,14 @@ const Navbar = () => {
 
         <>
             <div className='lg:hidden justify-between items-center'>
-                <div className='flex justify-between p-2'>
-                    <div>
+                <div className='flex justify-between p-2 z-[2]'>
+                    <div className='flex items-center'>
                         <span className='font-semibold text-blue9'>Then</span>
                         <span className='font-semibold text-red9'>Pixels</span>
                     </div>
-                    <div className='cursor-pointer z-[100]' onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                    <div className='cursor-pointer z-[100]'>
                         <button
-                            className="rounded-full w-[35px] h-[35px] inline-flex items-center justify-center bg-white shadow-[0_2px_10px] shadow-blackA7 outline-none hover:bg-slate2"
+                            className=" rounded-full w-[35px] h-[35px] inline-flex items-center justify-center  shadow-[0_2px_10px] shadow-blackA7 outline-none hover:bg-slate2"
                             aria-label="Customise options"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         >
@@ -68,9 +68,9 @@ const Navbar = () => {
                 )}
             </div>
             <NavigationMenu.Root className=" backdrop-blur-md hidden lg:flex fixed z-[1] w-screen justify-between items-center py-1 px-10">
-                <div>
+                <div className='flex items-center'>
                     <span className='font-semibold text-blue9'>Then</span>
-                    <span className='text-slate11'>Digital</span>
+                    <span className='font-semibold text-red9'>Pixels</span>
                 </div>
                 <NavigationMenu.List className="center  m-0 flex gap-20 list-none  p-1 ">
                     <NavigationMenu.Item>

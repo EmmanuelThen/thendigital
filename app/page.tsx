@@ -25,7 +25,7 @@ export default function Home() {
         <section className=''>
           <Hero />
         </section>
-        <section className='mt-[690px] lg:mt-[730px]'>
+        <section className='mt-[150px]'>
           <Stats />
         </section>
         <section>

@@ -135,7 +135,7 @@ const InboxSection = () => {
 
     return (
         <div className="">
-            <div className=" p-5 lg:p-0 lg:flex lg:items-center lg:justify-between lg:ml-2 ">
+            <div className="p-5 lg:p-0 lg:flex lg:items-center lg:justify-between lg:ml-2 ">
                 <div className='text-center lg:text-left'>
                     <ShinyText text="Messages" />
                 </div>
@@ -152,7 +152,7 @@ const InboxSection = () => {
             <div>
                 <Tabs.Root defaultValue="tab1" orientation="vertical">
                     <div className="">
-                        <div className="bg-white lg:ml-1 rounded-lg shadow-lg lg:w-[1275px] 2xl:w-[1685px] {4xl:w-[2209px]}">
+                        <div className="bg-white lg:ml-1 rounded-lg shadow-lg {lg:w-[1275px] 2xl:w-[1685px]} {4xl:w-[2209px]}">
                             <Tabs.List className="shrink-0 flex border-b border-mauve6 w-full lg:border-2 rounded-lg hover:cursor-pointer bg-white" aria-label="Manage your account">
                                 <Tabs.Trigger
                                     className="uppercase tracking-[5px] w-[50%]  bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-xs lg:text-[15px] leading-none text-gray-500 select-none first:rounded-tl-md last:rounded-tr-md hover:text-blue9 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative  outline-none hover:cursor-pointer"
@@ -173,12 +173,12 @@ const InboxSection = () => {
                                     <div className="lg:w-[35%] overflow-y-scroll">
                                         {inboxMessage.length > 0 ? (
                                             inboxMessage.map((message, i) => (
-                                                <div className='flex items-center' key={i}>
-                                                    <div className="p-2">
+                                                <div className='flex items-center w-[93vw] lg:w-full' key={i}>
+                                                    <div className="p-2 w-full">
                                                         <div
                                                             className={
                                                                 `${selectedMessageIndex === i ? 'outline outline-1 outline-blue9' : ''
-                                                                } ml-2 lg:ml-0 scale-in-center lg:max-w-[385px] shadow-md bg-slate2 rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 p-3 w-[380px] lg:w-full lg:p-5`
+                                                                } ml-2 lg:ml-0 scale-in-center lg:max-w-[385px] shadow-md bg-slate2 rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 p-3 max-w-[848px] lg:p-5`
                                                             }
                                                             onClick={() => handleMessageClick(i)}
                                                         >
@@ -309,12 +309,12 @@ const InboxSection = () => {
                                     <div className="lg:w-[35%] w-full overflow-y-scroll">
                                         {inboxTrash.length > 0 ? (
                                             inboxTrash.map((message, i) => (
-                                                <div className='flex items-center' key={i}>
-                                                    <div className="p-2">
+                                                <div className='flex items-center w-[98vw] lg:w-full' key={i}>
+                                                    <div className="p-2 w-full">
                                                         <div
                                                             className={
                                                                 `${selectedMessageIndex === i ? 'outline outline-1 outline-blue9' : ''
-                                                                } ml-2 scale-in-center lg:max-w-[385px] shadow-md bg-slate2 rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 p-3 w-[400px] lg:p-5`
+                                                                } ml-2 scale-in-center lg:max-w-[385px] shadow-md bg-slate2 rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 max-w-[848px] p-3 lg:p-5`
                                                             }
                                                             onClick={() => handleMessagInTrashClick(i)}
                                                         >

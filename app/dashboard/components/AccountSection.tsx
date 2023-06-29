@@ -32,7 +32,7 @@ const AccountSection = (props: Props) => {
 
     return (
         <div className=''>
-            <div className=" p-5 lg:p-0 lg:flex lg:items-center lg:justify-between lg:ml-2 ">
+            <div className="p-5 lg:p-0 lg:flex lg:items-center lg:justify-between lg:ml-2 ">
                 <div className='text-center lg:text-left'>
                     <ShinyText text="Account" />
                 </div>
@@ -47,7 +47,7 @@ const AccountSection = (props: Props) => {
                 </div>
             </div>
             <Tabs.Root className='mt-10' defaultValue="tab1" orientation="vertical">
-                <Tabs.List className='flex lg:items-center lg:gap-20 lg:ml-2 {shrink-0 justify-around p-5 w-full}' aria-label="tabs">
+                <Tabs.List className='flex lg:items-center lg:gap-20 lg:ml-2 shrink-0 justify-around p-5 w-full' aria-label="tabs">
                     <Tabs.Trigger value="tab1" className='font-semibold text-xs lg:text-base lg:uppercase lg:tracking-[5px] text-gray-500 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current hover:cursor-pointer'>
                         My Profile
                     </Tabs.Trigger>
@@ -164,7 +164,7 @@ const AccountSection = (props: Props) => {
                                 </button>
                             </div>
                             <div className='flex flex-col lg:flex lg:justify-between lg:w-[50%]'>
-                                <div className=' flex flex-col lg:gap-10 justify-between'>
+                                <div className=' flex flex-col  justify-between'>
                                     <div className='mb-3 lg:mb-0 lg:mr-5'>
                                         <Toggle
                                             label={
@@ -194,7 +194,7 @@ const AccountSection = (props: Props) => {
                                         />
                                     </div>
                                 </div>
-                                <div className=' flex flex-col lg:gap-10 justify-between'>
+                                <div className=' flex flex-col justify-between'>
                                     <div className='mb-3 lg:mb-0 lg:mr-5'>
                                         <Toggle
                                             label={

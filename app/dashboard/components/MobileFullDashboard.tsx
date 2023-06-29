@@ -12,16 +12,36 @@ type Props = {}
 
 const MobileFullDashboard = (props: Props) => {
     return (
-        <div id='mobile-grid-section'>
-            <div className=''>
+        <div className='' id='mobile-grid-section'>
+            <div className=' overflow-hidden'>
                 <DashMobileNavbar />
             </div>
             <Tabs.Root defaultValue="tab1" orientation="vertical">
                 <Tabs.List aria-label="tabs example" className='flex justify-between p-5 mt-5'>
-                    <Tabs.Trigger value="tab1" className='uppercase tracking-[3px] text-gray-500 text-[10px] data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current'>Dashboard</Tabs.Trigger>
-                    <Tabs.Trigger value="tab2" className='uppercase tracking-[3px] text-gray-500 text-[10px] data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current'>Messages</Tabs.Trigger>
-                    <Tabs.Trigger value="tab3" className='uppercase tracking-[3px] text-gray-500 text-[10px] data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current'>Three</Tabs.Trigger>
-                    <Tabs.Trigger value="tab4" className='uppercase tracking-[3px] text-gray-500 text-[10px] data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current'>Account</Tabs.Trigger>
+                    <Tabs.Trigger
+                        value="tab1"
+                        className='uppercase tracking-[3px] text-gray-500 text-[10px] data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current'
+                    >
+                        Dashboard
+                    </Tabs.Trigger>
+                    <Tabs.Trigger
+                        value="tab2"
+                        className='uppercase tracking-[3px] text-gray-500 text-[10px] data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current'
+                    >
+                        Messages
+                    </Tabs.Trigger>
+                    <Tabs.Trigger
+                        value="tab3"
+                        className='uppercase tracking-[3px] text-gray-500 text-[10px] data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current'
+                    >
+                        Three
+                    </Tabs.Trigger>
+                    <Tabs.Trigger
+                        value="tab4"
+                        className='uppercase tracking-[3px] text-gray-500 text-[10px] data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current'
+                    >
+                        Account
+                    </Tabs.Trigger>
                 </Tabs.List>
                 <Tabs.Content value="tab1">
                     <div>

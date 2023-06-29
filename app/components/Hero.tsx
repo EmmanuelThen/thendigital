@@ -6,7 +6,7 @@ const Hero = (props: Props) => {
     return (
         <>
             <div className='flex'>
-                <div className='absolute top-[150px] p-5 lg:p-20 lg:w-[50%]'>
+                <div className='mt-[100px] top-[150px] p-5 lg:p-20 lg:w-[50%]'>
                     <div className='flex md:justify-center text-[45px] md:text-[60px] md:text-center lg:text-left lg:text-[60px] font-semibold tracking-[-0.06em] lg:tracking-tight leading-[50px] lg:leading-[65px] lg:w-fit'>
                         <h1>Your vision, our<br></br> passion lets build<br></br> it together.</h1>
                     </div>
