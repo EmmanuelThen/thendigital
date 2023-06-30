@@ -34,7 +34,7 @@ const MobileFullDashboard = (props: Props) => {
                         value="tab3"
                         className='uppercase tracking-[3px] text-gray-500 text-[10px] data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current'
                     >
-                        Three
+                        <span id='text_gradient'>Insights</span>
                     </Tabs.Trigger>
                     <Tabs.Trigger
                         value="tab4"

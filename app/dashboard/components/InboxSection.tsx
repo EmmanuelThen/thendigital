@@ -328,7 +328,6 @@ const InboxSection = () => {
                                                             <p className="truncate text-xs lg:text-sm ml-2">{message.message}</p>
                                                         </div>
                                                     </div>
-
                                                 </div>
                                             ))
                                         ) : (

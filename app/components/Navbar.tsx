@@ -34,16 +34,18 @@ const ListItem = ({ description, children, href }: Props) => {
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [display, setDisplay] = useState('');
+
     return (
 
         <>
             <div className='lg:hidden justify-between items-center'>
-                <div className='flex justify-between p-2 z-[2]'>
+                <div className='flex justify-between p-2 '>
                     <div className='flex items-center'>
                         <span className='font-semibold text-blue9'>Then</span>
                         <span className='font-semibold text-red9'>Pixels</span>
                     </div>
-                    <div className='cursor-pointer z-[100]'>
+                    <div className='cursor-pointer '>{/** z-100 was here before */}
                         <button
                             className=" rounded-full w-[35px] h-[35px] inline-flex items-center justify-center  shadow-[0_2px_10px] shadow-blackA7 outline-none hover:bg-slate2"
                             aria-label="Customise options"
@@ -54,7 +56,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 {isMobileMenuOpen && (
-                    <>
+                    <div className={`${display}`}>
                         <MobileNav
                             nav1='Home'
                             nav2='Dashboard'
@@ -63,8 +65,9 @@ const Navbar = () => {
                             nav5='Membership'
                             nav6='Account'
                             nav7='Contact'
+                            navnavnav={display}
                         />
-                    </>
+                    </div>
                 )}
             </div>
             <NavigationMenu.Root className=" backdrop-blur-md hidden lg:flex fixed z-[1] w-screen justify-between items-center py-1 px-10">

@@ -23,7 +23,7 @@ const DashMobileNavbar = (props: Props) => {
                     <span className='font-semibold text-red9'>Pixels</span>
                 </div>
                 <button
-                    className="z-[100] rounded-full w-[35px] h-[35px] inline-flex items-center justify-center shadow-[0_2px_10px] shadow-blackA7 outline-none hover:bg-slate2"
+                    className=" rounded-full w-[35px] h-[35px] inline-flex items-center justify-center shadow-[0_2px_10px] shadow-blackA7 outline-none hover:bg-slate2"
                     aria-label="Customise options"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >

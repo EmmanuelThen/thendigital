@@ -62,12 +62,12 @@
   }
 }
 
-#grid-section {
+/*#grid-section {
   background: #262626;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-}
+}*/
 
 body {
   font-size: 16px;
@@ -462,6 +462,11 @@ body {
 .arrow:hover span {
   transform: translateX(0.35rem);
   -webkit-transform: translateX(0.35rem);
+}
+
+.arrow:hover #big-arrow {
+  transform: translateX(1.5rem);
+  -webkit-transform: translateX(1.5rem);
 }
 
 /* Intersection observer */

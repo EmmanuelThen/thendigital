@@ -11,9 +11,11 @@ type Props = {
     nav5: string,
     nav6: string,
     nav7: string,
+    navnavnav: any
 }
 
-const MobileNav = ({ nav1, nav2, nav3, nav4, nav5, nav6, nav7 }: Props) => {
+const MobileNav = ({ nav1, nav2, nav3, nav4, nav5, nav6, nav7, navnavnav }: Props) => {
+    const [display, setDisplay] = useState(navnavnav);
 
     return (
         <>
@@ -23,6 +25,15 @@ const MobileNav = ({ nav1, nav2, nav3, nav4, nav5, nav6, nav7 }: Props) => {
                         <div>
                             <span className='font-semibold text-blue9'>Then</span>
                             <span className='font-semibold text-red9'>Pixels</span>
+                        </div>
+                        <div className='cursor-pointer z-[100]'>
+                            <button
+                                className=" rounded-full w-[35px] h-[35px] inline-flex items-center justify-center  shadow-[0_2px_10px] shadow-blackA7 outline-none hover:bg-slate2"
+                                aria-label="Customise options"
+                                onClick={() => setDisplay('hidden')}
+                            >
+                                <Cross1Icon />
+                            </button>
                         </div>
                     </div>
                     <div className='flex flex-col justify-between h-full'>

@@ -14,6 +14,7 @@ import InboxSection from './InboxSection'
 import EliteInboxSection from './EliteInboxSection'
 import AccountSection from './AccountSection'
 import MobileFullDashboard from './MobileFullDashboard'
+import InsightsSection from './InsightsSection'
 
 type Props = {}
 
@@ -26,8 +27,8 @@ const Dashboard = (props: Props) => {
     const handleInboxClick = () => {
         setValue('inbox');
     }
-    const handleScheduleClick = () => {
-        setValue('schedule');
+    const handleInsightsClick = () => {
+        setValue('insights');
     }
     const handleAccountClick = () => {
         setValue('account')
@@ -36,7 +37,7 @@ const Dashboard = (props: Props) => {
     return (
         <div className='flex w-full max-h-screen overflow-y-auto' id='full-dash'>
             <div className='flex lg:h-screen'>
-                <div className='lg:w-1/5 border-r-[1px]'>
+                <div className='lg:w-1/5'>
                     <div className='hidden lg:flex lg:flex-col items-center justify-between border-r-[1px] p-10 w-fit  h-screen'>
                         <div id='loginLogo' className='hidden lg:block'>
                             <span className='font-semibold text-blue9'>Then</span>
@@ -93,12 +94,21 @@ const Dashboard = (props: Props) => {
                             <button
                                 value={value}
                                 className='p-2 flex items-center gap-2 hover:bg-slate2 hover:rounded-md '
-                                onClick={handleScheduleClick}
+                                onClick={handleInsightsClick}
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" className="w-5 h-5">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="w-5 h-5">
+                                    <defs>
+                                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stopColor="hsl(358, 75%, 59%)" />
+                                            <stop offset="25%" stopColor="purple" />
+                                            <stop offset="50%" stopColor="pink" />
+                                            <stop offset="75%" stopColor="rgb(64, 64, 234)" />
+                                            <stop offset="100%" stopColor="#3b82f6" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path strokeLinecap="round" strokeLinejoin="round" stroke="url(#gradient)" strokeWidth="1.2" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
                                 </svg>
-                                <p className='font-light '>Schedule</p>
+                                <p className='font-light' id='text_gradient'>Insights</p>
                             </button>
 
                             <button
@@ -151,8 +161,8 @@ const Dashboard = (props: Props) => {
                             return <DashGridSection />;
                         case 'inbox':
                             return <InboxSection />;
-                        case 'settings':
-                            return <SettingsSection />;
+                        case 'insights':
+                            return <InsightsSection />
                         case 'account':
                             return <AccountSection />;
                         default:
