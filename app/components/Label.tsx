@@ -7,9 +7,10 @@ type Props = {
     label: string,
     defaultValue: string,
     buttonDisplay: any
+    onChange: any
 }
 
-const LabelDemo = ({ label, defaultValue, buttonDisplay }: Props) => (
+const LabelDemo = ({ label, defaultValue, buttonDisplay, onChange }: Props) => (
   <div className="flex flex-col flex-wrap gap-[15px] px-5">
     <Label.Root className="text-[15px] font-medium" htmlFor="firstName">
       {label}
@@ -20,6 +21,7 @@ const LabelDemo = ({ label, defaultValue, buttonDisplay }: Props) => (
         type="text"
         id="firstName"
         placeholder={defaultValue}
+        onChange={onChange}
       />
       <div className={` ${buttonDisplay} ml-3 border border-1 border-red9 rounded-md`}>
         <ToastButton />

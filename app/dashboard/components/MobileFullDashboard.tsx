@@ -8,6 +8,7 @@ import InboxSection from './InboxSection'
 import MobileInboxSection from './MobileInboxSection'
 import AccountSection from './AccountSection'
 import MobileAccountSection from './MobileAccountSection'
+import InsightsSection from './InsightsSection'
 type Props = {}
 
 const MobileFullDashboard = (props: Props) => {
@@ -73,7 +74,7 @@ const MobileFullDashboard = (props: Props) => {
                     <InboxSection />
                 </Tabs.Content>
                 <Tabs.Content value="tab3">
-                    Tab 3 content
+                    <InsightsSection />
                 </Tabs.Content>
                 <Tabs.Content value="tab4">
                     <AccountSection />
