@@ -4,6 +4,7 @@ import ShinyText from '@/app/components/ShinyText'
 import PopoverButton from '@/app/components/PopoverButton'
 import LabelDemo from '@/app/components/Label'
 import Checkedbox from '@/app/components/Checkedbox'
+import LoadingState from '@/app/components/LoadingState'
 
 
 
@@ -14,6 +15,8 @@ const InsightsSection = (props: Props) => {
     const [device, setDevice] = useState('');
     const [siteMetrics, setSiteMetrics] = useState();
     const [checked, setChecked] = useState([false, false]);
+    const [isLoading, setIsLoading] = useState(false);
+    const [dataArray, setDataArray] = useState([]);
 
     const handleToggle = (i: any) => {
         const updatedChecked = [...checked];
@@ -41,12 +44,24 @@ const InsightsSection = (props: Props) => {
         return num
     };
 
+    // Function to set website score colors depending on score range
+    function getScoreColor(score: any) {
+        const percentage = score * 100;
+        if (percentage >= 90) {
+            return 'text-green-500';
+        } else if (percentage >= 50 && percentage <= 89) {
+            return 'text-yellow-500';
+        } else {
+            return 'text-red-500';
+        }
+    }
+
 
     // api call to pagespeed
     const apiKey = process.env.NEXT_PUBLIC_GOOGLE_PAGESPEED_API_KEY;
 
     const getPageSpeedData = async () => {
-        const url = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(pageUrl)}&key=AIzaSyAvEmGN4eDmXitNAFLICd4ZCYUoJopzlng&strategy=${device}&category=performance`;
+        const url = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(pageUrl)}&category=performance&category=seo&category=best-practices&category=accessibility&strategy=${device}&key=AIzaSyAvEmGN4eDmXitNAFLICd4ZCYUoJopzlng`;
         const options = {
             method: 'GET',
             headers: {
@@ -55,16 +70,18 @@ const InsightsSection = (props: Props) => {
         }
 
         try {
+            setIsLoading(true);
             const response = await fetch(url, options);
             if (!response.ok) {
                 throw new Error('API request failed');
             }
             const data = await response.json();
-            console.log(data);
-            setSiteMetrics(data.id);
-            console.log(siteMetrics);
+            //console.log(data);
+            setDataArray((prevDataArray) => [...prevDataArray, data]);
+            setIsLoading(false);
         } catch (error) {
             console.error('Error fetching data:', error);
+            setIsLoading(false);
         }
     };
 
@@ -151,7 +168,7 @@ const InsightsSection = (props: Props) => {
                 </div>
             </div>
             {/** Big Card */}
-            <div className='flex border border-1 p-3 rounded-lg shadow-md'>
+            <div className='flex flex-col border border-1 p-3 rounded-lg shadow-md'>
                 <form
                     action=""
                     className='flex justify-between w-full'
@@ -180,16 +197,61 @@ const InsightsSection = (props: Props) => {
                         buttonDisplay='hidden'
                         onChange={(e) => setPageUrl(e.target.value)}
                     />
-                    <button type='submit' onClick={getPageSpeedData} className='border border-1 p-2 rounded-lg shadow-lg'>
-                        Enter
-                    </button>
+
                 </form>
+                <button type='submit' onClick={getPageSpeedData} className='border border-1 p-2 rounded-lg shadow-lg'>
+                    Enter
+                </button>
                 <div>
-                    
+                    {isLoading ? (
+                        <LoadingState />
+                    ) : (
+                        <>
+                            {dataArray.map((data, index) => (
+                                <div className='flex flex-col gap-2' key={index}>
+                                    <h1>Website fetched:</h1>
+                                    <p>
+                                        {data.id}
+                                    </p>
+
+                                    <div className='flex justify-between'>
+                                        <h1>Score:</h1>
+                                        <div>
+                                            <p>Performance</p>
+                                            <p className={`font-medium ${getScoreColor(data.lighthouseResult.categories.performance.score)}`}>
+                                                {(data.lighthouseResult.categories.performance.score) * 100}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p>SEO</p>
+                                            <p className={`font-medium ${getScoreColor(data.lighthouseResult.categories.seo.score)}`}>
+                                                {(data.lighthouseResult.categories.seo.score) * 100}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p>Best practices</p>
+                                            <p className={`font-medium ${getScoreColor(data.lighthouseResult.categories['best-practices'].score)}`}>
+                                                {(data.lighthouseResult.categories['best-practices'].score) * 100}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p>Accessibility</p>
+                                            <p className={`font-medium ${getScoreColor(data.lighthouseResult.categories.accessibility.score)}`}>
+                                                {(data.lighthouseResult.categories.accessibility.score) * 100}
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            ))}
+                        </>
+                    )}
+
+
                 </div>
             </div>
         </div>
     )
 }
-
-export default InsightsSection
+export default InsightsSection;
