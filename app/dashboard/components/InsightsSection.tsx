@@ -61,7 +61,7 @@ const InsightsSection = (props: Props) => {
     const apiKey = process.env.NEXT_PUBLIC_GOOGLE_PAGESPEED_API_KEY;
 
     const getPageSpeedData = async () => {
-        const url = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(pageUrl)}&category=performance&category=seo&category=best-practices&category=accessibility&strategy=${device}&key=AIzaSyAvEmGN4eDmXitNAFLICd4ZCYUoJopzlng`;
+        const url = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=${encodeURIComponent(pageUrl)}&category=performance&category=seo&category=best-practices&category=accessibility&strategy=${device}&key=${apiKey}`;
         const options = {
             method: 'GET',
             headers: {
@@ -213,6 +213,8 @@ const InsightsSection = (props: Props) => {
                                     <p>
                                         {data.id}
                                     </p>
+                                    <h1>As of:</h1>
+                                    <p>{data.analysisUTCTimestamp}</p>
 
                                     <div className='flex justify-between'>
                                         <h1>Score:</h1>
