@@ -23,7 +23,7 @@ const LabelDemo = ({ label, defaultValue, buttonDisplay, onChange }: Props) => (
         placeholder={defaultValue}
         onChange={onChange}
       />
-      <div className={` ${buttonDisplay} ml-3 border border-1 border-red9 rounded-md`}>
+      <div className={` ${buttonDisplay} ml-3 border border-1 border-blue9 rounded-md`}>
         <ToastButton />
       </div>
     </div>

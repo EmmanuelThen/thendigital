@@ -2,7 +2,7 @@ import React from 'react';
 import * as Checkbox from '@radix-ui/react-checkbox';
 import { CheckIcon } from '@radix-ui/react-icons';
 
-const Checkedbox = ({ label, onClick, checked, onCheckedChange }: any) => {
+const Checkedbox = ({ label, onClick, checked, onCheckedChange, id, htmlFor }: any) => {
     return (
 
         <div
@@ -10,11 +10,10 @@ const Checkedbox = ({ label, onClick, checked, onCheckedChange }: any) => {
             onClick={onClick}
         >
             <Checkbox.Root
-                className="shadow-blackA7 hover:bg-violet3 flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-[4px] bg-white shadow-[0_2px_10px] outline outline-1 outline-slate6"
+                className="shadow-blackA7 hover:bg-blue3 flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-[4px] bg-white shadow-md outline outline-1 outline-slate6"
                 checked={checked}
-                
                 onCheckedChange={onCheckedChange}
-                id="c1"
+                id={id}
             >
                 <Checkbox.Indicator className="text-blue9">
                     <svg
@@ -31,7 +30,7 @@ const Checkedbox = ({ label, onClick, checked, onCheckedChange }: any) => {
                     </svg>
                 </Checkbox.Indicator>
             </Checkbox.Root>
-            <label className="pl-[15px] text-[15px] leading-none" htmlFor="c1">
+            <label className="font-medium text-slate10 pl-[15px] text-[15px] leading-none" htmlFor={htmlFor}>
                 {label}
             </label>
         </div>
