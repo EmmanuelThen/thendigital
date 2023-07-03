@@ -96,32 +96,22 @@ const InsightsSection = (props: Props) => {
                 throw new Error('API request failed');
             }
             const data = await response.json();
-            //console.log(data);
             setDataArray([data]);
-            setLcpPercentileWidth(
-                [
-                    (dataArray[0].loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[0].proportion) * 100,
-                    (dataArray[0].loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[1].proportion) * 100,
-                    (dataArray[0].loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[2].proportion) * 100
-                ]
-            );
-            console.log(lcpPercentileWidth);
-            setClsPercentileWidth(
-                [
-                    (dataArray[0].loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[0].proportion) * 100,
-                    (dataArray[0].loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[1].proportion) * 100,
-                    (dataArray[0].loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[2].proportion) * 100
-                ]
-            );
-            console.log(clsPercentileWidth);
-            setFidPercentileWidth(
-                [
-                    (dataArray[0].loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[0].proportion) * 100,
-                    (dataArray[0].loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[1].proportion) * 100,
-                    (dataArray[0].loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[2].proportion) * 100
-                ]
-            );
-            console.log(fidPercentileWidth);
+            setLcpPercentileWidth(prevLcpPercentileWidth => [
+                Math.round(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[0].proportion * 100),
+                Math.round(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[1].proportion * 100),
+                Math.round(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[2].proportion * 100)
+            ]);
+            setClsPercentileWidth(prevClsPercentileWidth => [
+                Math.round(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[0].proportion * 100),
+                Math.round(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[1].proportion * 100),
+                Math.round(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[2].proportion * 100)
+            ]);
+            setFidPercentileWidth(prevFidPercentileWidth => [
+                Math.round(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[0].proportion * 100),
+                Math.round(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[1].proportion * 100),
+                Math.round(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[2].proportion * 100)
+            ]);
             setIsLoading(false);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -331,24 +321,25 @@ const InsightsSection = (props: Props) => {
                                                                 <p className='text-green-500 text-sm'>Good</p>
                                                                 <p className='text-slate8 text-xs'>-less than 2.5s</p>
                                                             </div>
-                                                            {(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[0].proportion).toFixed(2) * 100}%
+                                                            {Math.round(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[0].proportion * 100)}%
                                                         </div>
                                                         <div className='flex gap-4 '>
                                                             <div className='flex items-center gap-1'>
                                                                 <p className='text-yellow-500 text-sm'>Needs improvement</p>
                                                                 <p className='text-slate8 text-xs'>-2.5s - 4s</p>
                                                             </div>
-                                                            {(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[1].proportion).toFixed(2) * 100}%
+                                                            {Math.round(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[1].proportion * 100)}%
                                                         </div>
                                                         <div className='flex gap-4 '>
                                                             <div className='flex items-center gap-1'>
                                                                 <p className='text-red-500 text-sm'>Poor</p>
                                                                 <p className='text-slate8 text-xs'>-greater than 4s</p>
                                                             </div>
-                                                            {(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[2].proportion).toFixed(2) * 100}%
+                                                            {Math.round(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[2].proportion * 100)}%
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
                                         </div>
                                         <div className='flex justify-between items-center w-full mt-10'>
@@ -377,24 +368,25 @@ const InsightsSection = (props: Props) => {
                                                             <p className='text-green-500 text-sm'>Good</p>
                                                             <p className='text-slate8 text-xs'>-less than 2.5s</p>
                                                         </div>
-                                                        {(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[0].proportion).toFixed(2) * 100}%
+                                                        {Math.round(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[0].proportion * 100)}%
                                                     </div>
                                                     <div className='flex gap-4 '>
                                                         <div className='flex items-center gap-1'>
                                                             <p className='text-yellow-500 text-sm'>Needs improvement</p>
                                                             <p className='text-slate8 text-xs'>-2.5s - 4s</p>
                                                         </div>
-                                                        {(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[1].proportion).toFixed(2) * 100}%
+                                                        {Math.round(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[1].proportion * 100)}%
                                                     </div>
                                                     <div className='flex gap-4 '>
                                                         <div className='flex items-center gap-1'>
                                                             <p className='text-red-500 text-sm'>Poor</p>
                                                             <p className='text-slate8 text-xs'>-greater than 4s</p>
                                                         </div>
-                                                        {(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[2].proportion).toFixed(2) * 100}%
+                                                        {Math.round(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[2].proportion * 100)}%
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
                                         <div className='flex justify-between items-center w-full mt-10'>
                                             <h1 className='w-[20%] font-bold lg:font-semibold text-xl lg:text-xl'>
@@ -422,24 +414,25 @@ const InsightsSection = (props: Props) => {
                                                             <p className='text-green-500 text-sm'>Good</p>
                                                             <p className='text-slate8 text-xs'>-less than 2.5s</p>
                                                         </div>
-                                                        {(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[0].proportion).toFixed(2) * 100}%
+                                                        {Math.round(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[0].proportion * 100)}%
                                                     </div>
                                                     <div className='flex gap-4 '>
                                                         <div className='flex items-center gap-1'>
                                                             <p className='text-yellow-500 text-sm'>Needs improvement</p>
                                                             <p className='text-slate8 text-xs'>-2.5s - 4s</p>
                                                         </div>
-                                                        {(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[1].proportion).toFixed(2) * 100}%
+                                                        {Math.round(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[1].proportion * 100)}%
                                                     </div>
                                                     <div className='flex gap-4 '>
                                                         <div className='flex items-center gap-1'>
                                                             <p className='text-red-500 text-sm'>Poor</p>
                                                             <p className='text-slate8 text-xs'>-greater than 4s</p>
                                                         </div>
-                                                        {(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[2].proportion).toFixed(2) * 100}%
+                                                        {Math.round(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[2].proportion * 100)}%
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>) :
                                     (
