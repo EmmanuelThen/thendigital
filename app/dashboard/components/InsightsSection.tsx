@@ -23,6 +23,11 @@ const InsightsSection = (props: Props) => {
     const [lcpPercentileWidth, setLcpPercentileWidth] = useState([]);
     const [clsPercentileWidth, setClsPercentileWidth] = useState([]);
     const [fidPercentileWidth, setFidPercentileWidth] = useState([]);
+    const [errors, setErrors] = useState(null);
+    // To fix issue where if I have an api error state rendered and I clicked on the checkbox it renders the last successful api instead of the current error message, because we currently had an error
+    // So I set isApiSuccess to false on the error part of the try and catch.
+    const [isApiSuccess, setIsApiSuccess] = useState(false);
+
 
 
 
@@ -97,6 +102,8 @@ const InsightsSection = (props: Props) => {
             }
             const data = await response.json();
             setDataArray([data]);
+            setIsApiSuccess(true);
+            // To update the percentileWidths to always be the most current state which is the current search url state, before it was keeping the prev state, so if i search something then do another search, the state would remain the first search state.
             setLcpPercentileWidth(prevLcpPercentileWidth => [
                 Math.round(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[0].proportion * 100),
                 Math.round(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[1].proportion * 100),
@@ -115,9 +122,23 @@ const InsightsSection = (props: Props) => {
             setIsLoading(false);
         } catch (error) {
             console.error('Error fetching data:', error);
+            setErrors(error);
+            setIsApiSuccess(false);
             setIsLoading(false);
         }
     };
+
+    // To set error state back to null after getting one error search, before when we got 1 error search the state would stay as an error therefore rendering our error state incorrectly
+    useEffect(() => {
+        setErrors(null);
+    }, [pageUrl, device]);
+
+
+
+
+    console.log(lcpPercentileWidth);
+    console.log(clsPercentileWidth);
+    console.log(fidPercentileWidth)
 
     return (
         <div className='overflow-x-hidden p-5'>
@@ -215,7 +236,26 @@ const InsightsSection = (props: Props) => {
                         <ShinyText text='Scanning...' />
                         <LoadingState />
                     </div>
-                ) : (
+                ) : (errors) ? (
+                    // Error state
+                    <div className='flex flex-col items-center text-4xl text-slate8 p-10'>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.2"
+                            stroke="currentColor"
+                            className="w-20 h-20"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0z"
+                            />
+                        </svg>
+                        <p>Something went wrong. Please try again later.</p>
+                    </div>
+                ) : (isApiSuccess) ? (
                     <>
                         {dataArray.map((data, i) => (
                             <div className='mt-5 flex justify-center items-center flex-col gap-2' key={i}>
@@ -293,7 +333,7 @@ const InsightsSection = (props: Props) => {
 
                                 {(data.loadingExperience) ? (
                                     <div className='w-full'>
-                                        <h1 className='font-bold lg:font-semibold text-blue9 text-xl lg:text-4xl py-10'>Core Web Vitals Assessment:</h1>
+                                        <h1 className='font-bold lg:font-semibold text-blue9 text-xl lg:text-4xl py-10 '>Core Web Vitals Assessment:</h1>
                                         <div className='flex flex-col items-center justify-between w-full mt-10'>
                                             <div className='flex justify-between items-center w-full'>
                                                 <h1 className='w-[20%] font-bold lg:font-semibold text-xl lg:text-xl'>
@@ -301,7 +341,7 @@ const InsightsSection = (props: Props) => {
                                                 </h1>
                                                 <div className='w-[60%] flex flex-col items-center justify-center'>
                                                     {((data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].percentile) / 1000).toFixed(1)}s
-                                                    <div id='barWithDiffColorsAsWidthPercentage' className='flex w-[300px] h-1 rounded-full border border-1'>
+                                                    <div id='barWithDiffColorsAsWidthPercentage' className='flex w-[400px] h-1 rounded-full border border-1'>
                                                         {lcpPercentileWidth.length > 0 &&
                                                             (<div className={`w-[${lcpPercentileWidth[0]}%] h-full bg-green-500`}></div>)
                                                         }
@@ -348,7 +388,7 @@ const InsightsSection = (props: Props) => {
                                             </h1>
                                             <div className='w-[60%] flex flex-col items-center justify-center'>
                                                 {data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].percentile}ms
-                                                <div id='barWithDiffColorsAsWidthPercentage' className='flex w-[300px] h-1 rounded-full border border-1'>
+                                                <div id='barWithDiffColorsAsWidthPercentage' className='flex w-[400px] h-1 rounded-full border border-1'>
                                                     {clsPercentileWidth.length > 0 &&
                                                         (<div className={`w-[${clsPercentileWidth[0]}%] h-full bg-green-500`}></div>)
                                                     }
@@ -378,7 +418,7 @@ const InsightsSection = (props: Props) => {
                                                         {Math.round(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[1].proportion * 100)}%
                                                     </div>
                                                     <div className='flex gap-4 '>
-                                                        <div className='flex items-center gap-1'>
+                                                        <div className='flex items-center gap-1 '>
                                                             <p className='text-red-500 text-sm'>Poor</p>
                                                             <p className='text-slate8 text-xs'>-greater than 4s</p>
                                                         </div>
@@ -394,7 +434,7 @@ const InsightsSection = (props: Props) => {
                                             </h1>
                                             <div className='w-[60%] flex flex-col items-center justify-center'>
                                                 {data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].percentile}ms
-                                                <div id='barWithDiffColorsAsWidthPercentage' className='flex w-[300px] h-1 rounded-full border border-1'>
+                                                <div id='barWithDiffColorsAsWidthPercentage' className='flex w-[400px] h-1 rounded-full border border-1'>
                                                     {fidPercentileWidth.length > 0 &&
                                                         (<div className={`w-[${fidPercentileWidth[0]}%] h-full bg-green-500`}></div>)
                                                     }
@@ -443,16 +483,17 @@ const InsightsSection = (props: Props) => {
                                             Not enough sufficient real-world speed data for this page.
                                         </div>
                                     )}
-
-
-
-
                             </div>
                         ))}
                     </>
+                ) : (
+                    <div className='flex flex-col items-center text-4xl text-slate8 p-10'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" className="w-20 h-20">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+                        </svg>
+                        No search results
+                    </div>
                 )}
-
-
             </div>
             <div className='hidden {flex} flex-col gap-5 lg:gap-0 lg:justify-between lg:flex-row flex-wrap p-5'>
                 {/** Card 1 */}

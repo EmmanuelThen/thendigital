@@ -4,7 +4,7 @@ type Props = {}
 
 const InsightsSVG = (props: Props) => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="563.64" height="370.26" enable-background="new 0 0 600 500" viewBox="18.18 64.87 563.64 370.26" id="web-performance">
+        <svg xmlns="http://www.w3.org/2000/svg" width="563.64" height="370.26" enableBackground="new 0 0 600 500" viewBox="18.18 64.87 563.64 370.26" id="web-performance">
             <defs>
                 <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                     <stop offset="0%" stopColor="hsl(358, 75%, 59%)" />
