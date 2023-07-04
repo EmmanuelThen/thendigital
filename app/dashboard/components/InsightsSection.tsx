@@ -27,6 +27,7 @@ const InsightsSection = (props: Props) => {
     // To fix issue where if I have an api error state rendered and I clicked on the checkbox it renders the last successful api instead of the current error message, because we currently had an error
     // So I set isApiSuccess to false on the error part of the try and catch.
     const [isApiSuccess, setIsApiSuccess] = useState(false);
+    const [isEnoughDataOnSite, setIsEnoughDataOnSite] = useState(true);
 
 
 
@@ -43,18 +44,6 @@ const InsightsSection = (props: Props) => {
         }
 
         setChecked(updatedChecked);
-    };
-
-    {/** Function to format trillions, billions, and millions */ }
-    const numberFormatter = (num: any) => {
-        if (num >= 1000000000000) {
-            return (num / 1000000000000).toFixed(1) + 'T';
-        } else if (num >= 1000000000) {
-            return (num / 1000000000).toFixed(1) + 'B';
-        } else if (num >= 1000000) {
-            return (num / 1000000).toFixed(1) + 'M';
-        }
-        return num
     };
 
     // Date formatter
@@ -104,21 +93,30 @@ const InsightsSection = (props: Props) => {
             setDataArray([data]);
             setIsApiSuccess(true);
             // To update the percentileWidths to always be the most current state which is the current search url state, before it was keeping the prev state, so if i search something then do another search, the state would remain the first search state.
-            setLcpPercentileWidth(prevLcpPercentileWidth => [
-                Math.round(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[0].proportion * 100),
-                Math.round(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[1].proportion * 100),
-                Math.round(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[2].proportion * 100)
-            ]);
-            setClsPercentileWidth(prevClsPercentileWidth => [
-                Math.round(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[0].proportion * 100),
-                Math.round(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[1].proportion * 100),
-                Math.round(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[2].proportion * 100)
-            ]);
-            setFidPercentileWidth(prevFidPercentileWidth => [
-                Math.round(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[0].proportion * 100),
-                Math.round(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[1].proportion * 100),
-                Math.round(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[2].proportion * 100)
-            ]);
+            if (data.loadingExperience.metrics) {
+                setLcpPercentileWidth(prevLcpPercentileWidth => [
+                    Math.round(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[0].proportion * 100),
+                    Math.round(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[1].proportion * 100),
+                    Math.round(data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].distributions[2].proportion * 100)
+                ]);
+                setClsPercentileWidth(prevClsPercentileWidth => [
+                    Math.round(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[0].proportion * 100),
+                    Math.round(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[1].proportion * 100),
+                    Math.round(data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].distributions[2].proportion * 100)
+                ]);
+                setFidPercentileWidth(prevFidPercentileWidth => [
+                    Math.round(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[0].proportion * 100),
+                    Math.round(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[1].proportion * 100),
+                    Math.round(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[2].proportion * 100)
+                ]);
+            } else {
+                //throw new Error('Data is not available for this website.')
+                setLcpPercentileWidth([])
+                setClsPercentileWidth([])
+                setFidPercentileWidth([])
+                setIsEnoughDataOnSite(false)
+            }
+
             setIsLoading(false);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -131,7 +129,13 @@ const InsightsSection = (props: Props) => {
     // To set error state back to null after getting one error search, before when we got 1 error search the state would stay as an error therefore rendering our error state incorrectly
     useEffect(() => {
         setErrors(null);
+
     }, [pageUrl, device]);
+
+    // To refresh states on new site search
+    useEffect(() => {
+        setIsEnoughDataOnSite(true);
+    }, [isEnoughDataOnSite])
 
 
 
@@ -253,7 +257,7 @@ const InsightsSection = (props: Props) => {
                                 d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0z"
                             />
                         </svg>
-                        <p>Something went wrong. Please try again later.</p>
+                        <p>Request failed. Please try again later.</p>
                     </div>
                 ) : (isApiSuccess) ? (
                     <>
@@ -330,8 +334,9 @@ const InsightsSection = (props: Props) => {
 
 
 
-
-                                {(data.loadingExperience) ? (
+                                {/** Core web vitals assesment section */}
+                                {/** For edge case where if the site doesnt have enough speed data it will still show scores */}
+                                {(isApiSuccess && isEnoughDataOnSite && lcpPercentileWidth.length === 3) ? (
                                     <div className='w-full'>
                                         <h1 className='font-bold lg:font-semibold text-blue9 text-xl lg:text-4xl py-10 '>Core Web Vitals Assessment:</h1>
                                         <div className='flex flex-col items-center justify-between w-full mt-10'>
@@ -474,15 +479,17 @@ const InsightsSection = (props: Props) => {
                                             </div>
 
                                         </div>
-                                    </div>) :
+                                    </div>
+                                ) :
                                     (
-                                        <div className='flex flex-col items-center text-4xl text-slate8 p-10'>
+                                        <div className='flex flex-col items-center text-center text-4xl text-slate8 p-10'>
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" className="w-20 h-20">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                                             </svg>
-                                            Not enough sufficient real-world speed data for this page.
+                                            Not enough sufficient real-world speed data to provide a core web vitals assesment.
                                         </div>
-                                    )}
+                                    )
+                                }
                             </div>
                         ))}
                     </>
