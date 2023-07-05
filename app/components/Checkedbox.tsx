@@ -30,7 +30,7 @@ const Checkedbox = ({ label, onClick, checked, onCheckedChange, id, htmlFor }: a
                     </svg>
                 </Checkbox.Indicator>
             </Checkbox.Root>
-            <label className="font-medium text-slate10 pl-[15px] text-[15px] leading-none" htmlFor={htmlFor}>
+            <label className="font-medium text-slate10 pl-[15px] text-sm lg:text-[15px] leading-none" htmlFor={htmlFor}>
                 {label}
             </label>
         </div>

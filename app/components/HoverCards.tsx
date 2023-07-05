@@ -8,7 +8,7 @@ const HoverCards = ({ cover, content }: any) => {
         <HoverCard.Root>
             <HoverCard.Trigger asChild>
                 <a
-                    className="flex items-center justify-center cursor-pointer rounded-full shadow-lg hover:bg-slate2 h-10 w-20 outline-none border border-1"
+                    className="flex items-center justify-center cursor-pointer rounded-full shadow-lg hover:bg-slate2 h-10 w-[80px] outline-none border border-1"
                     href="https://twitter.com/radix_ui"
                     target="_blank"
                     rel="noreferrer noopener"

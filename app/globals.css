@@ -17,6 +17,9 @@
   }
 }
 
+
+
+
 /* Work around to set inbox buttons only on tablet screns and smaller, since tailwind wont allow it*/
 /* Everything here will only work on small and tablet screens */
 @media (max-width: 1022px) {

@@ -129,6 +129,7 @@ module.exports = {
       slideLeftAndFade: 'slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1)',
 
     },
+    
   },
   plugins: [
     plugin(({ matchUtilities }) => {

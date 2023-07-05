@@ -2,6 +2,7 @@ import React from 'react';
 import { CheckIcon } from '@radix-ui/react-icons';
 import ArrowButton from '@/app/components/ArrowButton';
 import FeatureBulletPoint from './FeatureBulletPoint';
+import PurchaseButton from '@/app/components/PurchaseButton';
 
 type Props = {
     tier: any,
@@ -56,7 +57,7 @@ const PixelCareCard = ({ tier, price, frequency, buttonText, bgColor , point, po
 
             <div id='BOTTOM-HALF' className='w-full'>
                 <div className='flex justify-center mt-10'>
-                    <ArrowButton buttonText={buttonText} href='/pixelcare' />
+                    <PurchaseButton />
                 </div>
             </div>
 

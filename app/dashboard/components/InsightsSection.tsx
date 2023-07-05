@@ -110,11 +110,10 @@ const InsightsSection = (props: Props) => {
                     Math.round(data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].distributions[2].proportion * 100)
                 ]);
             } else {
-                //throw new Error('Data is not available for this website.')
-                setLcpPercentileWidth([])
-                setClsPercentileWidth([])
-                setFidPercentileWidth([])
-                setIsEnoughDataOnSite(false)
+                setLcpPercentileWidth([]);
+                setClsPercentileWidth([]);
+                setFidPercentileWidth([]);
+                setIsEnoughDataOnSite(false);
             }
 
             setIsLoading(false);
@@ -129,7 +128,6 @@ const InsightsSection = (props: Props) => {
     // To set error state back to null after getting one error search, before when we got 1 error search the state would stay as an error therefore rendering our error state incorrectly
     useEffect(() => {
         setErrors(null);
-
     }, [pageUrl, device]);
 
     // To refresh states on new site search
@@ -137,12 +135,9 @@ const InsightsSection = (props: Props) => {
         setIsEnoughDataOnSite(true);
     }, [isEnoughDataOnSite])
 
-
-
-
-    console.log(lcpPercentileWidth);
-    console.log(clsPercentileWidth);
-    console.log(fidPercentileWidth)
+    //console.log(lcpPercentileWidth);
+    //console.log(clsPercentileWidth);
+    //console.log(fidPercentileWidth);
 
     return (
         <div className='overflow-x-hidden p-5'>
@@ -163,7 +158,7 @@ const InsightsSection = (props: Props) => {
             {/** Big Card */}
             <div className='flex justify-between border border-1 p-5 rounded-lg shadow-md'>
                 <div className='flex flex-col'>
-                    <h1 className='text-blue9 font-semibold mb-5 lg:mb-10'>Pagespeed Insights</h1>
+                    <h1 className='text-blue9 font-semibold mb-5 lg:mb-10 text-sm lg:text-base'>Pagespeed Insights</h1>
                     <div className='flex flex-col lg:flex-row w-full'>
                         <div className='flex justify-around lg:justify-between flex-col'>
                             <div className='flex justify-center mt-5 lg:mt-0'>
@@ -198,30 +193,29 @@ const InsightsSection = (props: Props) => {
                             </div>
 
                             <div className='flex justify-center  lg:items-center'>
-                                <button type='submit' onClick={getPageSpeedData} className='bg-blue9 text-white flex justify-center items-center font-semibold h-[35px] w-[300px] mt-5 border border-1 p-2 rounded-lg shadow-md'>
+                                <button type='submit' onClick={getPageSpeedData} className='bg-blue9 text-white flex justify-center items-center font-semibold h-[35px] w-[300px]  mt-5  p-2 rounded-lg shadow-md'>
                                     Get scores
                                 </button>
                             </div>
                         </div>
                     </div>
-
                     <div className='flex justify-center w-[340px]'>
                         <div className='flex justify-center  mt-5 gap-5 w-full'>
                             <div className='flex items-center'>
-                                <div className='rounded-full h-3 w-3 bg-red-500 mr-2'></div>
-                                <h1 className='font-light'>
+                                <div className='rounded-full h-3 w-[12px] bg-red-500 mr-2'></div>
+                                <h1 className='font-light text-sm lg:text-base'>
                                     0-49
                                 </h1>
                             </div>
                             <div className='flex items-center'>
-                                <div className='rounded-full h-3 w-3 bg-yellow-500 mr-2'></div>
-                                <h1 className='font-light'>
+                                <div className='rounded-full h-3 w-[12px] bg-yellow-500 mr-2'></div>
+                                <h1 className='font-light text-sm lg:text-base'>
                                     50-89
                                 </h1>
                             </div>
                             <div className='flex items-center'>
-                                <div className='rounded-full h-3 w-3 bg-green-500 mr-2'></div>
-                                <h1 className='font-light'>
+                                <div className='rounded-full h-3 w-[12px] bg-green-500 mr-2'></div>
+                                <h1 className='font-light text-sm lg:text-base'>
                                     90-100
                                 </h1>
                             </div>
@@ -233,7 +227,6 @@ const InsightsSection = (props: Props) => {
                     <InsightsSVG />
                 </div>
             </div>
-
             <div>
                 {isLoading ? (
                     <div className='flex flex-col justify-center items-center'>
@@ -242,47 +235,35 @@ const InsightsSection = (props: Props) => {
                     </div>
                 ) : (errors) ? (
                     // Error state
-                    <div className='flex flex-col items-center text-4xl text-slate8 p-10'>
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            strokeWidth="1.2"
-                            stroke="currentColor"
-                            className="w-20 h-20"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
+                    <div className='flex flex-col items-center text-lg text-center lg:text-4xl text-slate8 p-10'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" className="w-10 h-10 lg:w-20 lg:h-20">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                         </svg>
+
                         <p>Request failed. Please try again later.</p>
                     </div>
                 ) : (isApiSuccess) ? (
                     <>
                         {dataArray.map((data, i) => (
                             <div className='mt-5 flex justify-center items-center flex-col gap-2' key={i}>
-                                <div className='flex justify-between items-start w-full'>
+                                <div className='flex justify-between lg:items-start w-full'>
                                     <div>
-                                        <h1 className='font-bold lg:font-semibold text-blue9'>Showing results for:</h1>
-                                        <p className='font-medium text-slate10 lg:text-3xl'>
+                                        <h1 className='font-bold lg:font-semibold text-blue9 text-sm lg:text-base'>Showing results for:</h1>
+                                        <p className='font-medium text-slate10 text-sm lg:text-3xl'>
                                             {data.id}
                                         </p>
                                     </div>
-                                    <Link className=' text-blue9 hover:underline' href='https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/?utm_source=lighthouse&utm_medium=lr' target='_blank'>
+                                    <Link className='text-sm lg:text-base text-blue9 hover:underline' href='https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/?utm_source=lighthouse&utm_medium=lr' target='_blank'>
                                         How is this data calculated?
                                     </Link>
                                 </div>
-
-
                                 <div className='flex flex-col items-center gap-5 mt-5 text-center lg:flex-row justify-between w-full'>
                                     <h1 className='font-bold lg:font-semibold text-blue9 text-xl lg:text-4xl'>Scores:</h1>
                                     <div className='flex flex-col items-center hover:bg-slate2 hover:rounded-lg p-5'>
-                                        <h1 className='font-semibold mb-5'>Performance</h1>
+                                        <h1 className='text-sm lg:text-base font-semibold mb-5'>Performance</h1>
                                         <HoverCards
                                             cover={
-                                                <p className={`font-semibold text-xl ${getScoreColor(data.lighthouseResult.categories.performance.score)}`}>
+                                                <p className={`font-semibold text-lg lg:text-xl ${getScoreColor(data.lighthouseResult.categories.performance.score)}`}>
                                                     {((data.lighthouseResult.categories.performance.score) * 100).toFixed(0)}
                                                 </p>
                                             }
@@ -290,10 +271,10 @@ const InsightsSection = (props: Props) => {
                                         />
                                     </div>
                                     <div className='flex flex-col items-center hover:bg-slate2 hover:rounded-lg p-5'>
-                                        <h1 className='font-semibold mb-5'>SEO</h1>
+                                        <h1 className='text-sm lg:text-base font-semibold mb-5'>SEO</h1>
                                         <HoverCards
                                             cover={
-                                                <p className={`font-semibold text-xl ${getScoreColor(data.lighthouseResult.categories.seo.score)}`}>
+                                                <p className={`font-semibold text-lg lg:text-xl ${getScoreColor(data.lighthouseResult.categories.seo.score)}`}>
                                                     {((data.lighthouseResult.categories.seo.score) * 100).toFixed(0)}
                                                 </p>
                                             }
@@ -301,20 +282,20 @@ const InsightsSection = (props: Props) => {
                                         />
                                     </div>
                                     <div className='flex flex-col items-center hover:bg-slate2 hover:rounded-lg p-5'>
-                                        <h1 className='font-semibold mb-5'>Best practices</h1>
+                                        <h1 className='text-sm lg:text-base font-semibold mb-5'>Best practices</h1>
                                         <HoverCards
                                             cover={
-                                                <p className={`font-semibold text-xl ${getScoreColor(data.lighthouseResult.categories['best-practices'].score)}`}>
+                                                <p className={`font-semibold text-lg lg:text-xl ${getScoreColor(data.lighthouseResult.categories['best-practices'].score)}`}>
                                                     {((data.lighthouseResult.categories['best-practices'].score) * 100).toFixed(0)}
                                                 </p>
                                             }
                                         />
                                     </div>
                                     <div className='flex flex-col items-center hover:bg-slate2 hover:rounded-lg p-5'>
-                                        <h1 className='font-semibold mb-5'>Accessibility</h1>
+                                        <h1 className='text-sm lg:text-base font-semibold mb-5'>Accessibility</h1>
                                         <HoverCards
                                             cover={
-                                                <p className={`font-semibold text-xl ${getScoreColor(data.lighthouseResult.categories.accessibility.score)}`}>
+                                                <p className={`font-semibold text-lg lg:text-xl ${getScoreColor(data.lighthouseResult.categories.accessibility.score)}`}>
                                                     {((data.lighthouseResult.categories.accessibility.score) * 100).toFixed(0)}
                                                 </p>
                                             }
@@ -327,39 +308,36 @@ const InsightsSection = (props: Props) => {
 
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
                                     </svg>
-
                                     <p className='text-[10px] font-medium '>Captured at {timeAndDateFormatter(data.analysisUTCTimestamp)} EST</p>
                                 </div>
-
-
-
-
                                 {/** Core web vitals assesment section */}
                                 {/** For edge case where if the site doesnt have enough speed data it will still show scores */}
                                 {(isApiSuccess && isEnoughDataOnSite && lcpPercentileWidth.length === 3) ? (
                                     <div className='w-full'>
-                                        <h1 className='font-bold lg:font-semibold text-blue9 text-xl lg:text-4xl py-10 '>Core Web Vitals Assessment:</h1>
+                                        <h1 className='flex justify-center font-bold lg:font-semibold text-blue9 text-xl lg:text-4xl py-10'>Core Web Vitals Assessment:</h1>
                                         <div className='flex flex-col items-center justify-between w-full mt-10'>
-                                            <div className='flex justify-between items-center w-full'>
-                                                <h1 className='w-[20%] font-bold lg:font-semibold text-xl lg:text-xl'>
+                                            <div className='flex flex-col gap-10 lg:flex-row justify-between items-center w-full'>
+                                                <h1 className='lg:w-[20%] font-bold lg:font-semibold text-lg lg:text-xl'>
                                                     Largest Contentful Paint (LCP)
                                                 </h1>
-                                                <div className='w-[60%] flex flex-col items-center justify-center'>
-                                                    {((data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].percentile) / 1000).toFixed(1)}s
-                                                    <div id='barWithDiffColorsAsWidthPercentage' className='flex w-[400px] h-1 rounded-full border border-1'>
+                                                <div className='lg:w-[60%] flex flex-col items-center justify-center'>
+                                                    <div className='text-blue9 font-bold text-xl'>
+                                                        {((data.loadingExperience.metrics['LARGEST_CONTENTFUL_PAINT_MS'].percentile) / 1000).toFixed(1)}s
+                                                    </div>
+                                                    <div id='barWithDiffColorsAsWidthPercentage' className='flex w-[250px] md:w-[300px] lg:w-[400px] h-1 rounded-full'>
                                                         {lcpPercentileWidth.length > 0 &&
-                                                            (<div className={`w-[${lcpPercentileWidth[0]}%] h-full bg-green-500`}></div>)
+                                                            (<div className={` h-full bg-green-500`} style={{ width: `${lcpPercentileWidth[0]}%` }}></div>)
                                                         }
                                                         {lcpPercentileWidth.length > 0 &&
-                                                            (<div className={`w-[${lcpPercentileWidth[1]}%] h-full bg-yellow-500`}></div>)
+                                                            (<div className={` h-full bg-yellow-500`} style={{ width: `${lcpPercentileWidth[1]}%` }}></div>)
                                                         }
                                                         {lcpPercentileWidth.length > 0 &&
-                                                            (<div className={`w-[${lcpPercentileWidth[2]}%] h-full bg-red-500`}></div>)
+                                                            (<div className={` h-full bg-red-500`} style={{ width: `${lcpPercentileWidth[2]}%` }}></div>)
                                                         }
                                                     </div>
                                                 </div>
-                                                <div className='w-[20%]'>
-                                                    <h1 className='font-bold lg:font-semibold text-slate9'>Page load percentiles</h1>
+                                                <div className='lg:w-[20%]'>
+                                                    <h1 className='font-bold lg:font-semibold text-slate9 text-sm lg:text-base'>Page load percentiles</h1>
                                                     <div className='flex flex-col'>
                                                         <div className='flex gap-4 '>
                                                             <div className='flex items-center gap-1'>
@@ -384,29 +362,30 @@ const InsightsSection = (props: Props) => {
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
-                                        <div className='flex justify-between items-center w-full mt-10'>
-                                            <h1 className='w-[20%] font-bold lg:font-semibold text-xl lg:text-xl'>
+                                        <div className='flex flex-col gap-10 lg:flex-row justify-between items-center w-full mt-20'>
+                                            <h1 className='lg:w-[20%] font-bold lg:font-semibold text-lg lg:text-xl'>
                                                 Cumulative Layout Shift Score (CLS)
                                             </h1>
                                             <div className='w-[60%] flex flex-col items-center justify-center'>
-                                                {data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].percentile}ms
-                                                <div id='barWithDiffColorsAsWidthPercentage' className='flex w-[400px] h-1 rounded-full border border-1'>
+                                                <div className='text-blue9 font-bold text-xl'>
+                                                    {data.loadingExperience.metrics['CUMULATIVE_LAYOUT_SHIFT_SCORE'].percentile}ms
+                                                </div>
+                                                <div id='barWithDiffColorsAsWidthPercentage' className='flex w-[250px] md:w-[300px] lg:w-[400px] h-1 rounded-full'>
                                                     {clsPercentileWidth.length > 0 &&
-                                                        (<div className={`w-[${clsPercentileWidth[0]}%] h-full bg-green-500`}></div>)
+                                                        (<div className={` h-full bg-green-500`} style={{ width: `${clsPercentileWidth[0]}%` }}></div>)
                                                     }
                                                     {clsPercentileWidth.length > 0 &&
-                                                        (<div className={`w-[${clsPercentileWidth[1]}%] h-full bg-yellow-500`}></div>)
+                                                        (<div className={` h-full bg-yellow-500`} style={{ width: `${clsPercentileWidth[1]}%` }}></div>)
                                                     }
                                                     {clsPercentileWidth.length > 0 &&
-                                                        (<div className={`w-[${clsPercentileWidth[2]}%] h-full bg-red-500`}></div>)
+                                                        (<div className={` h-full bg-red-500`} style={{ width: `${clsPercentileWidth[2]}%` }}></div>)
                                                     }
                                                 </div>
                                             </div>
-                                            <div className='w-[20%]'>
-                                                <h1 className='font-bold lg:font-semibold text-slate9'>Page load percentiles</h1>
+                                            <div className='lg:w-[20%]'>
+                                                <h1 className='font-bold lg:font-semibold text-slate9 text-sm lg:text-base'>Page load percentiles</h1>
                                                 <div className='flex flex-col'>
                                                     <div className='flex gap-4 '>
                                                         <div className='flex items-center gap-1'>
@@ -431,28 +410,29 @@ const InsightsSection = (props: Props) => {
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
-                                        <div className='flex justify-between items-center w-full mt-10'>
-                                            <h1 className='w-[20%] font-bold lg:font-semibold text-xl lg:text-xl'>
+                                        <div className='flex flex-col gap-10 lg:flex-row justify-between items-center w-full mt-20'>
+                                            <h1 className='lg:w-[20%] font-bold lg:font-semibold text-lg lg:text-xl'>
                                                 First Input Delay (FID)
                                             </h1>
                                             <div className='w-[60%] flex flex-col items-center justify-center'>
-                                                {data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].percentile}ms
-                                                <div id='barWithDiffColorsAsWidthPercentage' className='flex w-[400px] h-1 rounded-full border border-1'>
+                                                <div className='text-blue9 font-bold text-xl'>
+                                                    {data.loadingExperience.metrics['FIRST_INPUT_DELAY_MS'].percentile}ms
+                                                </div>
+                                                <div id='barWithDiffColorsAsWidthPercentage' className='flex w-[250px] md:w-[300px] lg:w-[400px] h-1 rounded-full'>
                                                     {fidPercentileWidth.length > 0 &&
-                                                        (<div className={`w-[${fidPercentileWidth[0]}%] h-full bg-green-500`}></div>)
+                                                        (<div className={` h-full bg-green-500`} style={{ width: `${fidPercentileWidth[0]}%` }}></div>)
                                                     }
                                                     {fidPercentileWidth.length > 0 &&
-                                                        (<div className={`w-[${fidPercentileWidth[1]}%] h-full bg-yellow-500`}></div>)
+                                                        (<div className={` h-full bg-yellow-500`} style={{ width: `${fidPercentileWidth[1]}%` }}></div>)
                                                     }
                                                     {fidPercentileWidth.length > 0 &&
-                                                        (<div className={`w-[${fidPercentileWidth[2]}%] h-full bg-red-500`}></div>)
+                                                        (<div className={` h-full bg-red-500`} style={{ width: `${fidPercentileWidth[2]}%` }}></div>)
                                                     }
                                                 </div>
                                             </div>
-                                            <div className='w-[20%]'>
-                                                <h1 className='font-bold lg:font-semibold text-slate9'>Page load percentiles</h1>
+                                            <div className='lg:w-[20%]'>
+                                                <h1 className='font-bold lg:font-semibold text-slate9 text-sm lg:text-base'>Page load percentiles</h1>
                                                 <div className='flex flex-col'>
                                                     <div className='flex gap-4 '>
                                                         <div className='flex items-center gap-1'>
@@ -477,13 +457,12 @@ const InsightsSection = (props: Props) => {
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 ) :
                                     (
-                                        <div className='flex flex-col items-center text-center text-4xl text-slate8 p-10'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" className="w-20 h-20">
+                                        <div className='flex flex-col items-center text-center text-lg lg:text-4xl text-slate8 p-10'>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" className="w-10 h-10 lg:w-20 lg:h-20">
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                                             </svg>
                                             Not enough sufficient real-world speed data to provide a core web vitals assesment.
@@ -494,8 +473,8 @@ const InsightsSection = (props: Props) => {
                         ))}
                     </>
                 ) : (
-                    <div className='flex flex-col items-center text-4xl text-slate8 p-10'>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" className="w-20 h-20">
+                    <div className='flex flex-col items-center text-lg text-center lg:text-4xl text-slate8 p-10'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" className="w-10 h-10 lg:w-20 lg:h-20">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
                         </svg>
                         No search results
@@ -508,9 +487,7 @@ const InsightsSection = (props: Props) => {
                     <div className='border border-1 rounded-lg p-2'>
                         <svg xmlns="http://www.w3.org/2000/svg"
                             fill="none" viewBox="0 0 24 24" strokeWidth="1.2" stroke="currentColor" className="w-5 h-5">
-
                             <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                     </div>
@@ -564,7 +541,6 @@ const InsightsSection = (props: Props) => {
 
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-
                     </div>
                     <div>
                         <h1 className='font-medium'>11 min</h1>
@@ -575,7 +551,6 @@ const InsightsSection = (props: Props) => {
                     Last updated 3:45pm
                 </div>
             </div>
-
         </div>
     )
 }
