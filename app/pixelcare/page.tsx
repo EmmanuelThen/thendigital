@@ -53,6 +53,7 @@ const page = (props: Props) => {
                             point3='Technical support'
                             point4=''
                             point5=''
+                            subTier='pixelcare'
                         />
                     </div>
                     <div className=' flex flex-col md:grid grid-cols-2 md:place-items-center gap-20 md:gap-10 p-6 bg-slate2'>
@@ -146,6 +147,7 @@ const page = (props: Props) => {
                             point3='Extended technical support'
                             point4=''
                             point5=''
+                            subTier='pixelcare-plus'
                         />
                     </div>
                     <div className='font-medium text-3xl p-6'>
@@ -245,6 +247,7 @@ const page = (props: Props) => {
                             point4='Custom Reporting and Insights'
                             point5='Priority support & dedicated account manager'
                             bgColor='animate-backgroundShine bg-[linear-gradient(115deg,#ffffff,45%,#e6e6e6,55%,#ffffff)] bg-[length:250%_100%] bg-transparent'
+                            subTier='pixelcare-elite'
                         />
                     </div>
                     <div className='font-medium text-3xl p-6'>

@@ -9,6 +9,8 @@ import TwitterButton from '../components/TwitterButton'
 import ConfirmationButton from '../components/ConfirmationButton'
 import ToastButton from '../dashboard/components/ToastButton'
 import Navbar from '../components/Navbar'
+import AuthForm from '../components/AuthForm'
+import AccountForm from '../components/AccountForm'
 
 export const metadata = {
     title: 'ThenSignin',
@@ -22,7 +24,7 @@ const page = (props: Props) => {
             <nav>
                 <Navbar />
             </nav>
-            <div className='flex justify-center items-center h-[100vh] w-full text-xs md:text-base' id='signinPage'>
+            {/*<div className='flex justify-center items-center h-[100vh] w-full text-xs md:text-base' id='signinPage'>
 
                 <AccountTabs
                     firstTab='Sign In'
@@ -50,6 +52,10 @@ const page = (props: Props) => {
                     }
                 />
 
+                </div>*/}
+            <div className='flex justify-center items-center w-full h-screen'>
+                <AuthForm />
+                
             </div>
         </>
 

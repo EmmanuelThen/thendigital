@@ -5,16 +5,12 @@ import DashGridSection from './DashGridSection'
 import DashAvatar from './DashAvatar'
 import Toggle from '@/app/components/Toggle'
 import DialogButton from '@/app/components/DialogButton'
-import ShinyText from '@/app/components/ShinyText'
-import DashAccordion from './DashAccordion'
-import DashFileUpload from './DashFileUpload'
-import DashMobileNavbar from './DashMobileNavbar'
-import EditTabs from '@/app/components/EditTabs'
 import InboxSection from './InboxSection'
 import EliteInboxSection from './EliteInboxSection'
 import AccountSection from './AccountSection'
 import MobileFullDashboard from './MobileFullDashboard'
 import InsightsSection from './InsightsSection'
+import AccountForm from '@/app/components/AccountForm'
 
 type Props = {}
 
@@ -54,7 +50,7 @@ const Dashboard = (props: Props) => {
                                         buttonText='Edit'
                                         dialogTitle='Edit Profile'
                                         dialogDesc='Make changes to your profile here. Click save when youre done.'
-                                        content={<EditTabs />}
+                                        content={<AccountForm />}
                                         saveButton='Save changes'
                                         saveButtonColor='bg-blue9'
                                         buttonDisplay=''

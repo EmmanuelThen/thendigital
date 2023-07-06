@@ -16,10 +16,11 @@ type Props = {
     point3: any,
     point4: any,
     point5: any,
+    subTier:any
 
 }
 
-const PixelCareCard = ({ tier, price, frequency, buttonText, bgColor , point, point1, point2, point3, point4, point5 }: Props) => {
+const PixelCareCard = ({ tier, price, frequency, buttonText, bgColor, point, point1, point2, point3, point4, point5, subTier }: Props) => {
     return (
         <div className={`md:flex md:justify-center md:flex-col p-10 lg:py-20 ${bgColor} shadow-lg w-[85%] md:w-[50%] lg:w-[400px] lg:max-w-[600px] transform transition-transform hover:scale-110 cursor-pointer`} id='PCcard'>
             <div className='flex flex-col items-center' id='TOP-HALF'>
@@ -57,7 +58,9 @@ const PixelCareCard = ({ tier, price, frequency, buttonText, bgColor , point, po
 
             <div id='BOTTOM-HALF' className='w-full'>
                 <div className='flex justify-center mt-10'>
-                    <PurchaseButton />
+                    <PurchaseButton
+                        subTier={subTier}
+                    />
                 </div>
             </div>
 

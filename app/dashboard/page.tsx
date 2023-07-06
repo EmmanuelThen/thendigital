@@ -4,6 +4,7 @@ import Dashboard from './components/Dashboard'
 type Props = {}
 
 const page = (props: Props) => {
+  
   return (
     <Dashboard />
   )

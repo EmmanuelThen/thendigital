@@ -1,8 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import { AvatarProvider } from '@/context/AvatarContext'
-import { SessionProvider } from 'next-auth/react';
-import NextAuthProvider from './components/NextAuthProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,13 +19,11 @@ export default function RootLayout({
       className={`${inter.className} scroll-smooth`}
     >
       <body>
-        <NextAuthProvider>
-          <AvatarProvider>
-            <main className='grow'>
-              {children}
-            </main>
-          </AvatarProvider>
-        </NextAuthProvider>
+        <AvatarProvider>
+          <main className='grow'>
+            {children}
+          </main>
+        </AvatarProvider>
       </body>
     </html>
   )
