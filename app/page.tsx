@@ -11,8 +11,10 @@ import PathAnimation from './components/PathAnimation'
 import OptimizationAnimation from './components/OptimizationAnimation'
 import GridAnimation from './components/GridAnimation'
 import ArrowButton from './components/ArrowButton'
+import supabase from './supabase/supabase-client'
 
 export default function Home() {
+  //console.log(supabase)
   return (
     <>
       <nav>

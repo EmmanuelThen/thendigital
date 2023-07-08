@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../components/Navbar';
-import SubTiers from '../components/SubTiers';
 import PixelCareCard from './components/PixelCareCard';
 import TierFeatures from './components/TierFeatures';
-import { GlobeIcon } from '@radix-ui/react-icons';
+import supabase from '../supabase/supabase-client';
 
 export const metadata = {
     title: 'ThenPixelCare',
@@ -12,10 +11,30 @@ export const metadata = {
 type Props = {}
 
 const page = (props: Props) => {
+    const [fetchError, setFetchError] = useState(null);
+    const [tier, setTier] = useState(null);
+
+    useEffect(() => {
+        const fetchPixelCareTiers = async () => {
+            const { data, error } = await supabase
+                .from('product')
+                .select() // To get all products just leave blank
+
+            try {
+                setTier(data)
+                setFetchError(null);
+            } catch (error) {
+                console.log(error)
+                setFetchError('Could not fetch the data')
+            }
+        }
+        fetchPixelCareTiers();
+    }, []);
+
     return (
         <div className='w-full mx-[auto]'>
             <nav>
-              <Navbar />
+                <Navbar />
             </nav>
 
             <div className="relative isolate px-6 pt-10 lg:px-8">

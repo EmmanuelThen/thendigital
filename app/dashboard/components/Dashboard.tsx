@@ -10,7 +10,8 @@ import EliteInboxSection from './EliteInboxSection'
 import AccountSection from './AccountSection'
 import MobileFullDashboard from './MobileFullDashboard'
 import InsightsSection from './InsightsSection'
-import AccountForm from '@/app/components/AccountForm'
+import EditTabs from '@/app/components/EditTabs'
+
 
 type Props = {}
 
@@ -50,7 +51,7 @@ const Dashboard = (props: Props) => {
                                         buttonText='Edit'
                                         dialogTitle='Edit Profile'
                                         dialogDesc='Make changes to your profile here. Click save when youre done.'
-                                        content={<AccountForm />}
+                                        content={<EditTabs />}
                                         saveButton='Save changes'
                                         saveButtonColor='bg-blue9'
                                         buttonDisplay=''

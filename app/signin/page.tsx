@@ -9,8 +9,8 @@ import TwitterButton from '../components/TwitterButton'
 import ConfirmationButton from '../components/ConfirmationButton'
 import ToastButton from '../dashboard/components/ToastButton'
 import Navbar from '../components/Navbar'
-import AuthForm from '../components/AuthForm'
-import AccountForm from '../components/AccountForm'
+import AuthForm from '../components/auth-form'
+
 
 export const metadata = {
     title: 'ThenSignin',
@@ -53,10 +53,10 @@ const page = (props: Props) => {
                 />
 
                 </div>*/}
-            <div className='flex justify-center items-center w-full h-screen'>
+            <div className='flex justify-center w-full items-center h-screen'>
                 <AuthForm />
-                
             </div>
+
         </>
 
     )
