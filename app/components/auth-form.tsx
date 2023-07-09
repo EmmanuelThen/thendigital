@@ -6,6 +6,7 @@ import { Database } from './database.types';
 import HCaptcha from '@hcaptcha/react-hcaptcha'
 import { useState, useRef } from 'react';
 
+const siteKey = process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY as string
 
 export default async function AuthForm() {
     const [captchaToken, setCaptchaToken] = useState()
@@ -110,7 +111,7 @@ export default async function AuthForm() {
                     socialLayout='horizontal'
                 />
                 <HCaptcha
-                    sitekey='8fdc8164-b169-485e-8ed8-c9a8665bca0a'
+                    sitekey={siteKey}
                     ref={captcha}
                     onVerify={(token) => {
                         setCaptchaToken(token)
