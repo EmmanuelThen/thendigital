@@ -74,14 +74,15 @@ export default function AccountForm({ session }: { session: Session | null }) {
     }
 
     return (
-        <div className="form-widget">
+        <div className="border border-1 p-20">
             <div>
-                <label htmlFor="email">Email</label>
-                <input id="email" type="text" value={session?.user.email} disabled />
+                <label className='' htmlFor="email">Email</label>
+                <input className='w-full rounded-lg p-2 border border-1 bg-slate4' id="email" type="text" value={session?.user.email} disabled />
             </div>
             <div>
-                <label htmlFor="fullName">Full Name</label>
+                <label className='' htmlFor="fullName">Full Name</label>
                 <input
+                    className='w-full rounded-lg p-2 border border-1 bg-slate4'
                     id="fullName"
                     type="text"
                     value={fullname || ''}
@@ -89,8 +90,9 @@ export default function AccountForm({ session }: { session: Session | null }) {
                 />
             </div>
             <div>
-                <label htmlFor="username">Username</label>
+                <label className='' htmlFor="username">Username</label>
                 <input
+                    className='w-full rounded-lg p-2 border border-1 bg-slate4'
                     id="username"
                     type="text"
                     value={username || ''}
@@ -98,8 +100,9 @@ export default function AccountForm({ session }: { session: Session | null }) {
                 />
             </div>
             <div>
-                <label htmlFor="website">Website</label>
+                <label className='' htmlFor="website">Website</label>
                 <input
+                    className='w-full rounded-lg p-2 border border-1 bg-slate4'
                     id="website"
                     type="url"
                     value={website || ''}

@@ -2,26 +2,10 @@
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
-import { Database } from './database.types';
-import HCaptcha from '@hcaptcha/react-hcaptcha'
-import { useState, useRef } from 'react';
 
-const siteKey = process.env.NEXT_PUBLIC_HCAPTCHA_SITE_KEY as string
 
 export default async function AuthForm() {
-    const [captchaToken, setCaptchaToken] = useState()
-    const captcha = useRef()
-
-    const supabase = createClientComponentClient<Database>()
-
-    /*const { data, error } = await supabase.auth.signUp({
-        email: 'example@email.com',
-        password: 'example-password',
-        options: { captchaToken },
-    })*/
-
-
-
+    const supabase = createClientComponentClient()
 
     return (
         <div className='p-5 md:p-0'>
@@ -38,9 +22,6 @@ export default async function AuthForm() {
                                     brandAccent: 'hsl(154 54.8% 45.1%)',
                                     brandButtonText: 'white',
                                     inputBackground: 'hsl(209 12.2% 93.2%)',
-
-
-                                    // ..
                                 },
                             },
                         }
@@ -110,13 +91,7 @@ export default async function AuthForm() {
                     redirectTo="http://localhost:3000/auth/callback"
                     socialLayout='horizontal'
                 />
-                <HCaptcha
-                    sitekey={siteKey}
-                    ref={captcha}
-                    onVerify={(token) => {
-                        setCaptchaToken(token)
-                    }}
-                />
+                
 
             </div>
         </div>

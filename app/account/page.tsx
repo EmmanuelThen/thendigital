@@ -15,7 +15,7 @@ const page = async (props: Props) => {
     } = await supabase.auth.getSession()
 
     return (
-        <div>
+        <div className='flex justify-center h-screen items-center'>
             <AccountForm
                 session={session}
             />

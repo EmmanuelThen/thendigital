@@ -12,6 +12,8 @@ import OptimizationAnimation from './components/OptimizationAnimation'
 import GridAnimation from './components/GridAnimation'
 import ArrowButton from './components/ArrowButton'
 import supabase from './supabase/supabase-client'
+import MaintenanceSVG from './components/MaintenanceSVG'
+import SoftwareSVG from './components/SoftwareSVG'
 
 export default function Home() {
   //console.log(supabase)
@@ -38,7 +40,7 @@ export default function Home() {
             </p>
             <ArrowButton buttonText='Learn more' href='/webdevelopment' />
           </LandingPageSection>
-          <LandingPageSection topTitle='Software Development' shinyText='Streamline your tasks with innovative software solutions.' side={<WebDevCards />} bgColor='bg-slate8'>
+          <LandingPageSection topTitle='Software Development' shinyText='Streamline your tasks with innovative software solutions.' side={<SoftwareSVG />} bgColor='bg-slate8'>
             <p className='mb-10'>
               Unleash your productivity and efficiency with a suite of powerful and user-friendly software solutions designed to simplify your tasks.
               Our cutting-edge tools are meticulously crafted to cater to your specific needs, offering intuitive interfaces and robust functionalities.
@@ -48,7 +50,7 @@ export default function Home() {
             </p>
             <ArrowButton buttonText='Learn more' href='/softwaredevelopment' />
           </LandingPageSection>
-          <LandingPageSection topTitle='Maintenance' shinyText='Keep your website running smoothly with PixelCare*, our reliable maintenance service.' side={<WebDevCards />} bgColor='bg-slate11'>
+          <LandingPageSection topTitle='Maintenance' shinyText='Keep your website running smoothly with PixelCare*, our reliable maintenance service.' side={<MaintenanceSVG />} bgColor='bg-slate11'>
             <p className='mb-10'>
               In todays fast-paced digital landscape, its crucial to have a website that consistently performs at its best. With our comprehensive website maintenance services,
               we take the hassle out of managing and optimizing your online presence, allowing you to focus on what matters most—your business.

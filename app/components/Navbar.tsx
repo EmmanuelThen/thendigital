@@ -203,7 +203,7 @@ const Navbar = () => {
                 </div>
 
                 <div className='flex justify-between gap-3'>
-                    <ArrowButton buttonText='Sign in' href='/signin' />
+                    <ArrowButton buttonText='Pricing' href='/pricing' />
                     <ArrowButton buttonText='Dashboard' href='/dashboard' />
                 </div>
             </NavigationMenu.Root>
