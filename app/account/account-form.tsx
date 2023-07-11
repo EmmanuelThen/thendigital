@@ -2,6 +2,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Database } from '../database.types'
 import { Session, createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import Link from 'next/link'
+import Checkedbox from '../components/Checkedbox'
 
 export default function AccountForm({ session }: { session: Session | null }) {
     const supabase = createClientComponentClient<Database>()
@@ -74,13 +76,18 @@ export default function AccountForm({ session }: { session: Session | null }) {
     }
 
     return (
-        <div className="border border-1 p-20">
+        <div className="flex flex-col gap-5 justify-between border border-1 p-10 shadow-lg rounded-lg">
+            <div className='flex justify-center'>
+                <h1 className='text-xl text-blue9 font-semibold mb-5'>
+                    Account Information
+                </h1>
+            </div>
             <div>
-                <label className='' htmlFor="email">Email</label>
+                <label className='text-blue9 mb-10' htmlFor="email">Email</label>
                 <input className='w-full rounded-lg p-2 border border-1 bg-slate4' id="email" type="text" value={session?.user.email} disabled />
             </div>
             <div>
-                <label className='' htmlFor="fullName">Full Name</label>
+                <label className='text-blue9 mb-10' htmlFor="fullName">Full Name</label>
                 <input
                     className='w-full rounded-lg p-2 border border-1 bg-slate4'
                     id="fullName"
@@ -90,7 +97,7 @@ export default function AccountForm({ session }: { session: Session | null }) {
                 />
             </div>
             <div>
-                <label className='' htmlFor="username">Username</label>
+                <label className='text-blue9 mb-10' htmlFor="username">Username</label>
                 <input
                     className='w-full rounded-lg p-2 border border-1 bg-slate4'
                     id="username"
@@ -100,7 +107,7 @@ export default function AccountForm({ session }: { session: Session | null }) {
                 />
             </div>
             <div>
-                <label className='' htmlFor="website">Website</label>
+                <label className='text-blue9 mb-10' htmlFor="website">Website</label>
                 <input
                     className='w-full rounded-lg p-2 border border-1 bg-slate4'
                     id="website"
@@ -109,24 +116,31 @@ export default function AccountForm({ session }: { session: Session | null }) {
                     onChange={(e) => setWebsite(e.target.value)}
                 />
             </div>
-
             <div>
-                <button
-                    className="button primary block"
-                    onClick={() => updateProfile({ fullname, username, website, avatar_url })}
-                    disabled={loading}
-                >
-                    {loading ? 'Loading ...' : 'Update'}
-                </button>
+                <Checkedbox
+                    label='I have a website'
+                />
             </div>
 
             <div>
+                <button
+                    className='bg-blue9 hover:bg-[#3fcf8e] hover w-full p-2 mt-10 rounded-md text-white'
+                    onClick={() => updateProfile({ fullname, username, website, avatar_url })}
+                    disabled={loading}
+                >
+                    <Link href='/dashboard'>
+                        {loading ? 'Loading ...' : 'Update'}
+                    </Link>
+                </button>
+            </div>
+
+            {/*<div>
                 <form action="/auth/signout" method="post">
                     <button className="button block" type="submit">
                         Sign out
                     </button>
                 </form>
-            </div>
+    </div>*/}
         </div>
     )
 }

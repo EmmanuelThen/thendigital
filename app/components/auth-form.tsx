@@ -2,10 +2,13 @@
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa } from '@supabase/auth-ui-shared'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import { useRouter } from 'next/router'
+import supabase from '../supabase/supabase-client'
+import { useEffect } from 'react'
 
 
 export default async function AuthForm() {
-    const supabase = createClientComponentClient()
+    //const supabase = createClientComponentClient()
 
     return (
         <div className='p-5 md:p-0'>
@@ -90,9 +93,8 @@ export default async function AuthForm() {
                     providers={['google', 'discord', 'github']}
                     redirectTo="http://localhost:3000/auth/callback"
                     socialLayout='horizontal'
-                />
-                
 
+                />
             </div>
         </div>
     )

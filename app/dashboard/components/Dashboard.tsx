@@ -11,6 +11,11 @@ import AccountSection from './AccountSection'
 import MobileFullDashboard from './MobileFullDashboard'
 import InsightsSection from './InsightsSection'
 import EditTabs from '@/app/components/EditTabs'
+import { Session, createClientComponentClient } from '@supabase/auth-helpers-nextjs'
+import AccountForm from '@/app/account/account-form'
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { cookies } from 'next/headers'
+import { Database } from '../database.types'
 
 
 type Props = {}
@@ -51,7 +56,7 @@ const Dashboard = (props: Props) => {
                                         buttonText='Edit'
                                         dialogTitle='Edit Profile'
                                         dialogDesc='Make changes to your profile here. Click save when youre done.'
-                                        content={<EditTabs />}
+                                        content={<AccountForm  />}
                                         saveButton='Save changes'
                                         saveButtonColor='bg-blue9'
                                         buttonDisplay=''

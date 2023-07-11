@@ -3,6 +3,7 @@ import AccountForm from './account-form';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { Database } from '../database.types'
+import Navbar from '../components/Navbar';
 
 
 type Props = {}
@@ -15,11 +16,14 @@ const page = async (props: Props) => {
     } = await supabase.auth.getSession()
 
     return (
-        <div className='flex justify-center h-screen items-center'>
-            <AccountForm
-                session={session}
-            />
-        </div>
+        <>
+            <Navbar />
+            <div className='flex flex-col justify-center h-screen items-center'>
+                <AccountForm
+                    session={session}
+                />
+            </div>
+        </>
     )
 }
 
