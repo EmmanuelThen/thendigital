@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Dashboard from './components/Dashboard';
 import {
@@ -7,11 +8,13 @@ import {
 import { cookies } from 'next/headers'
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+
 
 type Props = {}
 
 const page = async (props: Props) => {
-  const supabase = createServerComponentClient({ cookies })
+  const supabase = createServerComponentClient({ cookies });
 
   const {
     data: { user },
@@ -19,17 +22,10 @@ const page = async (props: Props) => {
 
   if (!user) {
     // This route can only be accessed by authenticated users.
-    // Unauthenticated users will be redirected to the `/login` route.
+    // Unauthenticated users will be redirected to the `/signin` route.
     redirect('/signin')
-  }
-
-  const signOut = async () => {
-    'use server'
-    const supabase = createServerActionClient({ cookies })
-    await supabase.auth.signOut()
-    redirect('/login')
-  }
-
+  } 
+  
   return (
     <Dashboard />
   )

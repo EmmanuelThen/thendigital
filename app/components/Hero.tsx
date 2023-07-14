@@ -10,10 +10,10 @@ const Hero = (props: Props) => {
         <>
             <div className='flex'>
                 <div className='mt-[100px] top-[150px] p-5 lg:p-20 lg:w-[50%]'>
-                    <div className='flex md:justify-center text-[45px] md:text-[60px] md:text-center lg:text-left lg:text-[60px] font-semibold tracking-[-0.06em] lg:tracking-tight leading-[50px] lg:leading-[65px] lg:w-fit'>
+                    <div className='flex md:justify-center md:text-center lg:text-left font-semibold tracking-[-0.06em] lg:tracking-tight leading-[50px] lg:leading-[65px] lg:w-fit'>
                         <ShinyText
                             text={
-                                <h1 className='text-[45px] lg:text-[70px]'>
+                                <h1 className='text-[45px] md:text-[60px] lg:text-[70px]'>
                                     Your vision, our<br></br> passion lets build<br></br> it together.
                                 </h1>
                             }
