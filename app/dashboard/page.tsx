@@ -27,7 +27,9 @@ const page = async (props: Props) => {
   } 
   
   return (
-    <Dashboard />
+    <div className='dark-light-mode'>
+      <Dashboard />
+    </div>
   )
 }
 

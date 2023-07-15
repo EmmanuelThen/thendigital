@@ -77,6 +77,10 @@ body {
   overflow-x: hidden;
 }
 
+.dark-light-mode {
+  background: var(--background-start-rgb);
+}
+
 
 .color-change-5x {
   -webkit-animation: color-change-5x 8s linear infinite alternate both;

@@ -22,7 +22,7 @@ export default function RootLayout({
     >
       <body>
         <AvatarProvider>
-          <main className='grow'>
+          <main className='grow dark-light-mode'>
             {children}
           </main>
         </AvatarProvider>

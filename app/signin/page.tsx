@@ -9,6 +9,7 @@ import AuthForm from '../components/auth-form'
 type Props = {}
 
 const page = (props: Props) => {
+    
     return (
         <>
             <nav>
@@ -21,6 +22,7 @@ const page = (props: Props) => {
         </>
 
     )
+    
 }
 
 
