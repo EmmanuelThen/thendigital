@@ -193,7 +193,7 @@ const InsightsSection = (props: Props) => {
                             </div>
 
                             <div className='flex justify-center  lg:items-center'>
-                                <button type='submit' onClick={getPageSpeedData} className='bg-blue9 text-white flex justify-center items-center font-semibold h-[35px] w-[300px]  mt-5  p-2 rounded-lg shadow-md'>
+                                <button type='submit' onClick={getPageSpeedData} className='bg-blue9 text-white flex justify-center items-center font-semibold h-[35px] w-[300px]  mt-5  p-2 rounded shadow-md'>
                                     Get scores
                                 </button>
                             </div>
