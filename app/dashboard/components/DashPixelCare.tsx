@@ -21,7 +21,7 @@ const DashPixelCare = (props: Props) => {
 
           <div className='text-center'>
             <p className='text-slate10'>Next Billing Date</p>
-            <h1 className='text-3xl font-semibold'>06/13/23</h1>
+            <p className='text-3xl font-semibold'>06/13/23</p>
           </div>
           <button onClick={handleNonMember}>click for nonMember</button>
           <div className=''>
@@ -43,7 +43,7 @@ const DashPixelCare = (props: Props) => {
         (
           <div>
             <div className='flex flex-col gap-2 mb-10'>
-              <h1 className='font-light text-3xl tracking-[-0.06em] text-center'>What are you waiting for?</h1>
+              <p className='font-light text-3xl tracking-[-0.06em] text-center'>What are you waiting for?</p>
               <p className='text-slate10 text-xs font-medium'>
                 Maintain and secure your investment the correct way!
               </p>
@@ -54,7 +54,11 @@ const DashPixelCare = (props: Props) => {
             <div className='flex justify-center'>
               <button type='button'>
                 <DialogButton
-                  buttonText='Purchase'
+                  buttonText={
+                    <p className='bg-blue9 hover:bg-[#3fcf8e] text-white  py-1 px-3 lg:px-8 lg:py-2 rounded '>
+                      Purchase
+                    </p>
+                  }
                   dialogTitle={
                     <>
                       <div id='text_gradient'>PixelCare</div>

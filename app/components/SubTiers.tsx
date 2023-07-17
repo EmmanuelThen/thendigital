@@ -12,8 +12,8 @@ const SubTiers = (props: Props) => {
     return (
         <div className='flex justify-between gap-5'>
             {/** Card1 */}
-            <div className='flex flex-col justify-between p-5 rounded-lg bg-white shadow-lg w-full border border-1 hover:border-red9 transform transition-transform hover:scale-110 cursor-pointer focus:border-red9' id='PCcard'>
-                <div id='TOP-HALF'>
+            <div id='back-ground' className='flex flex-col justify-between p-5 rounded-lg w-full  hover:border-red9 transform transition-transform hover:scale-110 cursor-pointer focus:border-red9 shadow-blackA9 shadow-[0_4px_7px]' >
+                <div id='custom-text'>
                     <h2 className=' font-medium text-sm' id='text_gradient'>PixelCare</h2>
                     <div className='flex items-center justify-between'>
                         <div className='relative text-[32px]'>
@@ -62,8 +62,8 @@ const SubTiers = (props: Props) => {
             </div>
 
             {/** Card2 */}
-            <div className='flex flex-col justify-between p-5 rounded-lg bg-white shadow-lg w-full border border-1 hover:border-red9 transform transition-transform hover:scale-110 cursor-pointer focus:shadow-white' id='PCcard'>
-                <div id='TOP-HALF'>
+            <div id='back-ground' className='flex flex-col justify-between p-5 rounded-lg w-full  hover:border-red9 transform transition-transform hover:scale-110 cursor-pointer focus:shadow-white shadow-blackA9 shadow-[0_4px_7px]' >
+                <div id='custom-text'>
                     <h2 className='font-medium text-sm' id='text_gradient'>PixelCare +</h2>
                     <div className='flex items-center justify-between'>
                         <div className='relative text-[32px]'>
@@ -114,8 +114,8 @@ const SubTiers = (props: Props) => {
             </div>
 
             {/** Card 3 */}
-            <div className='flex flex-col justify-between p-5 rounded-lg bg-white shadow-lg w-full border border-1 hover:border-red9 transform transition-transform hover:scale-110 cursor-pointer focus:border-red9' id='PCcard'>
-                <div id='TOP-HALF'>
+            <div id='back-ground' className='flex flex-col justify-between p-5 rounded-lg w-full  hover:border-red9 transform transition-transform hover:scale-110 cursor-pointer focus:border-red9 shadow-blackA9 shadow-[0_4px_7px]' >
+                <div id='custom-text'>
                     <h2 className='font-medium text-sm' id='text_gradient'>PixelCare Elite</h2>
                     <div className='flex items-center justify-between'>
                         <div className='relative text-[32px]'>

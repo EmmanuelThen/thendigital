@@ -156,7 +156,7 @@ const InsightsSection = (props: Props) => {
                 </div>
             </div>
             {/** Big Card */}
-            <div className='flex justify-between border border-1 p-5 rounded-lg shadow-md'>
+            <div className='flex justify-between shadow-blackA9 shadow-[0_8px_15px] p-5 rounded-lg '>
                 <div className='flex flex-col'>
                     <h1 className='text-blue9 font-semibold mb-5 lg:mb-10 text-sm lg:text-base'>Pagespeed Insights</h1>
                     <div className='flex flex-col lg:flex-row w-full'>
@@ -203,21 +203,21 @@ const InsightsSection = (props: Props) => {
                         <div className='flex justify-center  mt-5 gap-5 w-full'>
                             <div className='flex items-center'>
                                 <div className='rounded-full h-3 w-[12px] bg-red-500 mr-2'></div>
-                                <h1 className='font-light text-sm lg:text-base'>
-                                    0-49
-                                </h1>
+                                <div className='font-light text-sm lg:text-base'>
+                                    <p>0-49</p>
+                                </div>
                             </div>
                             <div className='flex items-center'>
                                 <div className='rounded-full h-3 w-[12px] bg-yellow-500 mr-2'></div>
-                                <h1 className='font-light text-sm lg:text-base'>
-                                    50-89
-                                </h1>
+                                <div className='font-light text-sm lg:text-base'>
+                                    <p>50-89</p>
+                                </div>
                             </div>
                             <div className='flex items-center'>
                                 <div className='rounded-full h-3 w-[12px] bg-green-500 mr-2'></div>
-                                <h1 className='font-light text-sm lg:text-base'>
-                                    90-100
-                                </h1>
+                                <div className='font-light text-sm lg:text-base'>
+                                    <p>90-100</p>
+                                </div>
                             </div>
                         </div>
                     </div>

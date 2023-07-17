@@ -76,7 +76,7 @@ const BillingHistoryTable = () => {
                             </th>
                         </tr>
                     </thead>
-                    <tbody className="bg-white divide-y divide-gray-200">
+                    <tbody id='back-ground' className=" divide-y divide-gray-200">
                         {billingHistory.length < 1 ? (
                             <tr>
                                 <td colSpan={5} className="p-5 text-center">

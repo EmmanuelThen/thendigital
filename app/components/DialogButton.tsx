@@ -8,7 +8,7 @@ import EditTabs from './EditTabs';
 type Props = {
     buttonText: any,
     dialogTitle: any,
-    dialogDesc: string,
+    dialogDesc: any,
     content: any,
     saveButton: any,
     buttonDisplay: string,
@@ -26,13 +26,13 @@ const DialogButton = ({ buttonText, dialogTitle, dialogDesc, content, saveButton
     return (
         <Dialog.Root>
             <Dialog.Trigger asChild>
-                <button disabled={disabled} className="text-blue9 lg:hover:opacity-80 inline-flex  items-center justify-center font-medium leading-none {shadow-[0_2px_10px]} focus:outline-none">
+                <button disabled={disabled} className="shadow-blackA9 shadow-[0_4px_7px] text-blue9 lg:hover:opacity-80 inline-flex  items-center justify-center font-medium leading-none {shadow-[0_2px_10px]} focus:outline-none">
                     {buttonText}
                 </button>
             </Dialog.Trigger>
             <Dialog.Portal>
                 <Dialog.Overlay className="z-[105] bg-blackA9 backdrop-blur-md data-[state=open]:animate-overlayShow fixed inset-0" />
-                <Dialog.Content className="border border-1 z-[106] data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[90vh] w-[95vw] max-w-[950px] translate-x-[-50%] translate-y-[-50%] rounded-md bg-white p-10 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
+                <Dialog.Content id='back-ground' className=" z-[106] data-[state=open]:animate-contentShow fixed top-[50%] left-[50%] max-h-[90vh] w-[95vw] max-w-[950px] translate-x-[-50%] translate-y-[-50%] rounded-md p-10 shadow-[hsl(206_22%_7%_/_35%)_0px_10px_38px_-10px,_hsl(206_22%_7%_/_20%)_0px_10px_20px_-15px] focus:outline-none">
                     <Dialog.Title className="text-mauve12 m-0 text-[17px] font-medium">
                         {dialogTitle}
                     </Dialog.Title>
@@ -44,11 +44,11 @@ const DialogButton = ({ buttonText, dialogTitle, dialogDesc, content, saveButton
                     </div>
                     <div className="lg:mt-[35px] flex items-center  justify-end">
                         <Dialog.Close asChild className={`${buttonDisplay}`}>
-                            <button type={saveButtonType} disabled={disabled} onClick={onClickfunction} className={`${saveButtonColor} text-white hover:${saveButtonColor}/80 inline-flex items-center justify-center rounded-[4px] gap-1 lg:gap-2 py-2 px-2 text-xs lg:text-base lg:py-0 lg:px-[10px] lg:h-[35px] font-medium leading-none focus:outline-none`}>
+                            <button type={saveButtonType} disabled={disabled} onClick={onClickfunction} className={`${saveButtonColor} shadow-blackA9 shadow-[0_4px_7px] text-white hover:${saveButtonColor}/80 inline-flex items-center justify-center rounded-[4px] gap-1 lg:gap-2 py-2 px-2 text-xs lg:text-base lg:py-0 lg:px-[10px] lg:h-[35px] font-medium leading-none focus:outline-none`}>
                                 {saveButton}
                             </button>
                         </Dialog.Close>
-                        <Dialog.Close asChild className={`${myOwnButtonDisplay}`}>
+                        <Dialog.Close asChild className={`${myOwnButtonDisplay} shadow-blackA9 shadow-[0_4px_7px]`}>
                             <button>
                                 {myOwnButton}
                             </button>

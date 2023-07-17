@@ -172,15 +172,15 @@ const InboxSection = () => {
                             {/** Inbox section */}
                             <Tabs.Content value="tab1">
                                 <div id='back-ground' className="lg:flex w-full h-screen lg:p-2 lg:w-full lg:h-[75vh] shadow-blackA9 shadow-[0_8px_15px]" >
-                                    <div className="lg:w-[35%] overflow-y-scroll">
+                                    <div className="lg:w-[35%] w-full overflow-y-scroll">
                                         {inboxMessage.length > 0 ? (
                                             inboxMessage.map((message, i) => (
-                                                <div className='flex items-center w-[93vw] lg:w-full' key={i}>
+                                                <div className='flex items-center w-[93vw] lg:w-full ' key={i}>
                                                     <div className="p-2 w-full">
                                                         <div
                                                             className={
                                                                 `${selectedMessageIndex === i ? 'outline outline-1 outline-blue9' : ''
-                                                                } ml-2 lg:ml-0 scale-in-center lg:max-w-[385px] shadow-md rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 p-3 max-w-[848px] lg:p-5`
+                                                                } ml-2 lg:ml-0 scale-in-center lg:max-w-[385px] shadow-blackA9 shadow-[0_4px_7px] rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 p-3 max-w-[848px] lg:p-5`
                                                             }
                                                             id='back-ground'
                                                             onClick={() => handleMessageClick(i)}
@@ -201,7 +201,7 @@ const InboxSection = () => {
                                                 </div>
                                             ))
                                         ) : (
-                                            <div className="flex flex-col justify-center items-center h-full bg-slate4 p-5 lg:p-0">
+                                            <div id='back-ground' className="flex flex-col justify-center items-center h-full p-5 lg:p-0">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="0.7" stroke="hsl(205 10.7% 78.0%)" className="w-10 h-10">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z" />
                                                 </svg>
@@ -209,7 +209,7 @@ const InboxSection = () => {
                                             </div>
                                         )}
                                     </div>
-                                    <div id='back-ground' className=" p-3 lg:p-5 lg:ml-3 shadow-blackA9 shadow-[0_8px_15px]  lg:w-[65%] 2xl:w-[90%] h-full overflow-y-hidden rounded-lg">
+                                    <div id='back-ground' className=" p-3 lg:p-5 lg:ml-3 shadow-blackA9 shadow-[0_4px_7px]  lg:w-[65%] 2xl:w-[90%] h-full overflow-y-hidden rounded-lg">
                                         <div className='lg:w-full flex justify-between items-center mb-1'>
                                             {/** Double arrows */}
                                             <div className='hidden lg:flex'>
@@ -236,7 +236,7 @@ const InboxSection = () => {
                                                     <button onClick={handleDeleteNotificationButtonClick}
                                                         disabled={isNotificationButtonDisabled}
                                                         type='button'
-                                                        className='bg-slate8 hover:bg-slate8/80 text-white inline-flex items-center justify-center rounded-[4px] gap-1 lg:gap-2 py-1 px-2 text-xs lg:text-base lg:py-0 lg:px-[15px] lg:h-[35px] font-light leading-none focus:outline-none'
+                                                        className='shadow-blackA9 shadow-[0_4px_7px] bg-slate8 hover:bg-slate8/80 text-white inline-flex items-center justify-center rounded-[4px] gap-1 lg:gap-2 py-1 px-2 text-xs lg:text-base lg:py-0 lg:px-[15px] lg:h-[35px] font-light leading-none focus:outline-none'
                                                     >
                                                         Notifications
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="hsl(206 100% 50.0%)" className="w-4 lg:w-5 h-4 lg:h-5">
@@ -255,7 +255,7 @@ const InboxSection = () => {
                                                     buttonText={
                                                         <>
                                                             {inboxMessage.length > 0 ? //Button will only show when there is a message in the trash inbox
-                                                                <div className='hover:cursor-pointer bg-red9 text-white inline-flex items-center justify-center rounded-[4px] gap-1 lg:gap-2 py-1 px-2 text-xs lg:text-base lg:py-0 lg:px-[15px] lg:h-[35px] font-light leading-none focus:outline-none' >
+                                                                <div className=' hover:cursor-pointer bg-red9 text-white inline-flex items-center justify-center rounded-[4px] gap-1 lg:gap-2 py-1 px-2 text-xs lg:text-base lg:py-0 lg:px-[15px] lg:h-[35px] font-light leading-none focus:outline-none' >
                                                                     Delete
                                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 lg:w-5 h-4 lg:h-5">
                                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
@@ -277,7 +277,7 @@ const InboxSection = () => {
                                                     buttonText={
                                                         <>
                                                             {inboxMessage.length > 0 ? //Button will only show when there is a message in the trash inbox
-                                                                <div className='hover:cursor-pointer bg-blue9 text-white inline-flex items-center justify-center rounded-[4px] gap-1 lg:gap-2 py-1 px-2 text-xs lg:text-base lg:py-0 lg:px-[15px] lg:h-[35px] font-light leading-none focus:outline-none' >
+                                                                <div className=' hover:cursor-pointer bg-blue9 text-white inline-flex items-center justify-center rounded-[4px] gap-1 lg:gap-2 py-1 px-2 text-xs lg:text-base lg:py-0 lg:px-[15px] lg:h-[35px] font-light leading-none focus:outline-none' >
                                                                     Delete All
                                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 lg:w-5 lg:h-5">
                                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
@@ -290,7 +290,7 @@ const InboxSection = () => {
                                                         </>
                                                     }
                                                     dialogTitle='Delete message'
-                                                    dialogDesc={`Are you sure you want to delete all of your messages? This can't be reversed.`}
+                                                    dialogDesc={<p>Are you sure you want to delete all of your messages?<br></br> This can't be reversed.</p>}
                                                 />
                                             </div>
                                         </div>
@@ -310,7 +310,7 @@ const InboxSection = () => {
                             </Tabs.Content>
                             {/** Trash section */}
                             <Tabs.Content value="tab2" className="w-full">
-                                <div className="flex lg:p-2 w-full h-screen lg:h-[75vh] bg-slate4" id='trashMessageFullDisplay'>
+                                <div id='back-ground' className="flex lg:p-2 w-full h-screen lg:h-[75vh]">
                                     <div className="lg:w-[35%] w-full overflow-y-scroll">
                                         {inboxTrash.length > 0 ? (
                                             inboxTrash.map((message, i) => (
@@ -319,8 +319,9 @@ const InboxSection = () => {
                                                         <div
                                                             className={
                                                                 `${selectedMessageIndex === i ? 'outline outline-1 outline-blue9' : ''
-                                                                } ml-2 scale-in-center lg:max-w-[385px] shadow-md bg-slate2 rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 max-w-[848px] p-3 lg:p-5`
+                                                                } ml-2 scale-in-center lg:max-w-[385px] shadow-blackA9 shadow-[0_4px_7px] bg-slate2 rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 max-w-[848px] p-3 lg:p-5`
                                                             }
+                                                            id='back-ground'
                                                             onClick={() => handleMessagInTrashClick(i)}
                                                         >
                                                             {message.read
@@ -336,7 +337,7 @@ const InboxSection = () => {
                                                 </div>
                                             ))
                                         ) : (
-                                            <div className="flex flex-col justify-center items-center h-full bg-slate4 p-5 lg:p-0">
+                                            <div id='back-ground' className="flex flex-col justify-center items-center h-full bg-slate4 p-5 lg:p-0">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="0.7" stroke="hsl(205 10.7% 78.0%)" className="w-10 h-10">
                                                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 9v.906a2.25 2.25 0 01-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 001.183 1.981l6.478 3.488m8.839 2.51l-4.66-2.51m0 0l-1.023-.55a2.25 2.25 0 00-2.134 0l-1.022.55m0 0l-4.661 2.51m16.5 1.615a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V8.844a2.25 2.25 0 011.183-1.98l7.5-4.04a2.25 2.25 0 012.134 0l7.5 4.04a2.25 2.25 0 011.183 1.98V19.5z" />
                                                 </svg>
@@ -344,7 +345,7 @@ const InboxSection = () => {
                                             </div>
                                         )}
                                     </div>
-                                    <div className="bg-white p-3 lg:p-5 lg:ml-3 shadow-lg border border-1 lg:w-[65%] 2xl:w-[90%] h-full overflow-y-hidden rounded-lg">
+                                    <div id='back-ground' className="p-3 lg:p-5 lg:ml-3 shadow-blackA9 shadow-[0_4px_7px] lg:w-[65%] 2xl:w-[90%] h-full overflow-y-hidden rounded-lg">
                                         <div className='flex justify-end pb-2'>
                                             <DialogButton
                                                 onClickfunction={handleEmptyTrashClick}
@@ -353,7 +354,7 @@ const InboxSection = () => {
                                                 buttonText={
                                                     <>
                                                         {inboxTrash.length > 0 ? //Button will only show when there is a message in the trash inbox
-                                                            <div className='bg-red9 text-white inline-flex items-center justify-center rounded-[4px] gap-1 lg:gap-2 py-1 px-2 text-xs lg:text-base lg:py-0 lg:px-[15px] lg:h-[35px] font-light leading-none focus:outline-none' >
+                                                            <div className='shadow-blackA9 shadow-[0_4px_7px] bg-red9 text-white inline-flex items-center justify-center rounded-[4px] gap-1 lg:gap-2 py-1 px-2 text-xs lg:text-base lg:py-0 lg:px-[15px] lg:h-[35px] font-light leading-none focus:outline-none' >
                                                                 Empty trash
                                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-4 h-4 lg:w-5 lg:h-5">
                                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -365,7 +366,7 @@ const InboxSection = () => {
                                                     </>
                                                 }
                                                 dialogTitle='Empty trash'
-                                                dialogDesc={`Are you sure you want to delete all of your messages? This can't be reversed.`}
+                                                dialogDesc={<p>Are you sure you want to delete all of your messages?<br></br> This can't be reversed.</p>}
                                                 content=''
                                                 buttonDisplay=''
                                                 myOwnButtonDisplay=''

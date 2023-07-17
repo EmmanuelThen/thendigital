@@ -27,6 +27,11 @@ body {
   background: var(--background-rgb);
 }
 
+#stroke-color {
+  stroke: var(--text-rgb);
+}
+
+
 #shadow {
   box-shadow: var(--shadow-rgb);
 }

@@ -46,11 +46,11 @@ const page = (props: Props) => {
                 </div>
             </div>
 
-            <div className='  pb-[1.5em] leading-[50px] md:leading-[80px] text-[30px] md:text-[55px] z-[10] '>
+            <div className='mt-10  pb-[1.5em] leading-[50px] md:leading-[80px] text-[30px] md:text-[55px] z-[10] '>
                 <div className=' flex flex-col items-center justify-center font-light '>
-                    <h1>Secure your investment</h1>
-                    <h1>the correct way.</h1>
-                    <h1>Introducing <span id='text_gradient'>PixelCare.</span></h1>
+                    <h1 id='custom-text'>Secure your investment</h1>
+                    <h1 id='custom-text'>the correct way.</h1>
+                    <h1 id='custom-text'>Introducing <span id='text_gradient'>PixelCare.</span></h1>
                 </div>
             </div>
 
@@ -262,7 +262,7 @@ const page = (props: Props) => {
                             point3='Performance optimization monitoring'
                             point4='Custom Reporting and Insights'
                             point5='Priority support & dedicated account manager'
-                            bgColor='animate-backgroundShine bg-[linear-gradient(115deg,#ffffff,45%,#e6e6e6,55%,#ffffff)] bg-[length:250%_100%] bg-transparent'
+                            bgColor='animate-backgroundShine bg-[linear-gradient(115deg,#262626,45%,#e6e6e6,55%,#262626)] bg-[length:250%_100%] bg-transparent'
                             subTier='pixelcare-elite'
                         />
                     </div>
