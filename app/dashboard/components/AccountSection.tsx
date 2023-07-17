@@ -69,10 +69,7 @@ const AccountSection = (props: Props) => {
                         <div className='flex justify-between items-center rounded-lg border border-1 shadow-lg bg-white'>
                             <div className='flex'>
                                 <div className=' p-5'>
-                                    <DashAvatar
-                                        iconHeight='h-[60px] lg:h-[100px]'
-                                        iconWidth='w-[60px] lg:w-[100px]'
-                                    />
+                                    avatar
                                 </div>
                                 <div className='flex flex-col justify-center p-2 text-xs lg:text-base lg:p-5'>
                                     <h1 className='font-medium'>Client Name</h1>

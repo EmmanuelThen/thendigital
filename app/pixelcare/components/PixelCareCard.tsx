@@ -22,7 +22,7 @@ type Props = {
 
 const PixelCareCard = ({ tier, price, frequency, buttonText, bgColor, point, point1, point2, point3, point4, point5, subTier }: Props) => {
     return (
-        <div className={`md:flex md:justify-center md:flex-col p-10 lg:py-20 ${bgColor} shadow-lg w-[85%] md:w-[50%] lg:w-[400px] lg:max-w-[600px] cursor-pointer`} id='PCcard'>
+        <div  className={`md:flex md:justify-center md:flex-col p-10 lg:py-20 ${bgColor} rounded-lg shadow-blackA9 shadow-[0_4px_7px]  w-[85%] md:w-[50%] lg:w-[400px] lg:max-w-[600px] cursor-pointer`}>
             <div className='flex flex-col items-center' id='TOP-HALF'>
                 <h2 className='font-medium text-sm' id='text_gradient'>{tier}</h2>
                 <div className='flex items-center justify-between'>

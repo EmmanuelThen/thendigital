@@ -15,7 +15,7 @@ const page = (props: Props) => {
             <nav>
                 <Navbar />
             </nav>
-            <div className='flex justify-center w-full items-center h-screen'>
+            <div  className='flex justify-center w-full items-center h-screen'>
                 <AuthForm />
             </div>
 

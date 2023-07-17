@@ -31,7 +31,7 @@ const DashGridSection = (props: Props) => {
                 </div>
             </div>
 
-            <div id='cardGrid' className='flex flex-wrap justify-center gap-5 {w-[1275px]} overflow-y-scroll'>
+            <div  className='flex flex-wrap justify-center gap-5 {w-[1275px]} overflow-y-scroll'>
                 <div>
                     <DashCards
                         cardTitle='production tracker'

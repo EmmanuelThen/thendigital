@@ -21,11 +21,9 @@ export default function RootLayout({
       className={`${inter.className} scroll-smooth`}
     >
       <body>
-        <AvatarProvider>
-          <main className='grow dark-light-mode'>
+          <main className='grow'>
             {children}
           </main>
-        </AvatarProvider>
       </body>
     </html>
   )

@@ -152,16 +152,18 @@ const InboxSection = () => {
             <div>
                 <Tabs.Root defaultValue="tab1" orientation="vertical">
                     <div className="">
-                        <div className="bg-white lg:ml-1 rounded-lg shadow-lg {lg:w-[1275px] 2xl:w-[1685px]} {4xl:w-[2209px]}">
-                            <Tabs.List className="shrink-0 flex border-b border-mauve6 w-full lg:border-2 rounded-lg hover:cursor-pointer bg-white" aria-label="Manage your account">
+                        <div className=" lg:ml-1 rounded-lg shadow-blackA9 shadow-[0_8px_15px] {lg:w-[1275px] 2xl:w-[1685px]} {4xl:w-[2209px]}">
+                            <Tabs.List className="shrink-0 flex border-b border-mauve6 w-full rounded-lg hover:cursor-pointer bg-white" aria-label="Manage your account">
                                 <Tabs.Trigger
-                                    className="uppercase tracking-[5px] w-[50%]  bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-xs lg:text-[15px] leading-none text-gray-500 select-none first:rounded-tl-md last:rounded-tr-md hover:text-blue9 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative  outline-none hover:cursor-pointer"
+                                    id='back-ground'
+                                    className="uppercase tracking-[5px] w-[50%]  px-5 h-[45px] flex-1 flex items-center justify-center text-xs lg:text-[15px] leading-none text-gray-500 select-none first:rounded-tl-md last:rounded-tr-md hover:text-blue9 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative  outline-none hover:cursor-pointer"
                                     value="tab1"
                                 >
                                     Inbox
                                 </Tabs.Trigger>
                                 <Tabs.Trigger
-                                    className="uppercase tracking-[5px] w-[50%] bg-white px-5 h-[45px] flex-1 flex items-center justify-center text-xs lg:text-[15px] leading-none text-gray-500 select-none first:rounded-tl-md last:rounded-tr-md hover:text-blue9 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative  outline-none hover:cursor-pointer"
+                                    id='back-ground'
+                                    className="uppercase tracking-[5px] w-[50%] px-5 h-[45px] flex-1 flex items-center justify-center text-xs lg:text-[15px] leading-none text-gray-500 select-none first:rounded-tl-md last:rounded-tr-md hover:text-blue9 data-[state=active]:text-blue9 data-[state=active]:shadow-[inset_0_-1px_0_0,0_1px_0_0] data-[state=active]:shadow-current data-[state=active]:focus:relative  outline-none hover:cursor-pointer"
                                     value="tab2"
                                 >
                                     Trash
@@ -169,7 +171,7 @@ const InboxSection = () => {
                             </Tabs.List>
                             {/** Inbox section */}
                             <Tabs.Content value="tab1">
-                                <div className="lg:flex w-full h-screen bg-slate4 lg:p-2 lg:w-full lg:h-[75vh]" id='messageFullDisplay'>
+                                <div id='back-ground' className="lg:flex w-full h-screen lg:p-2 lg:w-full lg:h-[75vh] shadow-blackA9 shadow-[0_8px_15px]" >
                                     <div className="lg:w-[35%] overflow-y-scroll">
                                         {inboxMessage.length > 0 ? (
                                             inboxMessage.map((message, i) => (
@@ -178,8 +180,9 @@ const InboxSection = () => {
                                                         <div
                                                             className={
                                                                 `${selectedMessageIndex === i ? 'outline outline-1 outline-blue9' : ''
-                                                                } ml-2 lg:ml-0 scale-in-center lg:max-w-[385px] shadow-md bg-slate2 rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 p-3 max-w-[848px] lg:p-5`
+                                                                } ml-2 lg:ml-0 scale-in-center lg:max-w-[385px] shadow-md rounded-lg mb-1 flex justify-between items-center hover:cursor-pointer hover:bg-slate4 p-3 max-w-[848px] lg:p-5`
                                                             }
+                                                            id='back-ground'
                                                             onClick={() => handleMessageClick(i)}
                                                         >
                                                             {message.read ? (
@@ -206,19 +209,19 @@ const InboxSection = () => {
                                             </div>
                                         )}
                                     </div>
-                                    <div className="bg-white p-3 lg:p-5 lg:ml-3 shadow-lg border border-1 lg:w-[65%] 2xl:w-[90%] h-full overflow-y-hidden rounded-lg">
+                                    <div id='back-ground' className=" p-3 lg:p-5 lg:ml-3 shadow-blackA9 shadow-[0_8px_15px]  lg:w-[65%] 2xl:w-[90%] h-full overflow-y-hidden rounded-lg">
                                         <div className='lg:w-full flex justify-between items-center mb-1'>
                                             {/** Double arrows */}
                                             <div className='hidden lg:flex'>
                                                 {inboxMessage.length > 0 ?
                                                     <div className='flex gap-2'>
-                                                        <div onClick={handleLeftArrowClick} className='border border-1 rounded-[4px] bg-slate2 hover:bg-slate4 hover:cursor-pointer'>
-                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" className="w-6 h-6">
+                                                        <div id='back-ground' onClick={handleLeftArrowClick} className='shadow-blackA9 shadow-[0_4px_7px] rounded-[4px] bg-slate2 hover:bg-slate4 hover:cursor-pointer'>
+                                                            <svg id='custom-text' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" className="w-6 h-6">
                                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                                                             </svg>
                                                         </div>
-                                                        <div onClick={handleRightArrowClick} className='border border-1 rounded-[4px] bg-slate2 hover:bg-slate4 hover:cursor-pointer'>
-                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" className="w-6 h-6">
+                                                        <div id='back-ground' onClick={handleRightArrowClick} className='shadow-blackA9 shadow-[0_4px_7px] rounded-[4px] bg-slate2 hover:bg-slate4 hover:cursor-pointer'>
+                                                            <svg id='custom-text' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" className="w-6 h-6">
                                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                                                             </svg>
                                                         </div>
@@ -291,11 +294,13 @@ const InboxSection = () => {
                                                 />
                                             </div>
                                         </div>
-                                        <div className="sticky h-full p-2 mt-5 lg:mt-0">
+                                        <div  className="sticky h-full p-2 mt-5 lg:mt-0">
                                             <div className={
                                                 messageFullDisplay === 'No message selected' ?
                                                     `font-light flex justify-center items-center text-xs lg:text-base lg:h-[500px] uppercase tracking-[5px] text-slate8` :
-                                                    `font-light`}
+                                                    `font-light`
+                                                }
+                                                
                                             >
                                                 {messageFullDisplay}
                                             </div>

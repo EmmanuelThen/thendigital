@@ -10,13 +10,13 @@ type Props = {}
 
 const DashMobileNavbar = (props: Props) => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const { avatar, changeAvatar } = useAvatar();
+    
     return (
         <>
             {/** Mobile screen dash-nav */}
             <div className='flex justify-between p-2 w-full' >
                 <div>
-                    <DashAvatar iconHeight='h-[35px]' iconWidth='w-[35px]' />
+                    \avatar
                 </div>
                 <div id='loginLogo' className='flex items-center'>
                     <span className='font-semibold text-blue9'>Then</span>

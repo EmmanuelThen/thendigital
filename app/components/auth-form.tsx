@@ -78,7 +78,8 @@ export default function Login() {
                 </p>
             ) : (
                 <form
-                    className="border border-1 p-20 rounded-lg shadow-lg flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
+                    id='shadow'
+                    className="border border-1 px-20 py-12 rounded-lg shadow-lg flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
                     onSubmit={view === 'sign-in' ? handleSignIn : handleSignUp}
                 >
                     <label className="text-md" htmlFor="email">
@@ -151,7 +152,7 @@ export default function Login() {
                                 {loading ? 'Sign In' : <p className='scale-in-center'> Loading...</p>}
                             </button>
                             <div id='signup-terms' className=' flex justify-center mb-6'>
-                                <div className='text-[10px] text-slate10  text-center'>
+                                <div className='text-[10px] text-center '>
                                     <ForgotPassword />
                                 </div>
                             </div>
@@ -173,17 +174,17 @@ export default function Login() {
                                     <hr className='block w-full h-[1px] border-0 bg-[#e8e8e8]' />
                                 </div>
                             </div>
-                            <form className='flex flex-col gap-2' id='providers-buttons'>
-                                <button>
+                            <div className='flex flex-col gap-2' id='providers-buttons'>
+                                <div>
                                     <GoogleButton />
-                                </button>
-                                <button>
+                                </div>
+                                <div>
                                     <DiscordButton />
-                                </button>
-                                <button>
+                                </div>
+                                <div>
                                     <TwitterButton />
-                                </button>
-                            </form>
+                                </div>
+                            </div>
                         </>
                     )}
                     {view === 'sign-up' && (

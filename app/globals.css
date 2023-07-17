@@ -3,18 +3,40 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-rgb: #fff;
+  --text-rgb: black;
+  --shadow-rgb: rgba(0, 0, 0, 0.75) 0 8px 15px;;
   --gradient-line: linear-gradient(to right, red, blue);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 38, 38, 38;
-    --background-end-rgb: 38, 38, 38;
+    --background-rgb: #262626;
+    --text-rgb: white;
+    --shadow-rgb: rgba(255, 255, 255) 0 8px 15px;
   }
+}
+
+body {
+  font-size: 16px;
+  overflow-x: hidden;
+  background: var(--background-rgb);
+}
+
+#nav-dropdown-bg, #nav-link:hover, #back-ground {
+  background: var(--background-rgb);
+}
+
+#shadow {
+  box-shadow: var(--shadow-rgb);
+}
+
+#custom-text {
+  color: var(--text-rgb);
+}
+
+ h2, h3, h4, h5, h6, p {
+  color: var(--text-rgb);
 }
 
 
@@ -71,16 +93,6 @@
   background-repeat: no-repeat;
   background-position: center;
 }*/
-
-body {
-  font-size: 16px;
-  overflow-x: hidden;
-}
-
-.dark-light-mode {
-  background: var(--background-start-rgb);
-}
-
 
 .color-change-5x {
   -webkit-animation: color-change-5x 8s linear infinite alternate both;
