@@ -5,16 +5,16 @@ import * as ScrollArea from '@radix-ui/react-scroll-area';
 const TAGS = Array.from({ length: 10 }).map((_, i, a) => `Order.${a.length - i}`);
 
 const ScrollingArea = () => (
-    <ScrollArea.Root className="w-full h-[225px] rounded overflow-hidden shadow-[0_2px_10px] shadow-blackA7 bg-white">
+    <ScrollArea.Root className="w-full h-[225px] rounded overflow-hidden">
         <ScrollArea.Viewport className="w-full h-full rounded">
             <div className="py-[15px] px-5 flex justify-center items-center flex-col">
-                <div className="text-violet11 text-[15px] leading-[18px] font-medium">Recent Orders</div>
+                <div className="text-blue9 text-[15px] leading-[18px] font-medium">Recent Orders</div>
                 {TAGS.map((tag) => (
                     <div
-                        className="text-mauve12 text-[13px] leading-[18px] mt-2.5 pt-2.5 border-t border-t-mauve6"
+                        className="flex justify-center text-mauve12 text-[13px] leading-[18px] mt-2.5 pt-2.5 border-t border-t-slate2 w-full"
                         key={tag}
                     >
-                        {tag}
+                        <p>{tag}</p>
                     </div>
                 ))}
             </div>

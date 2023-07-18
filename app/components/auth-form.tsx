@@ -8,6 +8,10 @@ import ForgotPassword from '../signin/components/ForgotPassword'
 import GoogleButton from './GoogleButton'
 import DiscordButton from './DiscordButton'
 import TwitterButton from './TwitterButton'
+import ForgotPasswordModal from '../signin/components/ForgotPasswordModal'
+import ConfirmationButton from './ConfirmationButton'
+import DialogButton from './DialogButton'
+
 
 export default function Login() {
     const [loading, setLoading] = useState(true)
@@ -40,6 +44,14 @@ export default function Login() {
         setLoading(false);
         router.push('/dashboard');
         router.refresh();
+    }
+
+    const handlePasswordReset = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        await supabase.auth.resetPasswordForEmail(email, {
+            redirectTo: 'http://localhost:3000/account/update-password',
+        })
+
     }
 
     const handleGoogleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -78,8 +90,8 @@ export default function Login() {
                 </p>
             ) : (
                 <form
-                    id='shadow'
-                    className="border border-1 px-20 py-12 rounded-lg shadow-lg flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
+
+                    className=" px-20 py-12 rounded-lg shadow-blackA9 shadow-[0_8px_15px] flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
                     onSubmit={view === 'sign-in' ? handleSignIn : handleSignUp}
                 >
                     <label className="text-md" htmlFor="email">
@@ -153,7 +165,30 @@ export default function Login() {
                             </button>
                             <div id='signup-terms' className=' flex justify-center mb-6'>
                                 <div className='text-[10px] text-center '>
-                                    <ForgotPassword />
+                                    <div>
+                                        <DialogButton
+                                            buttonText='Forgot password?'
+                                            dialogTitle=''
+                                            dialogDesc=''
+                                            content={
+                                                <ForgotPasswordModal
+                                                    modalContentDisplay=''
+                                                    confirmationDisplay=''
+                                                />
+                                            }
+                                            saveButton=''
+                                            buttonDisplay='hidden'
+                                            myOwnButtonDisplay='hidden'
+                                            myOwnButton={
+                                                <ConfirmationButton
+                                                    buttonText='Continue'
+                                                    toastTitle='Email sent to:'
+                                                    toastContent='session.user.email'
+                                                />
+                                            }
+
+                                        />
+                                    </div>
                                 </div>
                             </div>
 

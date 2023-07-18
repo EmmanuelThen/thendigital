@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import InputForms from '@/app/components/InputForms'
+import { useRouter } from 'next/navigation'
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 
 
 type Props = {
@@ -13,6 +15,7 @@ const ForgotPasswordModal = ({ }: Props) => {
     const [confirmationDisplay, setConfirmationDisplay] = useState('hidden');
     const [confirmationText, setConfirmationText] = useState('hidden')
     const [userInput, setUserInput] = useState('')
+    const supabase = createClientComponentClient()
 
     const handleButtonClickConfirmation = () => {
         setModalContentDisplay('hidden');
@@ -31,14 +34,21 @@ const ForgotPasswordModal = ({ }: Props) => {
         // When back end is set up make sure input === user in our database
     };
 
+    const handlePasswordReset = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        await supabase.auth.resetPasswordForEmail(userInput, {
+            redirectTo: 'http://localhost:3000/account/update-password',
+        })
+    }
+
     const isEmailValid = userInput.match(
         /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/
     );
     // Disable the button if the email format is invalid
     const isButtonDisabled = !isEmailValid;
-    
+
     return (
-        <>
+        <form onSubmit={handlePasswordReset}>
             <div className={`${modalContentDisplay} flex flex-col gap-10 `}>
                 <div className='flex justify-center w-full'>
                     <p className='w-[75%] md:text-center'>Enter the email address associated with your account and we will send you a link to reset your password.</p>
@@ -75,7 +85,7 @@ const ForgotPasswordModal = ({ }: Props) => {
                     <p className='text-center font-medium'>{userInput}</p>
                 </div>
             </div>
-        </>
+        </form>
     )
 }
 

@@ -4,7 +4,7 @@ type Props = {}
 
 const GoogleButton = (props: Props) => {
     return (
-        <button className="flex gap-8 w-[300px] bg-[#262626] text-white hover:bg-[#4285f4]/80 h-[35px] items-center justify-center rounded-[4px] font-medium leading-none focus:outline-none">
+        <button className="flex gap-8 w-[300px] bg-slate10 text-white hover:bg-[#4285f4]/80 h-[35px] items-center justify-center rounded-[4px] font-medium leading-none focus:outline-none">
             <svg height="20px" width="20px" viewBox="0 0 48 48" preserveAspectRatio="xMinYMin meet" focusable="false" aria-hidden="true">
                 <title>
                     Google Logo

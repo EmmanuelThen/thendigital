@@ -2,6 +2,7 @@
 import * as React from 'react';
 import * as Toast from '@radix-ui/react-toast';
 
+
 interface ToastButtonInterface {
     toastTitle: any
     buttonText: any
@@ -12,10 +13,13 @@ const ConfirmationButton = ({ toastTitle, buttonText, toastContent, }: ToastButt
     const [open, setOpen] = React.useState(false);
     const eventDateRef = React.useRef(new Date());
     const timerRef = React.useRef(0);
+    
 
     React.useEffect(() => {
         return () => clearTimeout(timerRef.current);
     }, []);
+
+    
 
 
     return (
