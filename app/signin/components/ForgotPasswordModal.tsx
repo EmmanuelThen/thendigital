@@ -31,7 +31,6 @@ const ForgotPasswordModal = ({ }: Props) => {
 
     const handleUserInput = (e: any) => {
         setUserInput(e.target.value);
-        // When back end is set up make sure input === user in our database
     };
 
     const handlePasswordReset = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -68,6 +67,7 @@ const ForgotPasswordModal = ({ }: Props) => {
                     <button onClick={handleButtonClickConfirmation}
                         className={` bg-blue9 text-white hover:bg-blue9/80 inline-flex h-[35px] items-center justify-center rounded-[4px] px-[15px] font-medium leading-none focus:outline-none`}
                         disabled={isButtonDisabled}
+                        type='submit'
                     >
                         Continue
                     </button>

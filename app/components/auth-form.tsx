@@ -101,25 +101,25 @@ export default function Login() {
                         className=" px-20 py-12 rounded-lg shadow-blackA9 shadow-[0_8px_15px] flex-1 flex flex-col w-full justify-center gap-2 text-foreground"
                         onSubmit={view === 'sign-in' ? handleSignIn : handleSignUp}
                     >
-                        <label className="text-md" htmlFor="email">
+                        <label id='custom-text' className="text-md" htmlFor="email">
                             Email
                         </label>
                         <input
-                            className="rounded-md px-4 py-2 bg-slate4 border mb-6"
+                            className="rounded-md px-4 py-2 bg-slate10  mb-6"
                             name="email"
                             onChange={(e) => setEmail(e.target.value)}
                             value={email}
                             placeholder="you@example.com"
                             required
                         />
-                        <label className="text-md" htmlFor="password">
+                        <label id='custom-text' className="text-md" htmlFor="password">
                             Password
                         </label>
                         {view === 'sign-up' ?
                             (
                                 <>
                                     <input
-                                        className="rounded-md px-4 py-2 bg-slate4 border "
+                                        className="rounded-md px-4 py-2 bg-slate10  "
                                         type="password"
                                         name="password"
                                         onChange={(e) => setPassword(e.target.value)}
@@ -134,11 +134,11 @@ export default function Login() {
                                         <p>At least 1 special character</p>
                                         <p>At least 1 lowercase letter and 1 uppercase letter</p>
                                     </div>
-                                    <label className="text-md" htmlFor="password">
+                                    <label id='custom-text' className="text-md" htmlFor="password">
                                         Re-enter Password
                                     </label>
                                     <input
-                                        className="rounded-md px-4 py-2 bg-slate4 border mb-6"
+                                        className="rounded-md px-4 py-2 bg-slate10  mb-6"
                                         type="password"
                                         name="password"
                                         onChange={(e) => setReEnterPassword(e.target.value)}
@@ -151,7 +151,7 @@ export default function Login() {
                             ) :
                             (
                                 <input
-                                    className="rounded-md px-4 py-2 bg-slate4 border mb-6"
+                                    className="rounded-md px-4 py-2 bg-slate10  mb-6"
                                     type="password"
                                     name="password"
                                     onChange={(e) => setPassword(e.target.value)}
@@ -166,7 +166,7 @@ export default function Login() {
                                     className="bg-blue9 hover:opacity-80 rounded px-4 py-2 text-white hover:cursor-pointer"
                                     disabled={!email || !password}
                                 >
-                                    {loading ? 'Sign In' : <p className='scale-in-center'> Loading...</p>}
+                                    {loading ? 'Sign In' : <p className='text-white scale-in-center'> Loading...</p>}
                                 </button>
                                 <div id='signup-terms' className=' flex justify-center mb-6'>
                                     <div className='text-[10px] text-center '>

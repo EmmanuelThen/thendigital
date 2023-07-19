@@ -42,7 +42,7 @@ const page = ({ }: Props) => {
                         name="password"
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
-                        pattern='/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=]).{8,}$/'
+                        // pattern='/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=]).{8,}$/'
                         required
                         placeholder="••••••••"
                     />
@@ -61,7 +61,7 @@ const page = ({ }: Props) => {
                         name="password"
                         onChange={(e) => setReEnterPassword(e.target.value)}
                         value={reEnterPassword}
-                        pattern='/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=]).{8,}$/'
+                        // pattern='/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=]).{8,}$/'
                         required
                         placeholder="••••••••"
                     />
