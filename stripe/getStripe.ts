@@ -1,10 +1,11 @@
 import { loadStripe } from "@stripe/stripe-js";
 
 let stripePromise;
+const stripeKey = process.env.STRIPE_SECRET_KEY as string
 
 const getStripe = () => {
     if (!stripePromise) {
-        stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+        stripePromise = loadStripe(stripeKey);
     }
 
     return stripePromise;

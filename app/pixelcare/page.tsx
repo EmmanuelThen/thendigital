@@ -4,29 +4,75 @@ import Navbar from '../components/Navbar';
 import PixelCareCard from './components/PixelCareCard';
 import TierFeatures from './components/TierFeatures';
 import supabase from '../supabase/supabase-client';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import getStripe from '@/stripe/getStripe';
 
-type Props = {}
 
-const page = (props: Props) => {
+
+type Props = {
+    products: any,
+}
+
+const page = ({ }: Props) => {
+    // const supabase = createClientComponentClient()
     const [fetchError, setFetchError] = useState(null);
-    const [tier, setTier] = useState(null);
+    const [product, setProduct] = useState([]);
+    const [plans, setPlans] = useState([]);
 
     useEffect(() => {
         const fetchPixelCareTiers = async () => {
-            const { data, error } = await supabase
-                .from('product')
-                .select() // To get all products just leave blank
-
             try {
-                setTier(data)
-                setFetchError(null);
+                const { data: products, error } = await supabase.from('product').select('*');
+                if (error) {
+                    throw new Error('Error fetching data');
+                }
+
+                if (products.length > 0) {
+                    console.log(products);
+                    setProduct(products)
+                    console.log(product)
+                    setFetchError(null);
+                } else {
+                    throw new Error('Data is not in the expected format');
+                }
             } catch (error) {
-                console.log(error)
-                setFetchError('Could not fetch the data')
+                console.log(error);
+                setFetchError('Could not fetch the data');
             }
-        }
+        };
         fetchPixelCareTiers();
     }, []);
+
+
+    useEffect(() => {
+        const fetchStripeInfo = async () => {
+            try {
+                const stripe = await getStripe();
+                const { data: prices } = await stripe.prices.list({
+                    limit: 3,
+                });
+                const plans = [];
+
+                for (let price of prices) {
+                    const product = await stripe.products.retrieve(price.product);
+                    plans.push({
+                        name: product.name,
+                        id: price.id,
+                        price: price.unit_amount / 100,
+                        interval: price.recurring.interval,
+                    });
+                }
+                console.log(plans);
+                setPlans(plans);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchStripeInfo();
+    }, []);
+
+
 
     return (
         <div className='w-full mx-[auto]'>
@@ -51,12 +97,18 @@ const page = (props: Props) => {
                     <h1 id='custom-text'>Secure your investment</h1>
                     <h1 id='custom-text'>the correct way.</h1>
                     <h1 id='custom-text'>Introducing <span id='text_gradient'>PixelCare.</span></h1>
+                    {product.map((item, i) => (
+                        <div>
+                            <p>{item.id}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
 
             <div className='flex flex-col gap-20'>
                 <div>
                     <div className='flex justify-center p-6'>
+
                         <PixelCareCard
                             tier='PixelCare'
                             price='199'
@@ -390,5 +442,6 @@ const page = (props: Props) => {
         </div>
     )
 }
+
 
 export default page;

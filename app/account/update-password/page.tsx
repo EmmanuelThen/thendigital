@@ -23,6 +23,8 @@ const page = ({ }: Props) => {
         router.refresh();
     }
 
+
+
     return (
         <div className='flex justify-center items-center h-screen w-full'>
             <div className='flex-1 flex flex-col items-center w-full px-8 max-w-lg justify-center gap-2' >

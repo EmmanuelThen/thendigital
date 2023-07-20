@@ -105,7 +105,7 @@ export default function Login() {
                             Email
                         </label>
                         <input
-                            className="rounded-md px-4 py-2 bg-slate10  mb-6"
+                            className="rounded-md px-4 py-2 bg-slate4  mb-6"
                             name="email"
                             onChange={(e) => setEmail(e.target.value)}
                             value={email}
@@ -119,7 +119,7 @@ export default function Login() {
                             (
                                 <>
                                     <input
-                                        className="rounded-md px-4 py-2 bg-slate10  "
+                                        className="rounded-md px-4 py-2 bg-slate4  "
                                         type="password"
                                         name="password"
                                         onChange={(e) => setPassword(e.target.value)}
@@ -138,7 +138,7 @@ export default function Login() {
                                         Re-enter Password
                                     </label>
                                     <input
-                                        className="rounded-md px-4 py-2 bg-slate10  mb-6"
+                                        className="rounded-md px-4 py-2 bg-slate4  mb-6"
                                         type="password"
                                         name="password"
                                         onChange={(e) => setReEnterPassword(e.target.value)}
@@ -151,7 +151,7 @@ export default function Login() {
                             ) :
                             (
                                 <input
-                                    className="rounded-md px-4 py-2 bg-slate10  mb-6"
+                                    className="rounded-md px-4 py-2 bg-slate4  mb-6"
                                     type="password"
                                     name="password"
                                     onChange={(e) => setPassword(e.target.value)}
