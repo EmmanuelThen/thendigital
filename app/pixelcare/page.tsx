@@ -6,6 +6,7 @@ import TierFeatures from './components/TierFeatures';
 import supabase from '../supabase/supabase-client';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import getStripe from '@/stripe/getStripe';
+import createCheckoutSession from '@/app/api/create-checkout-session';
 
 
 
@@ -93,13 +94,13 @@ const page = ({ }: Props) => {
             </div>
 
             <div className='mt-10  pb-[1.5em] leading-[50px] md:leading-[80px] text-[30px] md:text-[55px] z-[10] '>
-                <div className=' flex flex-col items-center justify-center font-light '>
+                <div className=' flex flex-col items-center justify-center  '>
                     <h1 id='custom-text'>Secure your investment</h1>
                     <h1 id='custom-text'>the correct way.</h1>
                     <h1 id='custom-text'>Introducing <span id='text_gradient'>PixelCare.</span></h1>
                     {product.map((item, i) => (
                         <div>
-                            <p>{item.id}</p>
+                            <p>{item.price}</p>
                         </div>
                     ))}
                 </div>
