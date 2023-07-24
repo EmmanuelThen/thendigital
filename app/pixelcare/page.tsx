@@ -6,7 +6,7 @@ import TierFeatures from './components/TierFeatures';
 import supabase from '../supabase/supabase-client';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import getStripe from '@/stripe/getStripe';
-import createCheckoutSession from '@/app/api/create-checkout-session';
+import createCheckoutSession from '@/app/api/stripe';
 
 
 

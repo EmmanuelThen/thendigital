@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import getStripe from '@/stripe/getStripe';
-import createCheckoutSession from '@/app/api/create-checkout-session';
+import createCheckoutSession from '@/app/api/stripe';
 
 
 type Props = {
@@ -13,20 +13,21 @@ const PurchaseButton = ({ subTier }: Props) => {
     const handleSubscribe = async () => {
         try {
             const products = [
-                'pixelcare', // Replace with your actual lookup keys
+                'pixelcare',
                 'pixelcare-plus',
                 'pixelcare-elite',
             ];
 
-            const response = await fetch('/api/create-checkout-session', {
+            const response = await fetch('/api/stripe', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ lookup_keys: products }),
             });
+            console.log(response);
             const data = await response.json();
-            console.log(data)
+            console.log(data);
             if (data && data.id) {
                 const stripe = await getStripe();
                 await stripe.redirectToCheckout({ sessionId: data.id });

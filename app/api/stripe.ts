@@ -3,9 +3,9 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
 
 
-
 const stripeKey = process.env.STRIPE_SECRET_KEY as string
 const domain = 'http://localhost:3000'
+
 
 export const stripe = new Stripe(stripeKey, {
     apiVersion: '2022-11-15',
@@ -44,8 +44,8 @@ export default async function createCheckoutSession(
                     quantity: 1,
                 },
             ],
-            success_url: `${domain}/?success=true&session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${domain}?canceled=true`,
+            success_url: `${process.env.SUCCESS_URL}`,
+            cancel_url: `${process.env.CANCEL_URL}`,
             automatic_tax: {enabled: true},
         });
         //res.redirect(303, session.url);

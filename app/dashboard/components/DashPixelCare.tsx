@@ -44,10 +44,12 @@ const DashPixelCare = (props: Props) => {
           <div>
             <div className='flex flex-col gap-2 mb-10'>
               <p className='font-light text-3xl tracking-[-0.06em] text-center'>What are you waiting for?</p>
-              <p className='text-slate10 text-xs font-medium'>
+              <p className='text-slate10 text-xs font-medium text-center'>
                 Maintain and secure your investment the correct way!
               </p>
-              <ArrowButton buttonText='Learn more' href='/pixelcare' />
+              <div className='flex justify-center'>
+                <ArrowButton buttonText='Learn more' href='/pixelcare' />
+              </div>
               <button onClick={handleNonMember}>click for Member</button>
             </div>
 
